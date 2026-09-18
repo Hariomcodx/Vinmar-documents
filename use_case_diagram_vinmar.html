@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexus Global - All Modules Use Case Diagram</title>
+  <title>Nexus Global — Maker-Checker-Master Strict CRUD Use Cases (All Modules)</title>
 
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
   <!-- Mermaid.js -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
@@ -17,16 +19,23 @@
     :root {
       --bg-primary: #070913;
       --bg-card: #0F172A;
+      --bg-card-hover: #1E293B;
       --border-color: #334155;
       --accent-blue: #38BDF8;
       --accent-green: #34D399;
       --accent-purple: #C084FC;
       --accent-amber: #FBBF24;
+      --accent-pink: #F472B6;
+      --accent-red: #F87171;
       --text-main: #F8FAFC;
       --text-muted: #94A3B8;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -37,26 +46,26 @@
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1450px;
       margin: 0 auto;
     }
 
     header {
       background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
       border: 1px solid var(--border-color);
-      padding: 32px;
+      padding: 36px;
       border-radius: 20px;
-      margin-bottom: 36px;
-      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);
+      margin-bottom: 30px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
     }
 
     header h1 {
-      font-size: 30px;
+      font-size: 32px;
       font-weight: 900;
       background: linear-gradient(90deg, #38BDF8, #818CF8, #C084FC);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     header p {
@@ -64,23 +73,119 @@
       font-size: 15px;
     }
 
-    .diagram-card {
+    /* CRUD Legend Bar */
+    .crud-legend-bar {
+      background: #1E293B;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 16px 24px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .crud-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-code {
+      background: #0F172A;
+      border: 1px solid var(--border-color);
+      color: var(--accent-blue);
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    /* Navigation Bar */
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+      background: rgba(15, 23, 42, 0.8);
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-btn {
+      background: #1E293B;
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: var(--accent-blue);
+      color: #000;
+      border-color: var(--accent-blue);
+    }
+
+    /* Module Section Card */
+    .module-section {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 28px;
-      margin-bottom: 40px;
-      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
     }
 
-    .diagram-title {
-      font-size: 20px;
-      font-weight: 800;
+    .module-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+
+    .module-title {
+      font-size: 24px;
+      font-weight: 900;
       color: var(--accent-blue);
-      margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+    }
+
+    .badge-mod-num {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .sub-diagram-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-purple);
+      margin-top: 20px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .mermaid {
@@ -91,28 +196,26 @@
       display: flex;
       justify-content: center;
       overflow-x: auto;
+      margin-bottom: 24px;
     }
 
-    /* Table & Matrix Styling */
+    /* Table Styling */
     .table-section {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
+      margin-top: 24px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 16px;
+      margin-top: 12px;
     }
 
-    th, td {
+    th,
+    td {
       padding: 14px 18px;
       text-align: left;
       border-bottom: 1px solid var(--border-color);
-      font-size: 14px;
+      font-size: 13px;
     }
 
     th {
@@ -128,203 +231,794 @@
       background: rgba(30, 41, 59, 0.5);
     }
 
-    .actor-badge {
+    .role-badge {
       display: inline-block;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 20px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    .badge-admin { background: rgba(56, 189, 248, 0.15); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.3); }
-    .badge-purchase { background: rgba(192, 132, 252, 0.15); color: #C084FC; border: 1px solid rgba(192, 132, 252, 0.3); }
-    .badge-logistics { background: rgba(52, 211, 153, 0.15); color: #34D399; border: 1px solid rgba(52, 211, 153, 0.3); }
-    .badge-finance { background: rgba(251, 191, 36, 0.15); color: #FBBF24; border: 1px solid rgba(251, 191, 36, 0.3); }
-    .badge-sales { background: rgba(244, 114, 182, 0.15); color: #F472B6; border: 1px solid rgba(244, 114, 182, 0.3); }
+    .badge-maker {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38BDF8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .badge-checker {
+      background: rgba(192, 132, 252, 0.15);
+      color: #C084FC;
+      border: 1px solid rgba(192, 132, 252, 0.3);
+    }
+
+    .badge-master {
+      background: rgba(251, 191, 36, 0.15);
+      color: #FBBF24;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
   </style>
 </head>
+
 <body>
 
   <div class="container">
 
     <header>
-      <h1>NEXUS GLOBAL — SYSTEM USE CASE DIAGRAM</h1>
-      <p>Simplified UML Use Case Map detailing system actors, module boundaries, and primary business goals.</p>
+      <h1>NEXUS GLOBAL — MAKER / CHECKER / MASTER STRICT CRUD USE CASE DIAGRAMS</h1>
+      <p>Standard UML Use Case Diagrams for ALL 7 Modules with MAKER, CHECKER, and MASTER role separation &amp; strict
+        CRUD line arrow labels (C = Create, R = Read, U = Update, D = Delete).</p>
     </header>
 
-    <!-- Use Case Diagram -->
-    <div class="diagram-card">
-      <div class="diagram-title">
-        <span>👤</span> System Actors &amp; Use Case Map
+    <!-- CRUD Legend Bar -->
+    <div class="crud-legend-bar">
+      <strong style="color:var(--text-main);">🔑 Strict CRUD Standard:</strong>
+      <div class="crud-tag"><span class="badge-code">C</span> Create (Create Draft / Entry)</div>
+      <div class="crud-tag"><span class="badge-code">R</span> Read / View (View Lists, Details &amp; Reports)</div>
+      <div class="crud-tag"><span class="badge-code">U</span> Update (Edit, Submit, Approve, Reject, Amend)</div>
+      <div class="crud-tag"><span class="badge-code">D</span> Delete (Delete / Cancel Record)</div>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div class="nav-bar">
+      <a href="#mod1" class="nav-btn">⚙️ M1: System Masters</a>
+      <a href="#mod2" class="nav-btn">🛒 M2: Purchase (PO/PI)</a>
+      <a href="#mod3" class="nav-btn">🚢 M3: Logistics (AnC/BL)</a>
+      <a href="#mod4" class="nav-btn">🛃 M4: Customs (BOE)</a>
+      <a href="#mod5" class="nav-btn">📜 M5: Licenses &amp; Scrips</a>
+      <a href="#mod6" class="nav-btn">🏦 M6: Trade Finance (LC/ORM)</a>
+      <a href="#mod7" class="nav-btn">🏷️ M7: Sales &amp; e-BRC</a>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- MODULE 1 -->
+    <!-- ================================================================= -->
+    <div class="module-section" id="mod1">
+      <div class="module-header">
+        <div class="module-title">⚙️ Module 1: System Masters &amp; Authentication</div>
+        <div class="badge-mod-num">MODULE 01</div>
       </div>
 
+      <div class="sub-diagram-title"><span>🛒</span> High-Level Role CRUD Line Overview</div>
       <div class="mermaid">
-graph LR
-    %% ACTORS
-    subgraph ACTORS ["👤 SYSTEM ACTORS (User Roles)"]
+        graph LR
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+        classDef moduleBox fill:#1E293B,stroke:#38BDF8,stroke-width:3px,color:#FFF,rx:12px;
+
+        MAKER["👤 MAKER<br />(Master Entry Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Compliance Admin)"]:::actorChecker
+        MASTER["👑 MASTER<br />(Super Admin / Owner)"]:::actorMaster
+
+        M1_MOD["📦 SYSTEM MASTERS MODULE"]:::moduleBox
+
+        MAKER -- "C , R , U" --> M1_MOD
+        CHECKER -- "R , U" --> M1_MOD
+        MASTER -- "C , R , U , D" --> M1_MOD
+      </div>
+
+      <div class="sub-diagram-title"><span>🔍</span> Detailed Module 1 Use Case Diagram (Strict C, R, U, D Arrow Labels)
+      </div>
+      <div class="mermaid">
+        graph LR
+        classDef oval fill:#1E293B,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:30px,ry:30px;
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+
+        MAKER["👤 MAKER<br />(Master Entry Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Compliance Admin)"]:::actorChecker
+        MASTER["👑 MASTER<br />(Super Admin / Owner)"]:::actorMaster
+
+        subgraph M1_BOUND ["📦 MODULE 1 BOUNDARY: SYSTEM MASTERS"]
         direction TB
-        ADMIN["⚙️ System Administrator"]
-        PURCHASE["🛒 Purchase Officer"]
-        LOGISTICS["🚢 Logistics Manager"]
-        CUSTOMS["🛃 Customs / CHA Officer"]
-        FINANCE["🏦 Finance & Treasury Officer"]
-        LICENSE["📜 License Manager"]
-        SALES["🏷️ Sales Officer"]
-    end
-
-    %% SYSTEM BOUNDARY
-    subgraph SYSTEM ["🖥️ NEXUS GLOBAL EXIM SYSTEM BOUNDARY"]
-        direction TB
-
-        %% MODULE 1: MASTERS
-        subgraph MOD_MASTERS ["1. Master Data Management"]
-          UC1["Manage Vendors & Clients"]
-          UC2["Manage Banks & Currency Rates"]
-          UC3["Manage Products & HSN Codes"]
+        UC1_1(["Create Vendor Master (Suppliers)"]):::oval
+        UC1_2(["Create Client Master (Buyers)"]):::oval
+        UC1_3(["Read / View Master Directories"]):::oval
+        UC1_4(["Update Draft Master Info"]):::oval
+        UC1_5(["Update / Approve & Verify KYC"]):::oval
+        UC1_6(["Update / Manage Products & HSN"]):::oval
+        UC1_7(["Delete / Purge Master Profiles"]):::oval
         end
 
-        %% MODULE 2: PURCHASE
-        subgraph MOD_PURCHASE ["2. Purchase Module"]
-          UC4["Create & Approve Purchase Order (PO)"]
-          UC5["Record Order Confirmation (OC/Proforma)"]
-          UC6["Plan Shipment Schedule"]
-          UC7["Create Purchase Invoice (PI)"]
-          UC8["Issue Purchase Credit/Debit Notes"]
-        end
+        MAKER -- "C" --> UC1_1
+        MAKER -- "C" --> UC1_2
+        MAKER -- "R" --> UC1_3
+        MAKER -- "U" --> UC1_4
 
-        %% MODULE 3: LOGISTICS
-        subgraph MOD_LOGISTICS ["3. Logistics & Supply Chain"]
-          UC9["Record Freight & Logistics Invoices"]
-          UC10["Create Assignment & Clearing (AnC)"]
-          UC11["Map Container & Bill of Lading (BL)"]
-          UC12["Trigger CHA Auto-Notification Email"]
-        end
+        CHECKER -- "R" --> UC1_3
+        CHECKER -- "U" --> UC1_5
+        CHECKER -- "U" --> UC1_6
 
-        %% MODULE 4: CUSTOMS
-        subgraph MOD_CUSTOMS ["4. Customs & Warehousing"]
-          UC13["File Bill of Entry (BOE)"]
-          UC14["Select Clearance Mode (HC / In-Bond / HSS)"]
-          UC15["Clear Customs & Update Warehouse Stock"]
-        end
+        MASTER -- "C" --> UC1_1
+        MASTER -- "R" --> UC1_3
+        MASTER -- "U" --> UC1_5
+        MASTER -- "D" --> UC1_7
+      </div>
 
-        %% MODULE 5: LICENSES
-        subgraph MOD_LICENSES ["5. Government Licenses"]
-          UC16["Register DGFT Licenses & Scrips"]
-          UC17["Apply License Duty Offsets on BOE"]
-        end
-
-        %% MODULE 6: FINANCE
-        subgraph MOD_FINANCE ["6. Trade Finance & Treasury"]
-          UC18["Issue Letter of Credit (LC) & Buyer's Credit"]
-          UC19["Execute Outward Remittance (ORM Payment)"]
-          UC20["Perform RBI IDPMS Match (ORM ↔ BOE)"]
-          UC21["Manage Foreign Exchange (FX) Hedging"]
-        end
-
-        %% MODULE 7: SALES
-        subgraph MOD_SALES ["7. Sales & Export Collection"]
-          UC22["Create Sales Order & Invoice"]
-          UC23["Dispatch Warehouse Inventory"]
-          UC24["Record Inward Remittance (IRM Collection)"]
-          UC25["Track e-BRC Bank Certificates"]
-        end
-    end
-
-    %% ACTOR TO USE CASE CONNECTIONS
-    ADMIN --> UC1
-    ADMIN --> UC2
-    ADMIN --> UC3
-
-    PURCHASE --> UC4
-    PURCHASE --> UC5
-    PURCHASE --> UC6
-    PURCHASE --> UC7
-    PURCHASE --> UC8
-
-    LOGISTICS --> UC9
-    LOGISTICS --> UC10
-    LOGISTICS --> UC11
-    LOGISTICS --> UC12
-
-    CUSTOMS --> UC13
-    CUSTOMS --> UC14
-    CUSTOMS --> UC15
-
-    LICENSE --> UC16
-    LICENSE --> UC17
-
-    FINANCE --> UC18
-    FINANCE --> UC19
-    FINANCE --> UC20
-    FINANCE --> UC21
-
-    SALES --> UC22
-    SALES --> UC23
-    SALES --> UC24
-    SALES --> UC25
+      <div class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Role / Actor</th>
+              <th>Line Arrow Label</th>
+              <th>Allowed Operations</th>
+              <th>Role Description &amp; Responsibilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="role-badge badge-maker">MAKER</span></td>
+              <td><span class="badge-code">-- C , R , U --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Inputs draft Vendor profiles, Client profiles, Product item codes, and bank accounts. Cannot approve
+                or purge records.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-checker">CHECKER</span></td>
+              <td><span class="badge-code">-- R , U --></span></td>
+              <td><strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Verifies vendor GST/KYC, verifies foreign client SWIFT codes, updates approval status to Active.
+                Cannot create drafts or delete.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-master">MASTER</span></td>
+              <td><span class="badge-code">-- C , R , U , D --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update),
+                <strong>D</strong> (Delete)
+              </td>
+              <td>Full super-admin access. Can create, view, update, and delete/purge master profiles and configure user
+                permission roles.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Breakdown Table -->
-    <div class="table-section">
-      <div class="diagram-title">
-        <span>📋</span> Actor Use Cases &amp; Module Business Goals
+    <!-- ================================================================= -->
+    <!-- MODULE 2 -->
+    <!-- ================================================================= -->
+    <div class="module-section" id="mod2">
+      <div class="module-header">
+        <div class="module-title">🛒 Module 2: Purchase &amp; Commercial Procurement</div>
+        <div class="badge-mod-num">MODULE 02</div>
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Module Name</th>
-            <th>Primary Actor / Role</th>
-            <th>Key Use Cases (User Actions)</th>
-            <th>Business Outcome</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>System Masters</strong></td>
-            <td><span class="actor-badge badge-admin">System Admin</span></td>
-            <td>• Register Vendors, Clients &amp; Subsidiaries<br/>• Configure Banks, SWIFT &amp; Currencies<br/>• Setup Products &amp; HSN Codes</td>
-            <td>Establishes validated master records required for all transactions.</td>
-          </tr>
-          <tr>
-            <td><strong>Purchase Module</strong></td>
-            <td><span class="actor-badge badge-purchase">Purchase Officer</span></td>
-            <td>• Create &amp; Approve Purchase Order (PO)<br/>• Confirm Proforma Invoice (OC)<br/>• Plan Shipment Delivery Schedule<br/>• Create Commercial Purchase Invoice (PI)</td>
-            <td>Establishes legal purchase contracts and records foreign supplier debt.</td>
-          </tr>
-          <tr>
-            <td><strong>Logistics &amp; SCM</strong></td>
-            <td><span class="actor-badge badge-logistics">Logistics Manager</span></td>
-            <td>• Process Logistics &amp; Freight Bills<br/>• Create Assignment &amp; Clearing (AnC)<br/>• Map Bill of Lading (BL) &amp; Ships<br/>• Auto-email Customs Agent (CHA)</td>
-            <td>Bridges commercial invoices to ocean ships and notifies port clearance agents.</td>
-          </tr>
-          <tr>
-            <td><strong>Customs &amp; Clearance</strong></td>
-            <td><span class="actor-badge badge-logistics">Customs Officer / CHA</span></td>
-            <td>• File Bill of Entry (BOE)<br/>• Choose Clearance (HC, In-Bond, HSS)<br/>• Calculate BCD &amp; IGST Duty Taxes<br/>• Release Cargo to Warehouse Stock</td>
-            <td>Clears government customs and updates physical inventory stock.</td>
-          </tr>
-          <tr>
-            <td><strong>Government Licenses</strong></td>
-            <td><span class="actor-badge badge-admin">License Manager</span></td>
-            <td>• Register DGFT Licenses &amp; Scrips<br/>• Offset Customs Duty on BOE<br/>• Claim Duty Drawback Refunds</td>
-            <td>Saves cash by using government tax exemption scrips on import duties.</td>
-          </tr>
-          <tr>
-            <td><strong>Trade Finance &amp; Treasury</strong></td>
-            <td><span class="actor-badge badge-finance">Finance Officer</span></td>
-            <td>• Issue LC Guarantees &amp; Buyer's Credit<br/>• Execute Outward Wire Remittance (ORM)<br/>• Match ORM ↔ BOE for RBI IDPMS<br/>• Lock FX Exchange Hedging Rates</td>
-            <td>Settles foreign supplier payments and satisfies RBI compliance regulations.</td>
-          </tr>
-          <tr>
-            <td><strong>Sales &amp; Export</strong></td>
-            <td><span class="actor-badge badge-sales">Sales Officer</span></td>
-            <td>• Create Sales Order &amp; Sales Invoice<br/>• Dispatch Stock from Warehouse<br/>• Record Inward Remittance (IRM)<br/>• Obtain e-BRC Bank Certificate</td>
-            <td>Sells stock to buyers, collects payment, and completes the trade cycle.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="sub-diagram-title"><span>🛒</span> High-Level Role CRUD Line Overview</div>
+      <div class="mermaid">
+        graph LR
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+        classDef moduleBox fill:#1E293B,stroke:#38BDF8,stroke-width:3px,color:#FFF,rx:12px;
+
+        MAKER["👤 MAKER<br />(Purchase Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Purchase Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(Purchase Director / Owner)"]:::actorMaster
+
+        M2_MOD["📦 PURCHASE MODULE (PO & PI)"]:::moduleBox
+
+        MAKER -- "C , R , U" --> M2_MOD
+        CHECKER -- "R , U" --> M2_MOD
+        MASTER -- "C , R , U , D" --> M2_MOD
+      </div>
+
+      <div class="sub-diagram-title"><span>🔍</span> Detailed Module 2 Use Case Diagram (Strict C, R, U, D Arrow Labels)
+      </div>
+      <div class="mermaid">
+        graph LR
+        classDef oval fill:#1E293B,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:30px,ry:30px;
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+
+        MAKER["👤 MAKER<br />(Purchase Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Purchase Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(Purchase Director / Owner)"]:::actorMaster
+
+        subgraph M2_BOUND ["📦 MODULE 2 BOUNDARY: PURCHASE & PROCUREMENT"]
+        direction TB
+        UC2_1(["Create Purchase Order PO Draft"]):::oval
+        UC2_2(["Create Purchase Invoice PI"]):::oval
+        UC2_3(["Read / View PO, PI & Vendor OC"]):::oval
+        UC2_4(["Update / Edit Draft PO & PI"]):::oval
+        UC2_5(["Update / Record Vendor OC"]):::oval
+        UC2_6(["Update / Approve or Reject PO"]):::oval
+        UC2_7(["Update / Amend Approved PO"]):::oval
+        UC2_8(["Delete / Cancel PO & PI Records"]):::oval
+        end
+
+        MAKER -- "C" --> UC2_1
+        MAKER -- "C" --> UC2_2
+        MAKER -- "R" --> UC2_3
+        MAKER -- "U" --> UC2_4
+        MAKER -- "U" --> UC2_5
+
+        CHECKER -- "R" --> UC2_3
+        CHECKER -- "U" --> UC2_6
+        CHECKER -- "U" --> UC2_7
+
+        MASTER -- "C" --> UC2_1
+        MASTER -- "R" --> UC2_3
+        MASTER -- "U" --> UC2_6
+        MASTER -- "D" --> UC2_8
+      </div>
+
+      <div class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Role / Actor</th>
+              <th>Line Arrow Label</th>
+              <th>Allowed Operations</th>
+              <th>Role Description &amp; Responsibilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="role-badge badge-maker">MAKER</span></td>
+              <td><span class="badge-code">-- C , R , U --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Creates draft POs, attaches Proforma Invoices, records Vendor Order Confirmations (OC), and prepares
+                Purchase Invoices (PI). Cannot approve or delete.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-checker">CHECKER</span></td>
+              <td><span class="badge-code">-- R , U --></span></td>
+              <td><strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Reviews pending POs, updates status to Approved/Rejected, assigns official PO numbers, and approves PO
+                amendments. Cannot create draft or delete.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-master">MASTER</span></td>
+              <td><span class="badge-code">-- C , R , U , D --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update),
+                <strong>D</strong> (Delete)
+              </td>
+              <td>Full super-admin access. Can create POs directly, read full histories, update status overrides, and
+                delete/cancel invalid PO and PI contracts.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- MODULE 3 -->
+    <!-- ================================================================= -->
+    <div class="module-section" id="mod3">
+      <div class="module-header">
+        <div class="module-title">🚢 Module 3: Logistics &amp; Supply Chain (AnC Bridge)</div>
+        <div class="badge-mod-num">MODULE 03</div>
+      </div>
+
+      <div class="sub-diagram-title"><span>🛒</span> High-Level Role CRUD Line Overview</div>
+      <div class="mermaid">
+        graph LR
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+        classDef moduleBox fill:#1E293B,stroke:#34D399,stroke-width:3px,color:#FFF,rx:12px;
+
+        MAKER["👤 MAKER<br />(Logistics Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Logistics Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(Supply Chain Director)"]:::actorMaster
+
+        M3_MOD["📦 LOGISTICS & ANC MODULE"]:::moduleBox
+
+        MAKER -- "C , R , U" --> M3_MOD
+        CHECKER -- "R , U" --> M3_MOD
+        MASTER -- "C , R , U , D" --> M3_MOD
+      </div>
+
+      <div class="sub-diagram-title"><span>🔍</span> Detailed Module 3 Use Case Diagram (Strict C, R, U, D Arrow Labels)
+      </div>
+      <div class="mermaid">
+        graph LR
+        classDef oval fill:#1E293B,stroke:#34D399,stroke-width:2px,color:#FFF,rx:30px,ry:30px;
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+
+        MAKER["👤 MAKER<br />(Logistics Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Logistics Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(Supply Chain Director)"]:::actorMaster
+
+        subgraph M3_BOUND ["📦 MODULE 3 BOUNDARY: LOGISTICS & ANC BRIDGE"]
+        direction TB
+        UC3_1(["Create Assignment & Clearing AnC"]):::oval
+        UC3_2(["Create Freight Bill Entry"]):::oval
+        UC3_3(["Read / View BL, Vessels & Container Status"]):::oval
+        UC3_4(["Update / Map BL No & Vessel ETA"]):::oval
+        UC3_5(["Update / Approve AnC & Auto-Email CHA"]):::oval
+        UC3_6(["Delete / Cancel AnC Logistics Link"]):::oval
+        end
+
+        MAKER -- "C" --> UC3_1
+        MAKER -- "C" --> UC3_2
+        MAKER -- "R" --> UC3_3
+        MAKER -- "U" --> UC3_4
+
+        CHECKER -- "R" --> UC3_3
+        CHECKER -- "U" --> UC3_5
+
+        MASTER -- "C" --> UC3_1
+        MASTER -- "R" --> UC3_3
+        MASTER -- "U" --> UC3_5
+        MASTER -- "D" --> UC3_6
+      </div>
+
+      <div class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Role / Actor</th>
+              <th>Line Arrow Label</th>
+              <th>Allowed Operations</th>
+              <th>Role Description &amp; Responsibilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="role-badge badge-maker">MAKER</span></td>
+              <td><span class="badge-code">-- C , R , U --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Creates AnC clearance bridges from PI, logs Bill of Lading (BL) details, maps container numbers and
+                vessel ETAs. Cannot trigger official CHA dispatches.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-checker">CHECKER</span></td>
+              <td><span class="badge-code">-- R , U --></span></td>
+              <td><strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Verifies shipping document consistency, approves AnC submissions, and authorizes automated email
+                dispatches to Custom House Agents (CHA). Cannot create/delete.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-master">MASTER</span></td>
+              <td><span class="badge-code">-- C , R , U , D --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update),
+                <strong>D</strong> (Delete)
+              </td>
+              <td>Full logistics admin control. Can create AnC mappings, read vessel timelines, override BL quantities,
+                and delete un-cleared AnC records.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- MODULE 4 -->
+    <!-- ================================================================= -->
+    <div class="module-section" id="mod4">
+      <div class="module-header">
+        <div class="module-title">🛃 Module 4: Customs Clearance &amp; Warehousing</div>
+        <div class="badge-mod-num">MODULE 04</div>
+      </div>
+
+      <div class="sub-diagram-title"><span>🛒</span> High-Level Role CRUD Line Overview</div>
+      <div class="mermaid">
+        graph LR
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+        classDef moduleBox fill:#1E293B,stroke:#FBBF24,stroke-width:3px,color:#FFF,rx:12px;
+
+        MAKER["👤 MAKER<br />(Customs / CHA Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Customs Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(Customs Director)"]:::actorMaster
+
+        M4_MOD["📦 CUSTOMS & BOE MODULE"]:::moduleBox
+
+        MAKER -- "C , R , U" --> M4_MOD
+        CHECKER -- "R , U" --> M4_MOD
+        MASTER -- "C , R , U , D" --> M4_MOD
+      </div>
+
+      <div class="sub-diagram-title"><span>🔍</span> Detailed Module 4 Use Case Diagram (Strict C, R, U, D Arrow Labels)
+      </div>
+      <div class="mermaid">
+        graph LR
+        classDef oval fill:#1E293B,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:30px,ry:30px;
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+
+        MAKER["👤 MAKER<br />(Customs / CHA Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Customs Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(Customs Director)"]:::actorMaster
+
+        subgraph M4_BOUND ["📦 MODULE 4 BOUNDARY: CUSTOMS & WAREHOUSING"]
+        direction TB
+        UC4_1(["Create Draft Bill of Entry BOE"]):::oval
+        UC4_2(["Read / View Duty Tax & Stock In Ledger"]):::oval
+        UC4_3(["Update / Select Clearance Mode HC IB HSS"]):::oval
+        UC4_4(["Update / Approve BOE & Release Stock In"]):::oval
+        UC4_5(["Delete / Void Invalid BOE Document"]):::oval
+        end
+
+        MAKER -- "C" --> UC4_1
+        MAKER -- "R" --> UC4_2
+        MAKER -- "U" --> UC4_3
+
+        CHECKER -- "R" --> UC4_2
+        CHECKER -- "U" --> UC4_4
+
+        MASTER -- "C" --> UC4_1
+        MASTER -- "R" --> UC4_2
+        MASTER -- "U" --> UC4_4
+        MASTER -- "D" --> UC4_5
+      </div>
+
+      <div class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Role / Actor</th>
+              <th>Line Arrow Label</th>
+              <th>Allowed Operations</th>
+              <th>Role Description &amp; Responsibilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="role-badge badge-maker">MAKER</span></td>
+              <td><span class="badge-code">-- C , R , U --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Fills draft BOE customs entries from AnC documents, updates clearance mode (Home Consumption, In-Bond,
+                High Sea Sales). Cannot authorize stock release.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-checker">CHECKER</span></td>
+              <td><span class="badge-code">-- R , U --></span></td>
+              <td><strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Verifies duty assessment from ICEGATE portal, approves customs payment, and authorizes Warehouse
+                Manager to perform physical Stock In. Cannot delete.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-master">MASTER</span></td>
+              <td><span class="badge-code">-- C , R , U , D --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update),
+                <strong>D</strong> (Delete)
+              </td>
+              <td>Full customs admin rights. Can file BOE entries directly, view audit trails, update tax overrides, and
+                void invalid BOE records.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- MODULE 5 -->
+    <!-- ================================================================= -->
+    <div class="module-section" id="mod5">
+      <div class="module-header">
+        <div class="module-title">📜 Module 5: Government License &amp; Tax Exemption</div>
+        <div class="badge-mod-num">MODULE 05</div>
+      </div>
+
+      <div class="sub-diagram-title"><span>🛒</span> High-Level Role CRUD Line Overview</div>
+      <div class="mermaid">
+        graph LR
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+        classDef moduleBox fill:#1E293B,stroke:#38BDF8,stroke-width:3px,color:#FFF,rx:12px;
+
+        MAKER["👤 MAKER<br />(License Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(EXIM Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(EXIM Director / Owner)"]:::actorMaster
+
+        M5_MOD["📦 LICENSE & SCRIP MODULE"]:::moduleBox
+
+        MAKER -- "C , R , U" --> M5_MOD
+        CHECKER -- "R , U" --> M5_MOD
+        MASTER -- "C , R , U , D" --> M5_MOD
+      </div>
+
+      <div class="sub-diagram-title"><span>🔍</span> Detailed Module 5 Use Case Diagram (Strict C, R, U, D Arrow Labels)
+      </div>
+      <div class="mermaid">
+        graph LR
+        classDef oval fill:#1E293B,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:30px,ry:30px;
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+
+        MAKER["👤 MAKER<br />(License Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(EXIM Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(EXIM Director / Owner)"]:::actorMaster
+
+        subgraph M5_BOUND ["📦 MODULE 5 BOUNDARY: LICENSE MANAGEMENT"]
+        direction TB
+        UC5_1(["Create DGFT License / Scrip Registration"]):::oval
+        UC5_2(["Read / View Duty Credit Scrip Ledgers"]):::oval
+        UC5_3(["Update / Debit Scrip Balance on BOE"]):::oval
+        UC5_4(["Update / Approve Duty Drawback Refunds"]):::oval
+        UC5_5(["Delete / Cancel Expired License Records"]):::oval
+        end
+
+        MAKER -- "C" --> UC5_1
+        MAKER -- "R" --> UC5_2
+        MAKER -- "U" --> UC5_3
+
+        CHECKER -- "R" --> UC5_2
+        CHECKER -- "U" --> UC5_3
+        CHECKER -- "U" --> UC5_4
+
+        MASTER -- "C" --> UC5_1
+        MASTER -- "R" --> UC5_2
+        MASTER -- "U" --> UC5_4
+        MASTER -- "D" --> UC5_5
+      </div>
+
+      <div class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Role / Actor</th>
+              <th>Line Arrow Label</th>
+              <th>Allowed Operations</th>
+              <th>Role Description &amp; Responsibilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="role-badge badge-maker">MAKER</span></td>
+              <td><span class="badge-code">-- C , R , U --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Registers new DGFT Advance Authorization licenses and RODTEP duty scrips, updates scrip allocations on
+                draft BOE. Cannot file refunds.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-checker">CHECKER</span></td>
+              <td><span class="badge-code">-- R , U --></span></td>
+              <td><strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Verifies scrip debit balances against customs tax bills, approves Duty Drawback refund applications,
+                checks export obligation fulfillment. Cannot delete.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-master">MASTER</span></td>
+              <td><span class="badge-code">-- C , R , U , D --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update),
+                <strong>D</strong> (Delete)
+              </td>
+              <td>Full EXIM license admin. Can register licenses, view master scrip balances, authorize duty offsets,
+                and purge expired DGFT license entries.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- MODULE 6 -->
+    <!-- ================================================================= -->
+    <div class="module-section" id="mod6">
+      <div class="module-header">
+        <div class="module-title">🏦 Module 6: Trade Finance &amp; RBI IDPMS Compliance</div>
+        <div class="badge-mod-num">MODULE 06</div>
+      </div>
+
+      <div class="sub-diagram-title"><span>🛒</span> High-Level Role CRUD Line Overview</div>
+      <div class="mermaid">
+        graph LR
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+        classDef moduleBox fill:#1E293B,stroke:#F472B6,stroke-width:3px,color:#FFF,rx:12px;
+
+        MAKER["👤 MAKER<br />(Finance Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Finance / Treasury Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(CFO / Owner)"]:::actorMaster
+
+        M6_MOD["📦 TRADE FINANCE MODULE"]:::moduleBox
+
+        MAKER -- "C , R , U" --> M6_MOD
+        CHECKER -- "R , U" --> M6_MOD
+        MASTER -- "C , R , U , D" --> M6_MOD
+      </div>
+
+      <div class="sub-diagram-title"><span>🔍</span> Detailed Module 6 Use Case Diagram (Strict C, R, U, D Arrow Labels)
+      </div>
+      <div class="mermaid">
+        graph LR
+        classDef oval fill:#1E293B,stroke:#F472B6,stroke-width:2px,color:#FFF,rx:30px,ry:30px;
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+
+        MAKER["👤 MAKER<br />(Finance Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Finance / Treasury Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(CFO / Owner)"]:::actorMaster
+
+        subgraph M6_BOUND ["📦 MODULE 6 BOUNDARY: TRADE FINANCE & RBI IDPMS"]
+        direction TB
+        UC6_1(["Create Outward Remittance ORM Draft"]):::oval
+        UC6_2(["Create Letter of Credit LC Request"]):::oval
+        UC6_3(["Read / View SWIFT Advices & FX Hedges"]):::oval
+        UC6_4(["Update / Link ORM Payment to PI"]):::oval
+        UC6_5(["Update / Execute RBI IDPMS Match ORM = BOE"]):::oval
+        UC6_6(["Delete / Cancel Unsent Payment Advice"]):::oval
+        end
+
+        MAKER -- "C" --> UC6_1
+        MAKER -- "C" --> UC6_2
+        MAKER -- "R" --> UC6_3
+        MAKER -- "U" --> UC6_4
+
+        CHECKER -- "R" --> UC6_3
+        CHECKER -- "U" --> UC6_4
+        CHECKER -- "U" --> UC6_5
+
+        MASTER -- "C" --> UC6_1
+        MASTER -- "R" --> UC6_3
+        MASTER -- "U" --> UC6_5
+        MASTER -- "D" --> UC6_6
+      </div>
+
+      <div class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Role / Actor</th>
+              <th>Line Arrow Label</th>
+              <th>Allowed Operations</th>
+              <th>Role Description &amp; Responsibilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="role-badge badge-maker">MAKER</span></td>
+              <td><span class="badge-code">-- C , R , U --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Prepares draft Outward Remittance (ORM) payment advice, requests LC issuance, links ORM vouchers to
+                Purchase Invoices. Cannot release bank funds.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-checker">CHECKER</span></td>
+              <td><span class="badge-code">-- R , U --></span></td>
+              <td><strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Approves bank SWIFT wire payments, executes automated RBI IDPMS matching (reconciles ORM payments with
+                BOE customs files), locks FX hedge contracts. Cannot delete.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-master">MASTER</span></td>
+              <td><span class="badge-code">-- C , R , U , D --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update),
+                <strong>D</strong> (Delete)
+              </td>
+              <td>Full CFO / Finance Admin control. Can initiate payments, view company-wide cashflows, update RBI
+                compliance status, and cancel unsent remittance advice.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- MODULE 7 -->
+    <!-- ================================================================= -->
+    <div class="module-section" id="mod7">
+      <div class="module-header">
+        <div class="module-title">🏷️ Module 7: Sales &amp; Export Collection Lifecycle</div>
+        <div class="badge-mod-num">MODULE 07</div>
+      </div>
+
+      <div class="sub-diagram-title"><span>🛒</span> High-Level Role CRUD Line Overview</div>
+      <div class="mermaid">
+        graph LR
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+        classDef moduleBox fill:#1E293B,stroke:#34D399,stroke-width:3px,color:#FFF,rx:12px;
+
+        MAKER["👤 MAKER<br />(Sales Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Sales / Commercial Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(Commercial Director / Owner)"]:::actorMaster
+
+        M7_MOD["📦 SALES & E-BRC MODULE"]:::moduleBox
+
+        MAKER -- "C , R , U" --> M7_MOD
+        CHECKER -- "R , U" --> M7_MOD
+        MASTER -- "C , R , U , D" --> M7_MOD
+      </div>
+
+      <div class="sub-diagram-title"><span>🔍</span> Detailed Module 7 Use Case Diagram (Strict C, R, U, D Arrow Labels)
+      </div>
+      <div class="mermaid">
+        graph LR
+        classDef oval fill:#1E293B,stroke:#34D399,stroke-width:2px,color:#FFF,rx:30px,ry:30px;
+        classDef actorMaker fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorChecker fill:#0F172A,stroke:#C084FC,stroke-width:2px,color:#FFF,rx:8px;
+        classDef actorMaster fill:#0F172A,stroke:#FBBF24,stroke-width:2px,color:#FFF,rx:8px;
+
+        MAKER["👤 MAKER<br />(Sales Executive)"]:::actorMaker
+        CHECKER["👤 CHECKER<br />(Sales / Commercial Manager)"]:::actorChecker
+        MASTER["👑 MASTER<br />(Commercial Director / Owner)"]:::actorMaster
+
+        subgraph M7_BOUND ["📦 MODULE 7 BOUNDARY: SALES & EXPORT COLLECTION"]
+        direction TB
+        UC7_1(["Create Sales Order SO Draft"]):::oval
+        UC7_2(["Read / View Sales Invoices & Bank Collections"]):::oval
+        UC7_3(["Update / Edit Draft SO & Attach Payment"]):::oval
+        UC7_4(["Update / Issue Final Sales Invoice & Stock Out"]):::oval
+        UC7_5(["Update / Record IRM & Request e-BRC"]):::oval
+        UC7_6(["Delete / Cancel Invalid Sales Orders"]):::oval
+        end
+
+        MAKER -- "C" --> UC7_1
+        MAKER -- "R" --> UC7_2
+        MAKER -- "U" --> UC7_3
+
+        CHECKER -- "R" --> UC7_2
+        CHECKER -- "U" --> UC7_4
+        CHECKER -- "U" --> UC7_5
+
+        MASTER -- "C" --> UC7_1
+        MASTER -- "R" --> UC7_2
+        MASTER -- "U" --> UC7_5
+        MASTER -- "D" --> UC7_6
+      </div>
+
+      <div class="table-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Role / Actor</th>
+              <th>Line Arrow Label</th>
+              <th>Allowed Operations</th>
+              <th>Role Description &amp; Responsibilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="role-badge badge-maker">MAKER</span></td>
+              <td><span class="badge-code">-- C , R , U --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Creates draft Sales Orders (SO), logs customer purchase orders, attaches Inward Remittance (IRM)
+                advice. Cannot authorize goods dispatch or final invoice.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-checker">CHECKER</span></td>
+              <td><span class="badge-code">-- R , U --></span></td>
+              <td><strong>R</strong> (Read), <strong>U</strong> (Update)</td>
+              <td>Approves SO pricing, issues final Sales Invoice, triggers Stock Out release, reconciles IRM bank
+                receipts, and submits e-BRC bank certificate requests. Cannot delete.</td>
+            </tr>
+            <tr>
+              <td><span class="role-badge badge-master">MASTER</span></td>
+              <td><span class="badge-code">-- C , R , U , D --></span></td>
+              <td><strong>C</strong> (Create), <strong>R</strong> (Read), <strong>U</strong> (Update),
+                <strong>D</strong> (Delete)
+              </td>
+              <td>Full sales admin rights. Can create sales orders directly, view collection reports, approve price
+                discounts, and delete/cancel sales orders.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>
@@ -342,4 +1036,6 @@ graph LR
     });
   </script>
 </body>
+
 </html>
+add
