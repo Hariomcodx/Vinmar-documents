@@ -1,0 +1,2552 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Vinmar Complete Lifecycle</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      background: light-dark(rgb(255 255 255), rgb(24 24 24))
+    }
+
+    html,
+    body {
+      margin: 0
+    }
+
+    body {
+      box-sizing: border-box;
+      padding: 1rem;
+      background: inherit
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 2rem);
+      margin: 0 auto;
+      border: 0
+    }
+  </style>
+</head>
+
+<body>
+  <iframe id="codex-visualization" sandbox="allow-scripts" referrerpolicy="no-referrer"
+    title="Vinmar Complete Lifecycle" data-srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Vinmar Complete Lifecycle&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 10px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover,
+.nav-link:not(:disabled):not([aria-disabled=&quot;true&quot;]):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled=&quot;true&quot;] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script type=&quot;application/json&quot; id=&quot;codex-visualization-widget-state&quot;&gt;__CODEX_VISUALIZATION_WIDGET_STATE__&lt;/script&gt;
+&lt;script&gt;(() =&gt; {
+  const root = document.documentElement;
+  const mediaQuery = globalThis.matchMedia(&quot;(prefers-color-scheme: dark)&quot;);
+  const apply = Reflect.apply;
+  const isArray = Array.isArray;
+  const hasOwn = Object.hasOwn;
+  const parentWindow = globalThis.parent;
+  const stringify = JSON.stringify;
+  const parse = JSON.parse;
+  const encode = TextEncoder.prototype.encode.bind(new TextEncoder());
+  const initialStateElement = document.getElementById(
+    &quot;codex-visualization-widget-state&quot;,
+  );
+  const initialGlobals = parse(initialStateElement?.textContent ?? &quot;{}&quot;);
+  initialStateElement?.remove();
+  /** @type {Record&lt;string, unknown&gt; | null} */
+  let state = initialGlobals.widgetState ?? null;
+  const statePersistence = initialGlobals.statePersistence ?? &quot;none&quot;;
+  let nextStateRequestId = 0;
+  /** @type {Map&lt;number, { resolve: () =&gt; void; reject: (error: Error) =&gt; void; timeout: ReturnType&lt;typeof globalThis.setTimeout&gt;; serializedState: string }&gt;} */
+  const pendingStateWrites = new Map();
+  const persistenceError = () =&gt;
+    Object.assign(
+      new Error(&quot;The host could not persist the widget state update&quot;),
+      {
+        code: -32000,
+        data: { code: &quot;widget_state_persistence_failed&quot;, retryable: false },
+      },
+    );
+  /**
+   * @param {object} prototype
+   * @param {string} property
+   */
+  const getPrototypeGetter = (prototype, property) =&gt; {
+    // oxlint-disable-next-line typescript/unbound-method -- invoked through captured Reflect.apply
+    const getter = Object.getOwnPropertyDescriptor(prototype, property)?.get;
+    if (getter == null) {
+      throw new Error(`Missing ${property} getter`);
+    }
+    return getter;
+  };
+  const getMessageData = getPrototypeGetter(MessageEvent.prototype, &quot;data&quot;);
+  const getMessagePorts = getPrototypeGetter(MessageEvent.prototype, &quot;ports&quot;);
+  const getMessageSource = getPrototypeGetter(MessageEvent.prototype, &quot;source&quot;);
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const addHostMessageListener = MessagePort.prototype.addEventListener;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const postHostMessage = MessagePort.prototype.postMessage;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const startHostPort = MessagePort.prototype.start;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const stopMessagePropagation = Event.prototype.stopImmediatePropagation;
+  /** @type {MessagePort | null} */
+  let hostPort = null;
+  const postToHost = (type, payload) =&gt; {
+    if (hostPort != null) {
+      apply(postHostMessage, hostPort, [{ type, ...payload }]);
+    }
+  };
+  const openExternal = ({ href }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;open-external&quot;, { href });
+    }
+  };
+  const sendFollowUpMessage = ({ context, prompt, title }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;follow-up&quot;, { context, prompt, title });
+    }
+    return Promise.resolve();
+  };
+  /**
+   * @param {Record&lt;string, unknown&gt; | ((previous: Record&lt;string, unknown&gt; | null) =&gt; Record&lt;string, unknown&gt;)} next
+   * @returns {Promise&lt;void&gt;}
+   */
+  const setWidgetState = async (next) =&gt; {
+    const nextState = typeof next === &quot;function&quot; ? next(state) : next;
+    if (
+      nextState == null ||
+      typeof nextState !== &quot;object&quot; ||
+      isArray(nextState)
+    ) {
+      throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+    }
+    const inputState = stringify(
+      nextState,
+      (_key, /** @type {unknown} */ value) =&gt; {
+        if (
+          typeof value === &quot;undefined&quot; ||
+          typeof value === &quot;function&quot; ||
+          typeof value === &quot;symbol&quot; ||
+          (typeof value === &quot;number&quot; &amp;&amp; !Number.isFinite(value))
+        ) {
+          throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+        }
+        return value;
+      },
+    );
+    const parsedState = parse(inputState);
+    if (
+      parsedState == null ||
+      typeof parsedState !== &quot;object&quot; ||
+      isArray(parsedState)
+    ) {
+      throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+    }
+    const storedState = {
+      modelContent: null,
+      privateContent: null,
+      ...parsedState,
+    };
+    const serializedState = stringify(storedState);
+    if (encode(serializedState).length &gt; 16 * 1024) {
+      throw new TypeError(
+        &quot;Widget state must be a JSON object of at most 16 KiB&quot;,
+      );
+    }
+    if (
+      hasOwn(storedState, &quot;imageIds&quot;) &amp;&amp;
+      (!isArray(storedState.imageIds) ||
+        storedState.imageIds.some(
+          (/** @type {unknown} */ id) =&gt; typeof id !== &quot;string&quot;,
+        ))
+    ) {
+      throw new TypeError(&quot;Widget state imageIds must be an array of strings&quot;);
+    }
+    if (storedState.imageIds?.length &gt; 0) {
+      throw Object.assign(
+        new TypeError(&quot;Visualization state does not support image attachments&quot;),
+        { code: -32602, data: { code: &quot;images_unsupported&quot; } },
+      );
+    }
+    state = storedState;
+    globalThis.openai.widgetState = state;
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: { widgetState: state } },
+      }),
+    );
+    if (statePersistence === &quot;none&quot;) {
+      throw persistenceError();
+    }
+    const id = ++nextStateRequestId;
+    return new Promise((resolve, reject) =&gt; {
+      const timeout = globalThis.setTimeout(() =&gt; {
+        pendingStateWrites.delete(id);
+        reject(persistenceError());
+      }, 30_000);
+      pendingStateWrites.set(id, { resolve, reject, timeout, serializedState });
+      postToHost(&quot;widget-state-write&quot;, { id, state: serializedState });
+    });
+  };
+  const syncTheme = () =&gt; {
+    const theme = mediaQuery.matches ? &quot;dark&quot; : &quot;light&quot;;
+    root.dataset.theme = theme;
+    globalThis.openai = {
+      ...globalThis.openai,
+      openExternal,
+      sendFollowUpMessage,
+      setWidgetState,
+      theme,
+      visualizationStyleVariables: {},
+      visualizationTheme: theme,
+      widgetState: state,
+      statePersistence,
+      stateModelContext: &quot;none&quot;,
+    };
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: globalThis.openai },
+      }),
+    );
+  };
+  const sendHeight = () =&gt; {
+    postToHost(&quot;height&quot;, {
+      height: Math.ceil(
+        Math.max(
+          document.body.scrollHeight,
+          document.body.getBoundingClientRect().height,
+        ),
+      ),
+    });
+  };
+
+  globalThis.addEventListener(
+    &quot;message&quot;,
+    (event) =&gt; {
+      const data = apply(getMessageData, event, []);
+      const ports = apply(getMessagePorts, event, []);
+      const source = apply(getMessageSource, event, []);
+      if (
+        hostPort != null ||
+        source !== parentWindow ||
+        typeof data !== &quot;object&quot; ||
+        data?.type !== &quot;codex-visualization-initialize&quot; ||
+        !isArray(ports) ||
+        ports.length !== 1
+      ) {
+        return;
+      }
+      apply(stopMessagePropagation, event, []);
+      const nextHostPort = ports[0];
+      try {
+        apply(addHostMessageListener, nextHostPort, [
+          &quot;message&quot;,
+          (event) =&gt; {
+            const data = apply(getMessageData, event, []);
+            if (typeof data === &quot;object&quot; &amp;&amp; data?.type === &quot;measure&quot;) {
+              sendHeight();
+            } else if (
+              typeof data === &quot;object&quot; &amp;&amp;
+              data?.type === &quot;widget-state-result&quot;
+            ) {
+              /** @type {unknown} */
+              const id = data.id;
+              if (typeof id !== &quot;number&quot;) {
+                return;
+              }
+              const pending = pendingStateWrites.get(id);
+              if (pending != null) {
+                pendingStateWrites.delete(id);
+                globalThis.clearTimeout(pending.timeout);
+                if (data.ok === true) {
+                  pending.resolve();
+                } else {
+                  pending.reject(persistenceError());
+                }
+              }
+            }
+          },
+        ]);
+        apply(startHostPort, nextHostPort, []);
+      } catch {
+        return;
+      }
+      hostPort = nextHostPort;
+      for (const [id, { serializedState }] of pendingStateWrites) {
+        postToHost(&quot;widget-state-write&quot;, { id, state: serializedState });
+      }
+      sendHeight();
+    },
+    { capture: true },
+  );
+  document.currentScript?.remove();
+  mediaQuery.addEventListener(&quot;change&quot;, syncTheme);
+  globalThis.addEventListener(&quot;click&quot;, (event) =&gt; {
+    if (event.defaultPrevented) {
+      return;
+    }
+    let element = null;
+    if (event.target instanceof globalThis.Element) {
+      element = event.target;
+    } else if (event.target instanceof globalThis.Node) {
+      element = event.target.parentElement;
+    }
+    const link = element?.closest(&quot;a[href]&quot;);
+    const href = link?.getAttribute(&quot;href&quot;);
+    if (href == null) {
+      return;
+    }
+    if (href.startsWith(&quot;#&quot;)) {
+      let id;
+      try {
+        id = decodeURIComponent(href.slice(1));
+      } catch {
+        return;
+      }
+      const target = id.length === 0 ? root : document.getElementById(id);
+      if (
+        target == null ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      event.preventDefault();
+      postToHost(&quot;scroll-to&quot;, {
+        top: target.getBoundingClientRect().top + globalThis.scrollY,
+      });
+      return;
+    }
+    event.preventDefault();
+    openExternal({ href });
+  });
+  new ResizeObserver(sendHeight).observe(document.body);
+  syncTheme();
+})();
+&lt;/script&gt;
+&lt;div id=&quot;purchase-atoz-flow&quot; class=&quot;viz-container&quot;&gt;
+  &lt;style&gt;
+    #purchase-atoz-flow { min-height: 100%; color: var(--foreground); background: var(--background); font-family: var(--font-sans); }
+    #purchase-atoz-flow * { box-sizing: border-box; }
+    #purchase-atoz-flow .shell { width: min(1500px, 100%); margin: 0 auto; padding: 24px; }
+    #purchase-atoz-flow header { text-align: center; margin-bottom: 22px; }
+    #purchase-atoz-flow h1 { margin: 0 0 7px; font-size: 25px; letter-spacing: 0; }
+    #purchase-atoz-flow .subtitle { margin: 0; color: var(--muted-foreground); font-size: 13px; }
+    #purchase-atoz-flow .layout { display: grid; grid-template-columns: minmax(720px, 900px) minmax(330px, 1fr); gap: 28px; align-items: start; }
+    #purchase-atoz-flow .workflow { min-width: 0; }
+    #purchase-atoz-flow .flow-finder { margin: 0 auto 20px; padding: 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow-sm); }
+    #purchase-atoz-flow .finder-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 13px; font-weight: 850; }
+    #purchase-atoz-flow .finder-head svg { width: 17px; height: 17px; }
+    #purchase-atoz-flow .finder-controls { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: end; }
+    #purchase-atoz-flow .finder-field { display: grid; gap: 5px; min-width: 0; }
+    #purchase-atoz-flow .finder-field label { font-size: 10px; font-weight: 800; color: var(--muted-foreground); text-transform: uppercase; }
+    #purchase-atoz-flow .finder-field input { width: 100%; min-height: 38px; padding: 7px 9px; border: 1px solid var(--border); border-radius: var(--radius); color: var(--foreground); background: var(--background); font: inherit; font-size: 12px; }
+    #purchase-atoz-flow .finder-search { min-height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 7px 13px; border: 1px solid var(--primary); border-radius: var(--radius); color: var(--primary-foreground); background: var(--primary); font: inherit; font-size: 12px; font-weight: 800; cursor: pointer; }
+    #purchase-atoz-flow .finder-search svg { width: 15px; height: 15px; }
+    #purchase-atoz-flow .finder-results { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+    #purchase-atoz-flow .finder-result { padding: 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--muted); }
+    #purchase-atoz-flow .finder-result[hidden] { display: none; }
+    #purchase-atoz-flow .finder-result strong { display: block; margin-bottom: 7px; font-size: 11px; }
+    #purchase-atoz-flow .finder-result ul { gap: 5px; }
+    #purchase-atoz-flow .finder-result li { background: var(--card); border: 1px solid var(--border); }
+    #purchase-atoz-flow .source-matches { display: grid; gap: 7px; }
+    #purchase-atoz-flow .source-match { padding: 9px; border: 1px solid var(--border); border-left: 4px solid var(--success); border-radius: var(--radius); background: var(--card); }
+    #purchase-atoz-flow .source-match strong { margin: 0; color: var(--foreground); font-size: 12px; }
+    #purchase-atoz-flow .source-match span { display: block; margin-top: 3px; color: var(--muted-foreground); font-size: 10px; line-height: 1.35; }
+    #purchase-atoz-flow .source-empty { margin: 0; color: var(--muted-foreground); font-size: 12px; }
+    #purchase-atoz-flow .split-label, #purchase-atoz-flow .merge-label { margin: 0 auto 12px; width: max-content; max-width: 100%; padding: 8px 12px; border-radius: var(--radius); background: var(--primary); color: var(--primary-foreground); font-size: 11px; font-weight: 850; text-align: center; }
+    #purchase-atoz-flow .parallel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+    #purchase-atoz-flow .stream { min-width: 0; display: grid; gap: 12px; }
+    #purchase-atoz-flow .stream-label { padding: 9px 11px; border-radius: var(--radius); color: var(--foreground); background: var(--muted); font-size: 12px; font-weight: 900; text-align: center; }
+    #purchase-atoz-flow .stream .parent { padding: 12px; }
+    #purchase-atoz-flow .stream .module { width: 100%; }
+    #purchase-atoz-flow .stream-next { min-height: 68px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--muted-foreground); }
+    #purchase-atoz-flow .stream-next::before { content: &quot;&quot;; width: 2px; height: 24px; background: var(--border); }
+    #purchase-atoz-flow .stream-next svg { width: 18px; height: 18px; margin-top: -7px; }
+    #purchase-atoz-flow .stream-next span { padding: 4px 7px; border-radius: var(--radius); background: var(--muted); font-size: 9px; font-weight: 850; text-transform: uppercase; }
+    #purchase-atoz-flow .parent { position: relative; padding: 16px; border: 2px solid var(--border); border-radius: var(--radius); background: color-mix(in srgb, var(--card) 95%, var(--primary)); transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease; }
+    #purchase-atoz-flow .parent[data-tone=&quot;accent&quot;] { border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); background: color-mix(in srgb, var(--accent) 7%, var(--card)); }
+    #purchase-atoz-flow .parent[data-tone=&quot;success&quot;] { border-color: color-mix(in srgb, var(--success) 55%, var(--border)); background: color-mix(in srgb, var(--success) 7%, var(--card)); }
+    #purchase-atoz-flow .parent[data-tone=&quot;warning&quot;] { border-color: color-mix(in srgb, var(--warning) 55%, var(--border)); background: color-mix(in srgb, var(--warning) 7%, var(--card)); }
+    #purchase-atoz-flow .parent:hover, #purchase-atoz-flow .parent.is-active { border-color: var(--ring); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ring) 18%, transparent), var(--shadow-md); }
+    #purchase-atoz-flow .parent.is-active { background: color-mix(in srgb, var(--primary) 8%, var(--card)); }
+    #purchase-atoz-flow .parent-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+    #purchase-atoz-flow .parent-name { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 900; }
+    #purchase-atoz-flow .parent-name svg { width: 17px; height: 17px; }
+    #purchase-atoz-flow .parent-badge { padding: 4px 7px; border-radius: var(--radius); background: var(--muted); color: var(--muted-foreground); font-size: 9px; font-weight: 800; text-transform: uppercase; }
+    #purchase-atoz-flow .inside { display: flex; flex-direction: column; align-items: center; }
+    #purchase-atoz-flow .module { width: min(390px, 100%); min-height: 70px; padding: 10px 13px; display: flex; align-items: center; gap: 11px; text-align: left; white-space: normal; border-left: 6px solid var(--primary); }
+    #purchase-atoz-flow .module[data-tone=&quot;accent&quot;] { border-left-color: var(--accent); }
+    #purchase-atoz-flow .module[data-tone=&quot;success&quot;] { border-left-color: var(--success); }
+    #purchase-atoz-flow .module[data-tone=&quot;warning&quot;] { border-left-color: var(--warning); }
+    #purchase-atoz-flow .module[aria-pressed=&quot;true&quot;], #purchase-atoz-flow .linked[aria-pressed=&quot;true&quot;] { outline: 2px solid var(--ring); outline-offset: 2px; background: color-mix(in srgb, var(--primary) 10%, var(--card)); }
+    #purchase-atoz-flow .icon { width: 36px; height: 36px; flex: 0 0 auto; display: grid; place-items: center; border-radius: var(--radius); background: var(--muted); }
+    #purchase-atoz-flow .icon svg { width: 19px; height: 19px; }
+    #purchase-atoz-flow .module-title { display: block; font-size: 13px; font-weight: 850; line-height: 1.2; }
+    #purchase-atoz-flow .module-desc { display: block; margin-top: 3px; color: var(--muted-foreground); font-size: 10px; line-height: 1.35; }
+    #purchase-atoz-flow .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+    #purchase-atoz-flow .tag { padding: 2px 5px; border-radius: var(--radius); color: var(--secondary-foreground); background: var(--secondary); font-size: 9px; font-weight: 750; }
+    #purchase-atoz-flow .connector { height: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--muted-foreground); }
+    #purchase-atoz-flow .connector::before { content: &quot;&quot;; width: 2px; height: 11px; background: var(--border); }
+    #purchase-atoz-flow .connector svg { width: 14px; height: 14px; margin-top: -2px; }
+    #purchase-atoz-flow .between { height: 42px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--muted-foreground); }
+    #purchase-atoz-flow .between::before { content: &quot;&quot;; width: 2px; height: 22px; background: var(--border); }
+    #purchase-atoz-flow .between svg { width: 16px; height: 16px; margin-top: -2px; }
+    #purchase-atoz-flow .decision-row { width: 100%; min-height: 154px; position: relative; display: flex; align-items: center; justify-content: center; }
+    #purchase-atoz-flow .diamond { width: 112px; height: 112px; padding: 0; transform: rotate(45deg); border: 3px solid var(--ring); border-radius: var(--radius); background: var(--primary); color: var(--primary-foreground); box-shadow: 0 0 0 5px color-mix(in srgb, var(--primary) 24%, transparent), var(--shadow-lg); cursor: pointer; }
+    #purchase-atoz-flow .diamond:hover { background: color-mix(in srgb, var(--primary) 84%, var(--foreground)); }
+    #purchase-atoz-flow .diamond[aria-pressed=&quot;true&quot;] { outline: 3px solid var(--ring); outline-offset: 6px; }
+    #purchase-atoz-flow .diamond span { width: 100%; height: 100%; display: grid; place-items: center; padding: 15px; transform: rotate(-45deg); color: inherit; text-align: center; font-size: 11px; font-weight: 900; line-height: 1.25; }
+    #purchase-atoz-flow .yes { position: absolute; left: calc(50% + 64px); top: 122px; padding: 3px 5px; border-radius: var(--radius); color: var(--success-foreground); background: var(--success); font-size: 9px; font-weight: 900; }
+    #purchase-atoz-flow .no-path { position: absolute; left: calc(50% + 83px); top: 43px; display: flex; align-items: center; gap: 5px; }
+    #purchase-atoz-flow .no-line { width: 18px; height: 2px; background: var(--border); }
+    #purchase-atoz-flow .no-label { color: var(--destructive); font-size: 9px; font-weight: 900; }
+    #purchase-atoz-flow .no-result { width: 122px; padding: 6px; border: 1px dashed var(--border); border-radius: var(--radius); background: var(--muted); color: var(--muted-foreground); font-size: 9px; line-height: 1.3; }
+    #purchase-atoz-flow .linked-title { width: 100%; margin: 4px 0 8px; color: var(--muted-foreground); font-size: 9px; font-weight: 800; text-align: center; text-transform: uppercase; }
+    #purchase-atoz-flow .linked-grid { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    #purchase-atoz-flow .linked { min-height: 64px; padding: 9px; display: flex; align-items: flex-start; gap: 8px; text-align: left; white-space: normal; }
+    #purchase-atoz-flow .linked svg { width: 16px; height: 16px; flex: 0 0 auto; margin-top: 1px; }
+    #purchase-atoz-flow .linked strong { display: block; font-size: 11px; line-height: 1.2; }
+    #purchase-atoz-flow .linked small { display: block; margin-top: 3px; color: var(--muted-foreground); font-size: 9px; line-height: 1.3; }
+    #purchase-atoz-flow .detail { position: sticky; top: 16px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--card); box-shadow: var(--shadow-md); }
+    #purchase-atoz-flow .quick-detail { width: 100%; margin: 10px 0 0; padding: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); color: var(--foreground); background: var(--card); box-shadow: var(--shadow-lg); }
+    #purchase-atoz-flow .quick-detail[hidden] { display: none; }
+    #purchase-atoz-flow .quick-detail .detail-head { position: relative; padding-right: 52px; }
+    #purchase-atoz-flow .quick-close { position: absolute; top: 11px; right: 11px; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, currentColor 38%, transparent); border-radius: var(--radius); color: inherit; background: color-mix(in srgb, var(--background) 16%, transparent); cursor: pointer; }
+    #purchase-atoz-flow .quick-close svg { width: 17px; height: 17px; }
+    #purchase-atoz-flow .detail-head { padding: 16px 18px; color: var(--primary-foreground); background: var(--primary); }
+    #purchase-atoz-flow .detail-head[data-tone=&quot;accent&quot;] { color: var(--accent-foreground); background: var(--accent); }
+    #purchase-atoz-flow .detail-head[data-tone=&quot;success&quot;] { color: var(--success-foreground); background: var(--success); }
+    #purchase-atoz-flow .detail-head[data-tone=&quot;warning&quot;] { color: var(--warning-foreground); background: var(--warning); }
+    #purchase-atoz-flow .parent-pill { display: inline-flex; align-items: center; gap: 5px; margin-bottom: 8px; padding: 4px 7px; border-radius: var(--radius); background: color-mix(in srgb, var(--background) 20%, transparent); font-size: 9px; font-weight: 850; text-transform: uppercase; }
+    #purchase-atoz-flow .parent-pill svg { width: 12px; height: 12px; }
+    #purchase-atoz-flow .detail h2 { margin: 0; font-size: 20px; letter-spacing: 0; }
+    #purchase-atoz-flow .purpose { margin: 5px 0 0; font-size: 12px; opacity: .86; }
+    #purchase-atoz-flow .detail-body { padding: 16px 18px; }
+    #purchase-atoz-flow .block { margin-bottom: 15px; }
+    #purchase-atoz-flow .block:last-child { margin-bottom: 0; }
+    #purchase-atoz-flow .block-title { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; font-size: 12px; font-weight: 850; }
+    #purchase-atoz-flow .block-title svg { width: 15px; height: 15px; }
+    #purchase-atoz-flow .source, #purchase-atoz-flow .system { margin: 0; color: var(--muted-foreground); font-size: 12px; line-height: 1.5; }
+    #purchase-atoz-flow .source { padding: 9px 10px; border-radius: var(--radius); background: var(--muted); }
+    #purchase-atoz-flow .note { margin: 0; padding: 10px; border-left: 4px solid var(--warning); border-radius: var(--radius); background: color-mix(in srgb, var(--warning) 12%, var(--card)); color: var(--foreground); font-size: 12px; line-height: 1.5; }
+    #purchase-atoz-flow ul { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    #purchase-atoz-flow li { padding: 5px 7px; border-radius: var(--radius); font-size: 11px; line-height: 1.2; }
+    #purchase-atoz-flow .same li { color: var(--secondary-foreground); background: var(--secondary); }
+    #purchase-atoz-flow .new li { color: var(--foreground); background: color-mix(in srgb, var(--success) 18%, var(--card)); border: 1px solid color-mix(in srgb, var(--success) 40%, var(--border)); }
+    #purchase-atoz-flow .required li { color: var(--foreground); background: color-mix(in srgb, var(--warning) 16%, var(--card)); border: 1px solid color-mix(in srgb, var(--warning) 48%, var(--border)); }
+    #purchase-atoz-flow .legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 20px; color: var(--muted-foreground); font-size: 11px; }
+    #purchase-atoz-flow .legend span { display: inline-flex; align-items: center; gap: 5px; }
+    #purchase-atoz-flow .legend svg { width: 13px; height: 13px; }
+    @media (max-width: 1180px) {
+      #purchase-atoz-flow .layout { grid-template-columns: 1fr; }
+      #purchase-atoz-flow .workflow { width: min(900px, 100%); margin: 0 auto; }
+      #purchase-atoz-flow .detail { position: static; }
+    }
+    @media (max-width: 760px) {
+      #purchase-atoz-flow .parallel-grid { grid-template-columns: 1fr; }
+      #purchase-atoz-flow .stream { width: min(540px, 100%); margin: 0 auto; }
+    }
+    @media (max-width: 560px) {
+      #purchase-atoz-flow .shell { padding: 12px; }
+      #purchase-atoz-flow h1 { font-size: 21px; }
+      #purchase-atoz-flow .parent { padding: 11px; }
+      #purchase-atoz-flow .no-path { left: calc(50% + 61px); }
+      #purchase-atoz-flow .no-result { width: 92px; }
+      #purchase-atoz-flow .linked-grid { grid-template-columns: 1fr; }
+      #purchase-atoz-flow .finder-controls, #purchase-atoz-flow .finder-results { grid-template-columns: 1fr; }
+    }
+  &lt;/style&gt;
+
+  &lt;div class=&quot;shell&quot;&gt;
+    &lt;header&gt;
+      &lt;h1&gt;Vinmar Complete Lifecycle&lt;/h1&gt;
+      &lt;p class=&quot;subtitle&quot;&gt;Shared masters split into parallel Purchase &amp;amp; Import and Sales &amp;amp; Export lifecycles, then reconnect at monitoring and control.&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;section class=&quot;flow-finder&quot; aria-label=&quot;Data flow finder&quot;&gt;
+      &lt;div class=&quot;finder-head&quot;&gt;&lt;i data-lucide=&quot;search&quot;&gt;&lt;/i&gt;Data Flow Finder&lt;/div&gt;
+      &lt;div class=&quot;finder-controls&quot;&gt;
+        &lt;div class=&quot;finder-field&quot;&gt;&lt;label for=&quot;source-search&quot;&gt;Search field&lt;/label&gt;&lt;input id=&quot;source-search&quot; type=&quot;search&quot; placeholder=&quot;Example: CHA number&quot; autocomplete=&quot;off&quot;&gt;&lt;/div&gt;
+        &lt;button class=&quot;finder-search&quot; id=&quot;source-search-button&quot; type=&quot;button&quot;&gt;&lt;i data-lucide=&quot;search&quot;&gt;&lt;/i&gt;Find source&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;finder-results&quot; aria-live=&quot;polite&quot;&gt;
+        &lt;section class=&quot;finder-result&quot; id=&quot;source-result&quot; hidden&gt;&lt;strong id=&quot;source-result-title&quot;&gt;&lt;/strong&gt;&lt;div class=&quot;source-matches&quot; id=&quot;source-result-list&quot;&gt;&lt;/div&gt;&lt;/section&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;div class=&quot;layout&quot;&gt;
+      &lt;main class=&quot;workflow&quot; aria-label=&quot;Complete Vinmar lifecycle&quot;&gt;
+        &lt;section class=&quot;parent&quot; data-tone=&quot;primary&quot;&gt;
+          &lt;div class=&quot;parent-head&quot;&gt;&lt;div class=&quot;parent-name&quot;&gt;&lt;i data-lucide=&quot;database&quot;&gt;&lt;/i&gt;Master Data &amp;amp; Setup&lt;/div&gt;&lt;span class=&quot;parent-badge&quot;&gt;Parent module&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;inside&quot;&gt;
+            &lt;button class=&quot;btn module&quot; data-step=&quot;masters&quot; data-tone=&quot;primary&quot; aria-pressed=&quot;true&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;library&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;Reference Masters&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Shared validated values used by every transaction.&lt;/span&gt;&lt;span class=&quot;tags&quot;&gt;&lt;span class=&quot;tag&quot;&gt;Vendor&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Product / HSN&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Port&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Bank&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;License&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Users &amp;amp; rights&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;div class=&quot;between&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+        &lt;div class=&quot;split-label&quot;&gt;Business transaction type splits into two parallel lifecycles&lt;/div&gt;
+
+        &lt;div class=&quot;parallel-grid&quot;&gt;
+          &lt;div class=&quot;stream&quot;&gt;
+            &lt;div class=&quot;stream-label&quot;&gt;Purchase &amp;amp; Import Lifecycle&lt;/div&gt;
+
+        &lt;section class=&quot;parent&quot; data-tone=&quot;accent&quot;&gt;
+          &lt;div class=&quot;parent-head&quot;&gt;&lt;div class=&quot;parent-name&quot;&gt;&lt;i data-lucide=&quot;shopping-basket&quot;&gt;&lt;/i&gt;Purchase Module&lt;/div&gt;&lt;span class=&quot;parent-badge&quot;&gt;Parent module&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;inside&quot;&gt;
+            &lt;button class=&quot;btn module&quot; data-step=&quot;po&quot; data-tone=&quot;accent&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;shopping-cart&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;1. Purchase Order (PO)&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Commercial terms, products, quantity and shipment request.&lt;/span&gt;&lt;span class=&quot;tags&quot;&gt;&lt;span class=&quot;tag&quot;&gt;Manual&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Draft&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Excel&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;ERP&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;div class=&quot;decision-row&quot;&gt;&lt;button class=&quot;diamond&quot; data-step=&quot;poDecision&quot; aria-pressed=&quot;false&quot;&gt;&lt;span&gt;PO approved?&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;yes&quot;&gt;YES ↓&lt;/span&gt;&lt;div class=&quot;no-path&quot;&gt;&lt;span class=&quot;no-line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;no-label&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;no-result&quot;&gt;Reject / correct PO and resubmit&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;button class=&quot;btn module&quot; data-step=&quot;oc&quot; data-tone=&quot;accent&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;badge-check&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;2. Order Confirmation (OC)&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Supplier-confirmed quantity, OC details and SAP PO.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;div class=&quot;decision-row&quot;&gt;&lt;button class=&quot;diamond&quot; data-step=&quot;ocDecision&quot; aria-pressed=&quot;false&quot;&gt;&lt;span&gt;Full PO quantity confirmed?&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;yes&quot;&gt;YES ↓&lt;/span&gt;&lt;div class=&quot;no-path&quot;&gt;&lt;span class=&quot;no-line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;no-label&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;no-result&quot;&gt;Keep remainder open for another OC&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;button class=&quot;btn module&quot; data-step=&quot;shipment&quot; data-tone=&quot;warning&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;ship&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;3. Shipment Schedule&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;PO shipping request is attached to OC, then synchronized with PI and A&amp;amp;C.&lt;/span&gt;&lt;span class=&quot;tags&quot;&gt;&lt;span class=&quot;tag&quot;&gt;Auto-created at PO approval&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Linked to OC&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;button class=&quot;btn module&quot; data-step=&quot;pi&quot; data-tone=&quot;success&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;receipt-text&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;4. Purchase Invoice (PI)&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Supplier invoice, BL, FCY values, dates and documents.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;div class=&quot;decision-row&quot;&gt;&lt;button class=&quot;diamond&quot; data-step=&quot;piDecision&quot; aria-pressed=&quot;false&quot;&gt;&lt;span&gt;Invoice and BL valid?&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;yes&quot;&gt;YES ↓&lt;/span&gt;&lt;div class=&quot;no-path&quot;&gt;&lt;span class=&quot;no-line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;no-label&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;no-result&quot;&gt;Fix quantity / date validation&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;div class=&quot;between&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+
+        &lt;section class=&quot;parent&quot; data-tone=&quot;primary&quot;&gt;
+          &lt;div class=&quot;parent-head&quot;&gt;&lt;div class=&quot;parent-name&quot;&gt;&lt;i data-lucide=&quot;landmark&quot;&gt;&lt;/i&gt;Finance &amp;amp; Treasury Module&lt;/div&gt;&lt;span class=&quot;parent-badge&quot;&gt;Parent module&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;inside&quot;&gt;
+            &lt;button class=&quot;btn module&quot; data-step=&quot;fx&quot; data-tone=&quot;primary&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;chart-no-axes-column-increasing&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;5. FX Exposure &amp;amp; Hedging&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Exposure follows value from PO → OC → PI.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;button class=&quot;btn module&quot; data-step=&quot;financeReview&quot; data-tone=&quot;primary&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;badge-indian-rupee&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;6. PI Finance Review&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;AD bank data and finance action are recorded.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;div class=&quot;decision-row&quot;&gt;&lt;button class=&quot;diamond&quot; data-step=&quot;financeDecision&quot; aria-pressed=&quot;false&quot;&gt;&lt;span&gt;Finance approved?&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;yes&quot;&gt;YES ↓&lt;/span&gt;&lt;div class=&quot;no-path&quot;&gt;&lt;span class=&quot;no-line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;no-label&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;no-result&quot;&gt;Reject / correct PI finance data&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;linked-title&quot;&gt;Linked finance records used when applicable&lt;/div&gt;
+            &lt;div class=&quot;linked-grid&quot;&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;lc&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;file-key-2&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Letter of Credit&lt;/strong&gt;&lt;small&gt;Bank, amount, validity and OC / invoice links.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;orm&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;send&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;ORM / Remittance&lt;/strong&gt;&lt;small&gt;Advance or invoice payment and bank reference.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;bc&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;calendar-sync&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Buyer&amp;apos;s Credit&lt;/strong&gt;&lt;small&gt;Lender, rate, tenor, settlement and rollover.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;cndn&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;scale&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Purchase CN / DN&lt;/strong&gt;&lt;small&gt;Invoice adjustment value, type and purpose.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;div class=&quot;between&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+
+        &lt;section class=&quot;parent&quot; data-tone=&quot;warning&quot;&gt;
+          &lt;div class=&quot;parent-head&quot;&gt;&lt;div class=&quot;parent-name&quot;&gt;&lt;i data-lucide=&quot;container&quot;&gt;&lt;/i&gt;Logistics &amp;amp; Customs Module&lt;/div&gt;&lt;span class=&quot;parent-badge&quot;&gt;Parent module&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;inside&quot;&gt;
+            &lt;button class=&quot;btn module&quot; data-step=&quot;anc&quot; data-tone=&quot;warning&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;route&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;7. Assignment &amp;amp; Clearing (A&amp;amp;C)&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;BL allocation, customs route, containers, CHA and licenses.&lt;/span&gt;&lt;span class=&quot;tags&quot;&gt;&lt;span class=&quot;tag&quot;&gt;HSS&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;HC&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;IB&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;FTWZ&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;button class=&quot;btn module&quot; data-step=&quot;boe&quot; data-tone=&quot;warning&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;file-check-2&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;8. Bill of Entry (BOE)&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Customs declaration, duty, taxes and landed costs.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;div class=&quot;decision-row&quot;&gt;&lt;button class=&quot;diamond&quot; data-step=&quot;boeDecision&quot; aria-pressed=&quot;false&quot;&gt;&lt;span&gt;BOE approved?&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;yes&quot;&gt;YES ↓&lt;/span&gt;&lt;div class=&quot;no-path&quot;&gt;&lt;span class=&quot;no-line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;no-label&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;no-result&quot;&gt;Remain pending customs approval&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;linked-title&quot;&gt;Shared customs control&lt;/div&gt;
+            &lt;div class=&quot;linked-grid&quot;&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;license&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;key-round&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;License Ledger&lt;/strong&gt;&lt;small&gt;A&amp;amp;C and BOE allocations reduce available balance.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;cha&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;mail-check&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;CHA Communication&lt;/strong&gt;&lt;small&gt;Clearing assignment is emailed when required.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;div class=&quot;between&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+
+        &lt;section class=&quot;parent&quot; data-tone=&quot;success&quot;&gt;
+          &lt;div class=&quot;parent-head&quot;&gt;&lt;div class=&quot;parent-name&quot;&gt;&lt;i data-lucide=&quot;shield-check&quot;&gt;&lt;/i&gt;Compliance &amp;amp; Closure Module&lt;/div&gt;&lt;span class=&quot;parent-badge&quot;&gt;Parent module&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;inside&quot;&gt;
+            &lt;div class=&quot;decision-row&quot;&gt;&lt;button class=&quot;diamond&quot; data-step=&quot;idpmsDecision&quot; aria-pressed=&quot;false&quot;&gt;&lt;span&gt;BOE and payment complete?&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;yes&quot;&gt;YES ↓&lt;/span&gt;&lt;div class=&quot;no-path&quot;&gt;&lt;span class=&quot;no-line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;no-label&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;no-result&quot;&gt;Remain pending BOE / finance&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;button class=&quot;btn module&quot; data-step=&quot;idpms&quot; data-tone=&quot;success&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;circle-check-big&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;9. IDPMS Closure&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Import obligation is reconciled and closed.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+
+          &lt;/div&gt;
+
+          &lt;div class=&quot;stream&quot;&gt;
+            &lt;div class=&quot;stream-label&quot;&gt;Sales &amp;amp; Export Lifecycle&lt;/div&gt;
+
+            &lt;section class=&quot;parent&quot; data-tone=&quot;accent&quot;&gt;
+              &lt;div class=&quot;parent-head&quot;&gt;&lt;div class=&quot;parent-name&quot;&gt;&lt;i data-lucide=&quot;tags&quot;&gt;&lt;/i&gt;Sales Module&lt;/div&gt;&lt;span class=&quot;parent-badge&quot;&gt;Parallel parent&lt;/span&gt;&lt;/div&gt;
+              &lt;div class=&quot;inside&quot;&gt;
+                &lt;button class=&quot;btn module&quot; data-step=&quot;salesOrder&quot; data-tone=&quot;accent&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;file-signature&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;1. Sales Order (SO)&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Customer contract, products, value and collection terms.&lt;/span&gt;&lt;span class=&quot;tags&quot;&gt;&lt;span class=&quot;tag&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;HSS&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;FTWZ&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+                &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;button class=&quot;btn module&quot; data-step=&quot;salesInvoice&quot; data-tone=&quot;success&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;receipt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;2. Sales Invoice&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Commercial invoice and export documents against SO.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+                &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;button class=&quot;btn module&quot; data-step=&quot;logisticsInvoice&quot; data-tone=&quot;warning&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;truck&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;3. Logistics Invoice Stage&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Shipping bill, transport and logistics details update the same invoice.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+                &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;button class=&quot;btn module&quot; data-step=&quot;salesFinance&quot; data-tone=&quot;primary&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;landmark&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;4. Finance Invoice Stage&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Finance approval and IRM allocation update the invoice.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+                &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;div class=&quot;decision-row&quot;&gt;&lt;button class=&quot;diamond&quot; data-step=&quot;salesFinanceDecision&quot; aria-pressed=&quot;false&quot;&gt;&lt;span&gt;Finance approved?&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;yes&quot;&gt;YES ↓&lt;/span&gt;&lt;div class=&quot;no-path&quot;&gt;&lt;span class=&quot;no-line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;no-label&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;no-result&quot;&gt;Correct finance details and resubmit&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+                &lt;div class=&quot;linked-title&quot;&gt;Optional sales adjustment&lt;/div&gt;
+                &lt;div class=&quot;linked-grid&quot;&gt;
+                  &lt;button class=&quot;btn linked&quot; data-step=&quot;salesCndn&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;scale&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Sales CN / DN&lt;/strong&gt;&lt;small&gt;Optional adjustment linked to Sales Invoice.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+                  &lt;button class=&quot;btn linked&quot; data-step=&quot;salesModes&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;route&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;HSS / FTWZ Sales&lt;/strong&gt;&lt;small&gt;Sales views for applicable import-clearance modes.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/section&gt;
+
+            &lt;div class=&quot;between&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+
+            &lt;section class=&quot;parent&quot; data-tone=&quot;primary&quot;&gt;
+              &lt;div class=&quot;parent-head&quot;&gt;&lt;div class=&quot;parent-name&quot;&gt;&lt;i data-lucide=&quot;badge-dollar-sign&quot;&gt;&lt;/i&gt;Export Finance &amp;amp; Realization&lt;/div&gt;&lt;span class=&quot;parent-badge&quot;&gt;Parallel parent&lt;/span&gt;&lt;/div&gt;
+              &lt;div class=&quot;inside&quot;&gt;
+                &lt;button class=&quot;btn module&quot; data-step=&quot;invoiceNegotiation&quot; data-tone=&quot;primary&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;hand-coins&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;5. Invoice Negotiation&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Optional bank lodgement, discounting and export finance.&lt;/span&gt;&lt;span class=&quot;tags&quot;&gt;&lt;span class=&quot;tag&quot;&gt;Optional&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+                &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;button class=&quot;btn module&quot; data-step=&quot;irm&quot; data-tone=&quot;success&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;circle-dollar-sign&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;6. Inward Remittance (IRM)&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Customer money received as invoice, SO, advance or ad-hoc IRM.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+                &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;div class=&quot;decision-row&quot;&gt;&lt;button class=&quot;diamond&quot; data-step=&quot;irmDecision&quot; aria-pressed=&quot;false&quot;&gt;&lt;span&gt;IRM mapped to invoice?&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;yes&quot;&gt;YES ↓&lt;/span&gt;&lt;div class=&quot;no-path&quot;&gt;&lt;span class=&quot;no-line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;no-label&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;no-result&quot;&gt;Keep available for later allocation&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+                &lt;div class=&quot;connector&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;button class=&quot;btn module&quot; data-step=&quot;ebrc&quot; data-tone=&quot;success&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;badge-check&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;7. e-BRC Certificate&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Export realization evidence links invoice, shipping bill and IRM.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/section&gt;
+            &lt;div class=&quot;stream-next&quot; aria-label=&quot;Export Finance continues to Monitoring and Control&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;span&gt;Next: Monitoring &amp;amp; Control&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;between&quot;&gt;&lt;i data-lucide=&quot;chevron-down&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+        &lt;div class=&quot;merge-label&quot;&gt;Both lifecycles reconnect to shared dashboards, history and notifications&lt;/div&gt;
+
+        &lt;section class=&quot;parent&quot; data-tone=&quot;accent&quot;&gt;
+          &lt;div class=&quot;parent-head&quot;&gt;&lt;div class=&quot;parent-name&quot;&gt;&lt;i data-lucide=&quot;activity&quot;&gt;&lt;/i&gt;Monitoring &amp;amp; Control&lt;/div&gt;&lt;span class=&quot;parent-badge&quot;&gt;Across all modules&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;inside&quot;&gt;
+            &lt;div class=&quot;linked-grid&quot;&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;dashboard&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;layout-dashboard&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Dashboards&lt;/strong&gt;&lt;small&gt;Counts, filters, status and work queues.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;audit&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;history&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;History &amp;amp; Notifications&lt;/strong&gt;&lt;small&gt;Actor, action, time, remarks, versions and alerts.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+      &lt;/main&gt;
+
+      &lt;aside class=&quot;detail&quot; aria-live=&quot;polite&quot;&gt;
+        &lt;div class=&quot;detail-head&quot; id=&quot;detail-head&quot; data-tone=&quot;primary&quot;&gt;
+          &lt;span class=&quot;parent-pill&quot;&gt;&lt;i data-lucide=&quot;box&quot;&gt;&lt;/i&gt;&lt;span id=&quot;detail-parent&quot;&gt;Master Data &amp;amp; Setup&lt;/span&gt;&lt;/span&gt;
+          &lt;h2 id=&quot;detail-title&quot;&gt;Reference Masters&lt;/h2&gt;
+          &lt;p class=&quot;purpose&quot; id=&quot;detail-purpose&quot;&gt;Shared validated values used throughout the lifecycle.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;detail-body&quot;&gt;
+          &lt;section class=&quot;block&quot;&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;corner-down-right&quot;&gt;&lt;/i&gt;Data source&lt;/div&gt;&lt;p class=&quot;source&quot; id=&quot;detail-source&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+          &lt;section class=&quot;block&quot;&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;copy&quot;&gt;&lt;/i&gt;Same data carried forward&lt;/div&gt;&lt;ul class=&quot;same&quot; id=&quot;same-list&quot;&gt;&lt;/ul&gt;&lt;/section&gt;
+          &lt;section class=&quot;block&quot;&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;plus-circle&quot;&gt;&lt;/i&gt;New data added here&lt;/div&gt;&lt;ul class=&quot;new&quot; id=&quot;new-list&quot;&gt;&lt;/ul&gt;&lt;/section&gt;
+          &lt;section class=&quot;block&quot; id=&quot;required-block&quot;&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;asterisk&quot;&gt;&lt;/i&gt;Mandatory fields&lt;/div&gt;&lt;ul class=&quot;required&quot; id=&quot;required-list&quot;&gt;&lt;/ul&gt;&lt;/section&gt;
+          &lt;section class=&quot;block&quot;&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;settings-2&quot;&gt;&lt;/i&gt;System action / result&lt;/div&gt;&lt;p class=&quot;system&quot; id=&quot;detail-system&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+          &lt;section class=&quot;block&quot; id=&quot;note-block&quot; hidden&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;info&quot;&gt;&lt;/i&gt;Note&lt;/div&gt;&lt;p class=&quot;note&quot; id=&quot;detail-note&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+        &lt;/div&gt;
+      &lt;/aside&gt;
+    &lt;/div&gt;
+
+    &lt;aside class=&quot;quick-detail&quot; id=&quot;quick-detail&quot; aria-live=&quot;polite&quot; hidden&gt;
+      &lt;div class=&quot;detail-head&quot; id=&quot;quick-detail-head&quot; data-tone=&quot;primary&quot;&gt;
+        &lt;button class=&quot;quick-close&quot; id=&quot;quick-close&quot; type=&quot;button&quot; aria-label=&quot;Close details&quot;&gt;&lt;i data-lucide=&quot;x&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;span class=&quot;parent-pill&quot;&gt;&lt;i data-lucide=&quot;box&quot;&gt;&lt;/i&gt;&lt;span id=&quot;quick-parent&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+        &lt;h2 id=&quot;quick-title&quot;&gt;&lt;/h2&gt;
+        &lt;p class=&quot;purpose&quot; id=&quot;quick-purpose&quot;&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;detail-body&quot;&gt;
+        &lt;section class=&quot;block&quot;&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;corner-down-right&quot;&gt;&lt;/i&gt;Data source&lt;/div&gt;&lt;p class=&quot;source&quot; id=&quot;quick-source&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+        &lt;section class=&quot;block&quot;&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;copy&quot;&gt;&lt;/i&gt;Same data carried forward&lt;/div&gt;&lt;ul class=&quot;same&quot; id=&quot;quick-same-list&quot;&gt;&lt;/ul&gt;&lt;/section&gt;
+        &lt;section class=&quot;block&quot;&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;plus-circle&quot;&gt;&lt;/i&gt;New data added here&lt;/div&gt;&lt;ul class=&quot;new&quot; id=&quot;quick-new-list&quot;&gt;&lt;/ul&gt;&lt;/section&gt;
+        &lt;section class=&quot;block&quot; id=&quot;quick-required-block&quot;&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;asterisk&quot;&gt;&lt;/i&gt;Mandatory fields&lt;/div&gt;&lt;ul class=&quot;required&quot; id=&quot;quick-required-list&quot;&gt;&lt;/ul&gt;&lt;/section&gt;
+        &lt;section class=&quot;block&quot;&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;settings-2&quot;&gt;&lt;/i&gt;System action / result&lt;/div&gt;&lt;p class=&quot;system&quot; id=&quot;quick-system&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+        &lt;section class=&quot;block&quot; id=&quot;quick-note-block&quot; hidden&gt;&lt;div class=&quot;block-title&quot;&gt;&lt;i data-lucide=&quot;info&quot;&gt;&lt;/i&gt;Note&lt;/div&gt;&lt;p class=&quot;note&quot; id=&quot;quick-note&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+      &lt;/div&gt;
+    &lt;/aside&gt;
+
+    &lt;div class=&quot;legend&quot;&gt;&lt;span&gt;&lt;i data-lucide=&quot;box&quot;&gt;&lt;/i&gt;Parent module&lt;/span&gt;&lt;span&gt;&lt;i data-lucide=&quot;copy&quot;&gt;&lt;/i&gt;Existing data reused&lt;/span&gt;&lt;span&gt;&lt;i data-lucide=&quot;plus-circle&quot;&gt;&lt;/i&gt;New data added&lt;/span&gt;&lt;span&gt;&lt;i data-lucide=&quot;diamond&quot;&gt;&lt;/i&gt;Decision&lt;/span&gt;&lt;span&gt;&lt;i data-lucide=&quot;settings-2&quot;&gt;&lt;/i&gt;Automatic work&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    (() =&gt; {
+      const r = (parent, tone, title, purpose, source, same, added, system, note = &#x27;&#x27;) =&gt; ({ parent, tone, title, purpose, source, same, added, system, note });
+      const data = {
+        masters: r(&#x27;Master Data &amp; Setup&#x27;,&#x27;primary&#x27;,&#x27;Reference Masters&#x27;,&#x27;Shared validated values used throughout both lifecycles.&#x27;,&#x27;Admin and master-data maintenance screens.&#x27;,[&#x27;No transaction data yet&#x27;],[&#x27;Vendor, client and subsidiary&#x27;,&#x27;Company users and rights&#x27;,&#x27;Product and HSN&#x27;,&#x27;Ports&#x27;,&#x27;Banks and AD codes&#x27;,&#x27;Import licenses / scripts&#x27;],&#x27;Supplies consistent IDs and selectable values to Purchase, Sales, Finance and Logistics. User rights control maker / approver behavior and notification routing.&#x27;),
+        po: r(&#x27;Purchase Module&#x27;,&#x27;accent&#x27;,&#x27;Purchase Order (PO)&#x27;,&#x27;The complete commercial source document for the Purchase &amp; Import lifecycle.&#x27;,&#x27;Manual multi-step form, saved draft, validated Excel bulk upload, or ERP / Caliber synchronization.&#x27;,[&#x27;Organization and company context&#x27;,&#x27;Company code and subsidiary reference&#x27;,&#x27;Vendor master ID, code, name, address, contact and country&#x27;,&#x27;Business-head / company-user reference&#x27;,&#x27;Product master ID, name and category&#x27;,&#x27;HSN master ID, code, description and category&#x27;,&#x27;Bill-to and ship-to party references&#x27;,&#x27;Port of loading / discharge names and codes&#x27;],[&#x27;PO number and PO date&#x27;,&#x27;Business head and risk-on-account&#x27;,&#x27;Vendor / subsidiary selection and transaction snapshot&#x27;,&#x27;Country of origin, product category and specification&#x27;,&#x27;Additional HSN description and unit of measure&#x27;,&#x27;Ordered quantity, rate and quantity tolerance&#x27;,&#x27;DGFT fees and custom-calculation choice&#x27;,&#x27;Currency, incoterm and delivery days&#x27;,&#x27;Bill-to / ship-to contacts and addresses&#x27;,&#x27;Notify-party details and final destination&#x27;,&#x27;Shipment method and container / bulk type&#x27;,&#x27;Freight, insurance and other charges&#x27;,&#x27;CHA, transport, shipping-line, surveyor and tank-terminal costs&#x27;,&#x27;Requested last-shipment and arrival dates / windows&#x27;,&#x27;Voyage time, shipping line and vessel&#x27;,&#x27;Estimated departure and arrival dates / windows&#x27;,&#x27;Advance, spot and credit amounts / percentages&#x27;,&#x27;Credit days, payment-term currency and payment terms&#x27;,&#x27;TT / DA type, sight / usance and LC number&#x27;,&#x27;Required documents&#x27;,&#x27;Remarks and central remarks&#x27;],&#x27;Validates and normalizes vendor, subsidiary, product / HSN and port references; calculates each line amount as quantity × rate; totals the PO amount and balance; initializes remaining and unconfirmed quantities; records creator, organization and pending approval state; creates the original PO history snapshot; initializes IMS, hedge and IDPMS flags; raises applicable payment notifications; and, after approval, creates or updates FX exposure and can auto-create the initial Shipment Schedule when shipping data exists.&#x27;,&#x27;PO is the first transaction document, so “Same data carried forward” means data reused from reference masters and session context. Bank master data is not directly added to the normal PO; banks enter later through LC, ORM, FX or PI Finance.&#x27;),
+        poDecision: r(&#x27;Purchase Module&#x27;,&#x27;warning&#x27;,&#x27;PO approved?&#x27;,&#x27;The PO approval gate.&#x27;,&#x27;Submitted PO and current user rights.&#x27;,[&#x27;All PO fields&#x27;],[&#x27;Approval / rejection action&#x27;,&#x27;Remarks&#x27;,&#x27;Actor and timestamp&#x27;],&#x27;YES creates or enables the next purchase records and can create the first shipment schedule. NO returns the PO for correction or rejection.&#x27;),
+        shipment: r(&#x27;Purchase Module&#x27;,&#x27;warning&#x27;,&#x27;Shipment Schedule&#x27;,&#x27;One shipping timeline reused across documents.&#x27;,&#x27;Approved PO first; later linked to OC and synchronized with PI and A&amp;C.&#x27;,[&#x27;PO / OC reference&#x27;,&#x27;Requested shipment and arrival dates&#x27;,&#x27;Ports&#x27;,&#x27;Product context&#x27;],[&#x27;Voyage time&#x27;,&#x27;Shipping line&#x27;,&#x27;Vessel&#x27;,&#x27;ETD and ETA&#x27;,&#x27;Date windows&#x27;,&#x27;Remarks&#x27;],&#x27;Validates ETA after ETD, avoids duplicate OC schedules, records history, and synchronizes date changes.&#x27;,&#x27;Code note: when shipping data exists, PO approval can auto-create this schedule before OC. OC later attaches itself to the existing PO schedule, so the displayed OC → Schedule order is the simpler user-facing sequence.&#x27;),
+        oc: r(&#x27;Purchase Module&#x27;,&#x27;accent&#x27;,&#x27;Order Confirmation (OC)&#x27;,&#x27;Confirms all or part of an approved PO.&#x27;,&#x27;Approved PO and its remaining unconfirmed HSN quantities.&#x27;,[&#x27;PO ID / number&#x27;,&#x27;Vendor / subsidiary&#x27;,&#x27;Currency and incoterm&#x27;,&#x27;Product / HSN&#x27;,&#x27;Ordered quantity and rate&#x27;,&#x27;Ports&#x27;,&#x27;Payment terms&#x27;,&#x27;Required documents&#x27;,&#x27;Shipment request&#x27;],[&#x27;OC number and date&#x27;,&#x27;SAP PO number&#x27;,&#x27;Confirmed HSN quantity&#x27;,&#x27;Confirmed rate and amount&#x27;],&#x27;Checks tolerance, reduces PO unconfirmed quantity, promotes the shipment schedule, allocates FX exposure, and creates SAP PO integration data.&#x27;,&#x27;Partial-transaction note: one PO can produce multiple OCs. Any unconfirmed quantity remains available, and the backend can retain or create another schedule for that remaining quantity.&#x27;),
+        ocDecision: r(&#x27;Purchase Module&#x27;,&#x27;warning&#x27;,&#x27;Full PO quantity confirmed?&#x27;,&#x27;Determines whether another OC is needed.&#x27;,&#x27;PO ordered quantity minus all confirmed OC quantities.&#x27;,[&#x27;PO / OC links&#x27;,&#x27;Remaining product / HSN quantity&#x27;],[&#x27;No new field; calculated result&#x27;],&#x27;YES continues the confirmed order. NO leaves the remaining quantity open for another OC and schedule.&#x27;,&#x27;Partial-transaction note: NO does not end the PO. The remaining quantity can continue through another OC, another linked schedule, and later invoices.&#x27;),
+        pi: r(&#x27;Purchase Module&#x27;,&#x27;success&#x27;,&#x27;Purchase Invoice (PI)&#x27;,&#x27;Captures supplier invoice and shipping documents.&#x27;,&#x27;OC with linked PO and Shipment Schedule.&#x27;,[&#x27;PO / OC references&#x27;,&#x27;Vendor / subsidiary&#x27;,&#x27;Currency&#x27;,&#x27;Product / HSN&#x27;,&#x27;Confirmed quantity and rate&#x27;,&#x27;Payment terms&#x27;,&#x27;Ports&#x27;,&#x27;Required documents&#x27;,&#x27;Shipment dates&#x27;],[&#x27;Invoice number and date&#x27;,&#x27;Invoice HSN quantity&#x27;,&#x27;Gross / net FCY value&#x27;,&#x27;BL number and quantity&#x27;,&#x27;Shipped-on-board date&#x27;,&#x27;ETA&#x27;,&#x27;Bank reference&#x27;,&#x27;Invoice documents&#x27;],&#x27;Calculates remaining invoice / BL quantities, derives due date and balances, consumes OC quantity, updates FX, and sends the PI to finance.&#x27;,&#x27;Partial-transaction note: confirmed quantity can be consumed across multiple invoices and shipment records while remaining quantities are tracked.&#x27;),
+        piDecision: r(&#x27;Purchase Module&#x27;,&#x27;warning&#x27;,&#x27;Invoice and BL valid?&#x27;,&#x27;Required validation before finance review.&#x27;,&#x27;PI values and linked OC / PO quantities.&#x27;,[&#x27;Confirmed HSN quantity&#x27;,&#x27;Invoice quantity&#x27;,&#x27;BL quantity&#x27;,&#x27;ETD / ETA&#x27;],[&#x27;No new field; validation result&#x27;],&#x27;YES continues when BL quantity does not exceed invoice quantity and ETA is not before shipped-on-board. NO requires correction.&#x27;),
+        fx: r(&#x27;Finance &amp; Treasury Module&#x27;,&#x27;primary&#x27;,&#x27;FX Exposure &amp; Hedging&#x27;,&#x27;Tracks foreign-currency risk as the obligation moves forward.&#x27;,&#x27;PO creates exposure; OC and PI receive allocated or remaining hedge balances.&#x27;,[&#x27;Currency&#x27;,&#x27;FCY value&#x27;,&#x27;PO / OC / PI references&#x27;],[&#x27;Hedge allocation&#x27;,&#x27;Hedge rate&#x27;,&#x27;Treasury reference&#x27;,&#x27;Used / remaining hedge balance&#x27;],&#x27;Creates and updates linked exposure records while commercial value moves from PO to OC to PI.&#x27;,&#x27;Placement note: FX is a parallel process that starts at PO and is updated through PO → OC → PI. It is not strictly a step that begins only after PI.&#x27;),
+        financeReview: r(&#x27;Finance &amp; Treasury Module&#x27;,&#x27;primary&#x27;,&#x27;PI Finance Review&#x27;,&#x27;Adds bank control to the purchase invoice.&#x27;,&#x27;Pending-finance PI and bank masters.&#x27;,[&#x27;PI reference&#x27;,&#x27;Vendor&#x27;,&#x27;Currency&#x27;,&#x27;Invoice value&#x27;,&#x27;Due date&#x27;],[&#x27;AD bank&#x27;,&#x27;AD code&#x27;,&#x27;Bank branch&#x27;,&#x27;IFSC&#x27;,&#x27;Finance action / remarks&#x27;],&#x27;Stores finance approval metadata. PI may remain pending BOE until the customs document exists.&#x27;,&#x27;Status note: even after Finance approval, the PI can remain PENDING_BOE when no Bill of Entry exists. BOE presence participates in the final PI status.&#x27;),
+        financeDecision: r(&#x27;Finance &amp; Treasury Module&#x27;,&#x27;warning&#x27;,&#x27;Finance approved?&#x27;,&#x27;Controls release to logistics.&#x27;,&#x27;PI and submitted finance details.&#x27;,[&#x27;PO / OC / PI data&#x27;,&#x27;Invoice value&#x27;,&#x27;Due date&#x27;,&#x27;Bank context&#x27;],[&#x27;Approval / rejection action&#x27;,&#x27;Actor and timestamp&#x27;],&#x27;YES allows A&amp;C processing; final PI status also considers BOE. NO sends finance data back for correction.&#x27;),
+        lc: r(&#x27;Finance &amp; Treasury Module&#x27;,&#x27;primary&#x27;,&#x27;Letter of Credit&#x27;,&#x27;Trade-finance cover linked to the PO and eligible OC / invoices.&#x27;,&#x27;Parent PO, unlinked OCs, vendor, currency and amount.&#x27;,[&#x27;PO / OC / PI references&#x27;,&#x27;Vendor&#x27;,&#x27;Currency&#x27;,&#x27;Purchase value&#x27;],[&#x27;LC number and type&#x27;,&#x27;Issuing bank&#x27;,&#x27;LC amount&#x27;,&#x27;Validity dates&#x27;,&#x27;LC terms&#x27;],&#x27;Links eligible OCs and invoices so LC information can be used in payment and finance processing.&#x27;,&#x27;Timing note: LC can begin from the PO or OC stage. It is optional and does not require PI Finance Review to occur first.&#x27;),
+        orm: r(&#x27;Finance &amp; Treasury Module&#x27;,&#x27;primary&#x27;,&#x27;ORM / Outward Remittance&#x27;,&#x27;Records advance or invoice payment.&#x27;,&#x27;Selected PO and / or PI balance, optional LC and FX exposure.&#x27;,[&#x27;PO / PI references&#x27;,&#x27;Vendor&#x27;,&#x27;Currency&#x27;,&#x27;Payable / advance balance&#x27;],[&#x27;Remittance amount&#x27;,&#x27;Purpose&#x27;,&#x27;Bank&#x27;,&#x27;Bank reference&#x27;,&#x27;Approval data&#x27;],&#x27;Maps ORM to PO / PI and updates used, paid and remaining amounts for reconciliation.&#x27;,&#x27;Timing note: ORM can be an advance remittance against a PO or a payment against a PI. It is optional and is not always created after PI Finance Review.&#x27;),
+        bc: r(&#x27;Finance &amp; Treasury Module&#x27;,&#x27;primary&#x27;,&quot;Buyer&#x27;s Credit&quot;,&#x27;Tracks short-term external finance for purchase invoices.&#x27;,&#x27;Eligible PI payable values and finance details.&#x27;,[&#x27;PI reference&#x27;,&#x27;Currency&#x27;,&#x27;Invoice amount&#x27;,&#x27;Due date&#x27;],[&#x27;Lender&#x27;,&#x27;Interest rate&#x27;,&#x27;Tenor&#x27;,&#x27;Maturity&#x27;,&#x27;Settlement / rollover&#x27;],&#x27;Links credit to invoices and updates settlement, rollover and remaining balances.&#x27;),
+        cndn: r(&#x27;Finance &amp; Treasury Module&#x27;,&#x27;primary&#x27;,&#x27;Purchase Credit / Debit Note&#x27;,&#x27;Adjusts a purchase invoice value.&#x27;,&#x27;Purchase invoice, vendor, subsidiary and currency.&#x27;,[&#x27;Invoice ID / number&#x27;,&#x27;Vendor&#x27;,&#x27;Subsidiary&#x27;,&#x27;Currency&#x27;],[&#x27;Credit / debit type&#x27;,&#x27;Note number and date&#x27;,&#x27;Due date&#x27;,&#x27;Value&#x27;,&#x27;Exchange rate&#x27;,&#x27;Purpose&#x27;],&#x27;Uses maker / approver status and links the adjustment back to the invoice.&#x27;,&#x27;Ownership note: Purchase CN/DN is available from the Purchase module and is an optional PI-linked adjustment. It is shown here as a shared financial record, not as a mandatory Treasury step.&#x27;),
+        anc: r(&#x27;Logistics &amp; Customs Module&#x27;,&#x27;warning&#x27;,&#x27;Assignment &amp; Clearing (A&amp;C)&#x27;,&#x27;Allocates cargo to a clearing route and CHA.&#x27;,&#x27;Finance-cleared PI, BL quantities, Shipment Schedule and available licenses.&#x27;,[&#x27;PI and invoice&#x27;,&#x27;BL details&#x27;,&#x27;Product / HSN&#x27;,&#x27;Vendor / subsidiary&#x27;,&#x27;Ports&#x27;,&#x27;Shipping dates&#x27;,&#x27;Bank details&#x27;],[&#x27;Route: HSS / HC / IB / FTWZ&#x27;,&#x27;Assigned quantity&#x27;,&#x27;Customer / destination&#x27;,&#x27;Container numbers&#x27;,&#x27;CHA details&#x27;,&#x27;Duty / payment choices&#x27;,&#x27;License / script&#x27;,&#x27;Remarks&#x27;],&#x27;Reduces PI remaining BL quantity, consumes license balance, syncs PI and schedule, and notifies the CHA when required.&#x27;),
+        boe: r(&#x27;Logistics &amp; Customs Module&#x27;,&#x27;warning&#x27;,&#x27;Bill of Entry (BOE)&#x27;,&#x27;Records customs declaration and landed cost.&#x27;,&#x27;A&amp;C assignment and linked PI.&#x27;,[&#x27;PI / invoice&#x27;,&#x27;BL details&#x27;,&#x27;Product / HSN&#x27;,&#x27;Vendor / subsidiary&#x27;,&#x27;Ports&#x27;,&#x27;Assigned quantity&#x27;,&#x27;CHA&#x27;,&#x27;Selected licenses&#x27;],[&#x27;IGM and BOE numbers / dates&#x27;,&#x27;IEC&#x27;,&#x27;BOE quantity&#x27;,&#x27;Customs exchange value&#x27;,&#x27;Freight / insurance&#x27;,&#x27;Duty and taxes&#x27;,&#x27;Benefit / license allocation&#x27;,&#x27;CHA / transporter / surveyor costs&#x27;],&#x27;Updates BOE-based due date, consumes licenses, marks the A&amp;C BL as BOE-built, and updates PI status.&#x27;),
+        boeDecision: r(&#x27;Logistics &amp; Customs Module&#x27;,&#x27;warning&#x27;,&#x27;BOE approved?&#x27;,&#x27;Customs-document approval gate.&#x27;,&#x27;Created BOE and maker / approver rights.&#x27;,[&#x27;PI / BL / customs data&#x27;,&#x27;Duty and cost values&#x27;],[&#x27;Approval / rejection action&#x27;,&#x27;Actor and timestamp&#x27;],&#x27;YES makes BOE evidence available for PI completion and compliance. NO keeps customs processing pending.&#x27;),
+        license: r(&#x27;Logistics &amp; Customs Module&#x27;,&#x27;warning&#x27;,&#x27;License Ledger&#x27;,&#x27;Tracks import-license and script usage.&#x27;,&#x27;License master balances plus A&amp;C and BOE selections.&#x27;,[&#x27;License / script ID&#x27;,&#x27;Available balance&#x27;,&#x27;Transaction reference&#x27;],[&#x27;Allocated quantity / value&#x27;,&#x27;Usage source: A&amp;C or BOE&#x27;],&#x27;Posts usage entries, reduces remaining balance, and preserves traceability to the source transaction.&#x27;),
+        cha: r(&#x27;Logistics &amp; Customs Module&#x27;,&#x27;warning&#x27;,&#x27;CHA Communication&#x27;,&#x27;Sends clearing instructions to the selected agent.&#x27;,&#x27;A&amp;C route, CHA details, BL and assignment information.&#x27;,[&#x27;Invoice / BL&#x27;,&#x27;Assignment route&#x27;,&#x27;Containers&#x27;,&#x27;Ports&#x27;,&#x27;CHA contact&#x27;],[&#x27;Notification event and timestamp&#x27;],&#x27;Emails the CHA for applicable In Bond, Home Consumption or FTWZ assignments.&#x27;),
+        idpmsDecision: r(&#x27;Compliance &amp; Closure Module&#x27;,&#x27;warning&#x27;,&#x27;BOE and payment complete?&#x27;,&#x27;Checks readiness for import closure.&#x27;,&#x27;PO with PI, approved BOE and remittance / payment evidence.&#x27;,[&#x27;PO / PI identity&#x27;,&#x27;BOE evidence&#x27;,&#x27;ORM / payment evidence&#x27;,&#x27;Import value&#x27;],[&#x27;No new field; completion result&#x27;],&#x27;YES allows IDPMS closure. NO leaves the import pending BOE or finance completion.&#x27;,&#x27;Implementation note: this is a business-readiness decision shown for understanding. The current closure endpoint does not enforce BOE/payment completeness itself.&#x27;),
+        idpms: r(&#x27;Compliance &amp; Closure Module&#x27;,&#x27;success&#x27;,&#x27;IDPMS Closure&#x27;,&#x27;Final import reconciliation.&#x27;,&#x27;IDPMS dashboard record built from PO and downstream evidence.&#x27;,[&#x27;PO reference&#x27;,&#x27;Invoice details&#x27;,&#x27;BOE evidence&#x27;,&#x27;ORM / payment evidence&#x27;,&#x27;Import value&#x27;],[&#x27;IDPMS closed flag&#x27;,&#x27;Closure remarks&#x27;],&#x27;Marks the PO as IDPMS-closed for import compliance and reporting.&#x27;,&#x27;Implementation note: the backend currently closes IDPMS by setting idpms_closed to true and saving remarks. It does not revalidate BOE and payment completeness during that operation.&#x27;),
+        salesOrder: r(&#x27;Sales Module&#x27;,&#x27;accent&#x27;,&#x27;Sales Order (SO)&#x27;,&#x27;The commercial source document for the Sales &amp; Export lifecycle.&#x27;,&#x27;Client, product, company, bank and user masters.&#x27;,[&#x27;Client master&#x27;,&#x27;Product / HSN&#x27;,&#x27;Company / subsidiary&#x27;,&#x27;Currency and bank references&#x27;],[&#x27;SO number&#x27;,&#x27;Client and destination&#x27;,&#x27;Products and quantities&#x27;,&#x27;Rates and currency&#x27;,&#x27;Incoterm&#x27;,&#x27;Advance / spot / credit terms&#x27;,&#x27;Required documents&#x27;],&#x27;Creates the customer sales contract, tracks available quantities and provides the source for Sales Invoices.&#x27;,&#x27;Parallel-flow note: Sales Orders are independent from most Purchase Orders. HSS or FTWZ business can connect import-clearance records to Sales views when applicable.&#x27;),
+        salesInvoice: r(&#x27;Sales Module&#x27;,&#x27;success&#x27;,&#x27;Sales Invoice&#x27;,&#x27;Creates the commercial export or domestic invoice against a Sales Order.&#x27;,&#x27;Approved or eligible Sales Order and client / product masters.&#x27;,[&#x27;SO reference&#x27;,&#x27;Client&#x27;,&#x27;Product / HSN&#x27;,&#x27;Quantity and rate&#x27;,&#x27;Currency&#x27;,&#x27;Collection terms&#x27;],[&#x27;Invoice number and date&#x27;,&#x27;Gross / net value&#x27;,&#x27;Packing list&#x27;,&#x27;Commercial invoice&#x27;,&#x27;Inspection / origin documents&#x27;,&#x27;Dispatch and transport documents&#x27;],&#x27;Creates the shared invoice record. Logistics and Finance later update their own sections on that same invoice.&#x27;),
+        logisticsInvoice: r(&#x27;Sales Module&#x27;,&#x27;warning&#x27;,&#x27;Logistics Invoice Stage&#x27;,&#x27;Adds shipping and movement information to the existing Sales Invoice.&#x27;,&#x27;Sales Invoice and its Sales Order.&#x27;,[&#x27;Invoice / SO identity&#x27;,&#x27;Client and products&#x27;,&#x27;Invoice quantity and value&#x27;,&#x27;Collection terms&#x27;],[&#x27;Shipping bill details&#x27;,&#x27;Shipment / transport data&#x27;,&#x27;Logistics documents&#x27;,&#x27;BTT certificate when applicable&#x27;],&#x27;Updates the logistics section of the same invoice and can derive due dates from shipping-bill-based Sales Order terms.&#x27;,&#x27;This is not a second commercial invoice. It is the Logistics team completing its stage on the shared Sales Invoice record.&#x27;),
+        salesFinance: r(&#x27;Sales Module&#x27;,&#x27;primary&#x27;,&#x27;Finance Invoice Stage&#x27;,&#x27;Adds finance approval and collection allocation to the Sales Invoice.&#x27;,&#x27;Sales and Logistics invoice stages plus eligible IRMs.&#x27;,[&#x27;Invoice / SO identity&#x27;,&#x27;Client&#x27;,&#x27;Invoice value and balance&#x27;,&#x27;Due date&#x27;,&#x27;Shipping information&#x27;],[&#x27;Advance eligibility&#x27;,&#x27;Finance action&#x27;,&#x27;Approval actor / time&#x27;,&#x27;Selected IRM allocations&#x27;],&#x27;Updates the finance section and can map existing IRM amounts to the invoice, reducing invoice and IRM available balances.&#x27;),
+        salesFinanceDecision: r(&#x27;Sales Module&#x27;,&#x27;warning&#x27;,&#x27;Finance approved?&#x27;,&#x27;The final invoice finance approval gate.&#x27;,&#x27;Completed Sales and Logistics invoice data plus Finance details.&#x27;,[&#x27;Invoice&#x27;,&#x27;SO&#x27;,&#x27;Client&#x27;,&#x27;Value&#x27;,&#x27;Due date&#x27;,&#x27;Shipping and bank context&#x27;],[&#x27;Approval / rejection action&#x27;,&#x27;Actor and timestamp&#x27;],&#x27;YES makes the approved finance state available for export collection and reporting. NO returns Finance details for correction.&#x27;),
+        salesCndn: r(&#x27;Sales Module&#x27;,&#x27;accent&#x27;,&#x27;Sales Credit / Debit Note&#x27;,&#x27;Optional adjustment against a Sales Invoice.&#x27;,&#x27;Sales Invoice, client, subsidiary and currency.&#x27;,[&#x27;Invoice identity&#x27;,&#x27;Client&#x27;,&#x27;Subsidiary&#x27;,&#x27;Currency&#x27;],[&#x27;Credit / debit type&#x27;,&#x27;Note number and date&#x27;,&#x27;Value&#x27;,&#x27;Exchange rate&#x27;,&#x27;Purpose&#x27;],&#x27;Uses maker / approver status and links the adjustment back to the Sales Invoice.&#x27;,&#x27;This is optional and should not be read as a mandatory step in every Sales lifecycle.&#x27;),
+        salesModes: r(&#x27;Sales Module&#x27;,&#x27;accent&#x27;,&#x27;HSS / FTWZ Sales Views&#x27;,&#x27;Shows Sales-relevant records for applicable import modes.&#x27;,&#x27;A&amp;C / BOE records classified as High Sea Sales or FTWZ.&#x27;,[&#x27;Import invoice / BL context&#x27;,&#x27;Assignment mode&#x27;,&#x27;Customer / destination&#x27;,&#x27;Product and quantity&#x27;],[&#x27;Sales-side processing data when required&#x27;],&#x27;Exposes applicable HSS and FTWZ records to Sales users without making every import transaction a Sales Order.&#x27;,&#x27;Cross-flow note: this is a conditional bridge between Purchase &amp; Import and Sales &amp; Export, not a universal connection.&#x27;),
+        invoiceNegotiation: r(&#x27;Export Finance &amp; Realization&#x27;,&#x27;primary&#x27;,&#x27;Invoice Negotiation&#x27;,&#x27;Optional bank lodgement, discounting or export-finance processing.&#x27;,&#x27;Sales Invoice with bank and shipping details.&#x27;,[&#x27;Invoice identity&#x27;,&#x27;Client&#x27;,&#x27;Invoice value&#x27;,&#x27;Currency&#x27;,&#x27;Shipping bill context&#x27;],[&#x27;Lodgement bank / bill ID&#x27;,&#x27;Negotiation value&#x27;,&#x27;Discounting date and rate&#x27;,&#x27;Margin&#x27;,&#x27;Bank reference&#x27;],&#x27;Creates an invoice-negotiation record linked to the Sales Invoice and maintains bank-level negotiation details.&#x27;,&#x27;This is optional. Direct collections can proceed through IRM without invoice negotiation.&#x27;),
+        irm: r(&#x27;Export Finance &amp; Realization&#x27;,&#x27;success&#x27;,&#x27;Inward Remittance (IRM)&#x27;,&#x27;Records customer funds received from abroad.&#x27;,&#x27;Bank receipt information; optionally a Sales Order or Sales Invoice.&#x27;,[&#x27;Client / remitter context&#x27;,&#x27;Currency&#x27;,&#x27;SO or invoice reference when known&#x27;],[&#x27;IRM number and date&#x27;,&#x27;Gross amount&#x27;,&#x27;Bank charges&#x27;,&#x27;Available amount&#x27;,&#x27;IRM type: invoice / SO / ad-hoc&#x27;],&#x27;Stores received funds and tracks available versus utilized value for later allocation.&#x27;,&#x27;Timing note: IRM can be invoice-specific, SO-level, advance, or ad-hoc. It is not always created only after an invoice.&#x27;),
+        irmDecision: r(&#x27;Export Finance &amp; Realization&#x27;,&#x27;warning&#x27;,&#x27;IRM mapped to invoice?&#x27;,&#x27;Checks whether received funds have been allocated to a Sales Invoice.&#x27;,&#x27;Available IRM plus eligible Sales Order / Invoice.&#x27;,[&#x27;IRM identity and balance&#x27;,&#x27;SO / invoice identity&#x27;,&#x27;Currency and value&#x27;],[&#x27;Allocation amount&#x27;,&#x27;Bank-charge allocation&#x27;,&#x27;IRM-to-SO and IRM-to-invoice mappings&#x27;],&#x27;YES reduces both invoice balance and IRM availability. NO keeps the IRM available for later allocation.&#x27;),
+        ebrc: r(&#x27;Export Finance &amp; Realization&#x27;,&#x27;success&#x27;,&#x27;e-BRC Certificate&#x27;,&#x27;Records export-realization evidence after invoice funds are mapped.&#x27;,&#x27;Shipping bill number, invoice and invoice-type IRM mapping.&#x27;,[&#x27;Invoice identity&#x27;,&#x27;Shipping bill&#x27;,&#x27;IRM number&#x27;,&#x27;Realized amount&#x27;],[&#x27;e-BRC amount&#x27;,&#x27;Certificate number&#x27;,&#x27;Certificate files&#x27;],&#x27;Updates the IRM-to-invoice utilization with e-BRC details and exposes the result in the e-BRC dashboard.&#x27;,&#x27;e-BRC is not automatically created for every IRM; the invoice, shipping bill and IRM must be matched.&#x27;),
+        dashboard: r(&#x27;Monitoring &amp; Control&#x27;,&#x27;accent&#x27;,&#x27;Dashboards&#x27;,&#x27;Operational view of both business lifecycles.&#x27;,&#x27;Statuses and timestamps from Purchase, Sales, Finance, Logistics, Customs and Compliance records.&#x27;,[&#x27;Document IDs&#x27;,&#x27;Current status&#x27;,&#x27;Owner / actor&#x27;,&#x27;Dates and values&#x27;],[&#x27;Filters&#x27;,&#x27;Search&#x27;,&#x27;Selected dashboard view&#x27;],&#x27;Aggregates counts and work queues without creating a new transaction source.&#x27;),
+        audit: r(&#x27;Monitoring &amp; Control&#x27;,&#x27;accent&#x27;,&#x27;History &amp; Notifications&#x27;,&#x27;Cross-module traceability and work routing.&#x27;,&#x27;Create, edit and approval events from every major module.&#x27;,[&#x27;Document reference&#x27;,&#x27;Before / after state&#x27;,&#x27;Company and role routing&#x27;],[&#x27;Actor&#x27;,&#x27;Action&#x27;,&#x27;Remarks&#x27;,&#x27;Timestamp&#x27;,&#x27;Version snapshot&#x27;,&#x27;Notification event&#x27;],&#x27;Writes history records and sends role-based alerts or emails at key transitions.&#x27;)
+      };
+
+      const fieldCatalog = {
+        masters: {
+          same: [&quot;No transaction data yet&quot;],
+          added: [&quot;Company and subsidiary masters&quot;, &quot;Company users, roles and approval rights&quot;, &quot;Vendor master: code, name, address, contact and country&quot;, &quot;Client / party master and billing details&quot;, &quot;Product, product category and specification masters&quot;, &quot;HSN code, description and unit of measurement&quot;, &quot;Port names and port codes&quot;, &quot;Bank, branch, account, IFSC and AD-code masters&quot;, &quot;License, script and benefit masters&quot;],
+          required: []
+        },
+        po: {
+          added: [&quot;PO Number and PO Date&quot;, &quot;Business Head and Risk on Account&quot;, &quot;Vendor / Subsidiary selection and transaction snapshot&quot;, &quot;Country of Origin, Product Category and Product Specification&quot;, &quot;Additional HSN Description and Unit of Measurement&quot;, &quot;Ordered Quantity, Rate and Quantity Tolerance&quot;, &quot;DGFT Fees and Custom Calculation choice&quot;, &quot;Currency, Incoterms and Delivery Days&quot;, &quot;Bill-to / Ship-to contacts and addresses&quot;, &quot;Notify Party details and Final Destination&quot;, &quot;Shipment Method and Container / Bulk Type&quot;, &quot;Freight, Insurance and Other charges&quot;, &quot;Clearing cost estimates: CHA cost, Transport, Shipping Line, Surveyor, Tank Terminal and total&quot;, &quot;Requested Last-shipment and Arrival dates / windows&quot;, &quot;Voyage Time, Shipping Line and Vessel&quot;, &quot;Estimated Departure and Arrival dates / windows&quot;, &quot;Advance, Spot and Credit amounts / percentages&quot;, &quot;Credit Days, Payment-term Currency and Payment Terms&quot;, &quot;TT / DA Type, Sight / Usance and LC Number&quot;, &quot;Required Documents&quot;, &quot;Remarks and Central Remarks&quot;],
+          required: [&quot;Purchase Order Date&quot;, &quot;Subsidiary&quot;, &quot;CO Code&quot;, &quot;Business Head&quot;, &quot;Risk on Account&quot;, &quot;Country of Origin (each HSN line)&quot;, &quot;Product Category, Product and Product Specification (each HSN line)&quot;, &quot;Rate, HSN Code, HSN Description, Amount, Unit, Unit of Measurement and Tolerance (each HSN line)&quot;, &quot;PO Quantity and PO Value&quot;, &quot;Vendor Name, Vendor Code, Vendor Address and Vendor Country&quot;, &quot;Currency and Incoterms&quot;, &quot;Bill-to Party Address&quot;, &quot;Ship-to Party and Ship-to Party Address&quot;, &quot;Shipment Method&quot;, &quot;Port of Loading and Port of Discharge&quot;, &quot;Requested Last Date of Shipment&quot;, &quot;Requested Arrival Date&quot;, &quot;Advance option&quot;, &quot;Advance Percentage and Amount when percentage option is selected&quot;, &quot;Spot Day Type and Credit Days for Usance&quot;, &quot;Credit Amount&quot;, &quot;TT/DA Type&quot;, &quot;Payment Terms&quot;, &quot;Sight/Usance&quot;]
+        },
+        poDecision: { required: [&quot;Approval or rejection action&quot;, &quot;Authorized maker / approver identity&quot;] },
+        oc: {
+          same: [&quot;PO ID and PO Number&quot;, &quot;PO remaining unconfirmed quantity&quot;, &quot;Country of Origin&quot;, &quot;Product, Product Category and Product Specification&quot;, &quot;HSN Code, HSN Description and Additional HSN Description&quot;, &quot;Unit of Measurement&quot;, &quot;PO Rate and available Quantity&quot;, &quot;Required Documents&quot;, &quot;Organization / company and creator context&quot;],
+          added: [&quot;Order Confirmation Number&quot;, &quot;Order Confirmation Date&quot;, &quot;SAP / ERP PO Number&quot;, &quot;Confirmed Quantity / Unit per HSN&quot;, &quot;Confirmed Rate per HSN&quot;, &quot;Confirmed Amount per HSN&quot;, &quot;Remaining Quantity per HSN&quot;, &quot;Received and Cancelled Quantity tracking&quot;, &quot;OC Documents&quot;, &quot;Approval Status, Workflow Status and action metadata&quot;],
+          required: [&quot;Order Confirmation Number&quot;, &quot;Order Confirmation Date&quot;, &quot;At least one confirmed HSN quantity within the PO remaining quantity&quot;]
+        },
+        ocDecision: { required: [] },
+        shipment: {
+          same: [&quot;PO ID&quot;, &quot;OC ID when confirmed&quot;, &quot;PI ID when invoiced&quot;, &quot;PO / OC reference&quot;, &quot;Requested Last Date of Shipment&quot;, &quot;Requested Arrival Date or Arrival Window&quot;, &quot;Organization / company and creator context&quot;],
+          added: [&quot;Voyage Time&quot;, &quot;Shipping Line&quot;, &quot;Vessel Name / Voyage Number&quot;, &quot;Estimated Departure Date (ETD)&quot;, &quot;Estimated Arrival Date (ETA) or ETA Window&quot;, &quot;Schedule Remarks&quot;, &quot;Modified By and Modified At&quot;],
+          required: [&quot;PO reference at PO-created stage&quot;, &quot;OC reference when schedule is attached to an OC&quot;, &quot;ETA must not be earlier than ETD when both are present&quot;]
+        },
+        pi: {
+          same: [&quot;Selected OC / Vendor Code / PO reference&quot;, &quot;PO ID, Number and Date&quot;, &quot;OC ID and OC Number&quot;, &quot;Subsidiary&quot;, &quot;Vendor Name, Code, Address, Country and ID&quot;, &quot;Currency and Incoterms&quot;, &quot;Product, Product Category and Specification&quot;, &quot;Country of Origin&quot;, &quot;HSN Code, Description and Additional Description&quot;, &quot;Confirmed Quantity, Rate, Amount and Unit of Measurement&quot;, &quot;Bill-to / Ship-to parties and addresses&quot;, &quot;Final Destination&quot;, &quot;Shipment Method&quot;, &quot;Ports and port codes&quot;, &quot;Freight, Insurance and Other charges&quot;, &quot;Required Documents&quot;, &quot;Shipment Schedule dates&quot;],
+          added: [&quot;Purchase Invoice Number and Date&quot;, &quot;Invoice Currency&quot;, &quot;Container / Bulk&quot;, &quot;Invoice Gross Amount FCY / INR&quot;, &quot;Invoice Discount FCY / INR&quot;, &quot;Invoice Net Amount FCY / INR&quot;, &quot;Exchange Rate&quot;, &quot;Gross Invoice Amount&quot;, &quot;Invoice Quantity&quot;, &quot;Hedging Status and Hedging Rate&quot;, &quot;Bill of Lading Number and Quantity&quot;, &quot;Remaining BL Quantity&quot;, &quot;BL Date&quot;, &quot;HSS / HC / In Bond / FTWZ classification&quot;, &quot;Presold / Self and Assigned To&quot;, &quot;Container Numbers&quot;, &quot;Shipped-on-Board Date&quot;, &quot;Vessel, Voyage Time and Shipping Line&quot;, &quot;Estimated Arrival Date&quot;, &quot;AD Bank, Branch, AD Code, IFSC and Bank Reference&quot;, &quot;PI Documents and Remarks&quot;, &quot;Due Date&quot;, &quot;Invoice Balance and Advance Remaining&quot;, &quot;Approval, Finance and cancellation metadata&quot;],
+          required: [&quot;OC / Vendor Code / PO selection&quot;, &quot;Invoice Number&quot;, &quot;Invoice Date&quot;, &quot;Invoice Currency&quot;, &quot;Country of Origin per HSN&quot;, &quot;HSN Description per HSN&quot;, &quot;Unit / Invoice Quantity per HSN&quot;, &quot;Bill of Lading Number&quot;, &quot;Bill of Lading Quantity&quot;, &quot;Ship-to Party Address&quot;, &quot;Port of Discharge&quot;, &quot;Gross Invoice Amount&quot;, &quot;Invoice Quantity&quot;, &quot;Shipped-on-Board Date&quot;, &quot;Bill of Lading Date&quot;]
+        },
+        piDecision: { required: [&quot;BL Quantity must not exceed Invoice Quantity&quot;, &quot;ETA must not be earlier than Shipped-on-Board Date&quot;] },
+        fx: {
+          same: [&quot;Document Type, Number and Date&quot;, &quot;Parent PO / OC / PI IDs and references&quot;, &quot;Company and Organization&quot;, &quot;Vendor&quot;, &quot;Currency&quot;, &quot;Document Value&quot;, &quot;Shipment Date&quot;, &quot;Credit Days and Due Date&quot;, &quot;Business Head and Risk on Account&quot;],
+          added: [&quot;Bank and Bank Name&quot;, &quot;Hedged Balance&quot;, &quot;Unhedged Balance&quot;, &quot;FX Exposure Status&quot;, &quot;FX Contract ID and Contract Number&quot;, &quot;Booked Rate&quot;, &quot;Hedged Contract Value&quot;, &quot;Utilized and Unutilized Amount&quot;, &quot;Cancelled Amount and Cancellation Rate&quot;, &quot;Profit / Loss on Cancellation&quot;, &quot;Reconciliation Value and Difference&quot;, &quot;Hedge Remarks and Hedge Status&quot;],
+          required: [&quot;Document Type, Number and Date&quot;, &quot;Company and Company Name&quot;, &quot;Vendor and Vendor Name except Buyer Credit exposure&quot;, &quot;Bank Name&quot;, &quot;Currency&quot;, &quot;Document Value&quot;, &quot;Credit Days&quot;, &quot;Business Head except Buyer Credit exposure&quot;, &quot;Risk on Account&quot;, &quot;For a hedge: FX Contract, FX Exposure, Contract Number, Company Name, Currency, Booked Rate and Hedged Amount&quot;]
+        },
+        financeReview: {
+          same: [&quot;PI ID and Invoice Number&quot;, &quot;Vendor and Subsidiary&quot;, &quot;Invoice Currency and Value&quot;, &quot;Invoice Date and Due Date&quot;, &quot;PO / OC references&quot;, &quot;Existing Bank Reference&quot;],
+          added: [&quot;AD Bank&quot;, &quot;AD Bank Branch&quot;, &quot;AD Code&quot;, &quot;IFSC Code&quot;, &quot;AD Bank ID&quot;, &quot;Finance Approval Status&quot;, &quot;Finance Workflow Status&quot;, &quot;Finance Action Taken By and Time&quot;, &quot;Finance Creator&quot;, &quot;Finance Remarks / correction context&quot;],
+          required: [&quot;Invoice reference&quot;, &quot;Authorized finance action&quot;]
+        },
+        financeDecision: { required: [&quot;Approval or rejection action&quot;, &quot;Authorized finance approver&quot;] },
+        lc: {
+          same: [&quot;Document Type / linked PO, OC or PI&quot;, &quot;Document Number and Date&quot;, &quot;Parent PO ID&quot;, &quot;PO / OC / PI numbers and dates&quot;, &quot;Company and Subsidiary&quot;, &quot;Vendor&quot;, &quot;Currency&quot;, &quot;Party&quot;, &quot;Eligible document value&quot;],
+          added: [&quot;LC Number&quot;, &quot;LC Date&quot;, &quot;LC Expiry Date&quot;, &quot;Issuing Bank and Bank ID&quot;, &quot;LC Payment Terms&quot;, &quot;Presentation Period&quot;, &quot;Shipment / Last Date of Shipment&quot;, &quot;Bank Reference Number&quot;, &quot;LC Value FCY&quot;, &quot;Tolerance Percent and Tolerance Value&quot;, &quot;Total Amount, Utilized Amount and LC Balance FCY&quot;, &quot;Exchange Rate and Total Amount INR&quot;, &quot;Commission Rate and Amount&quot;, &quot;SWIFT Charges, GST Charges and Total Charges&quot;, &quot;LC Amendments&quot;, &quot;LC Status, Cancellation Remark and Cancelled Amount&quot;, &quot;Linked ORM Documents&quot;, &quot;Approval metadata and Remarks&quot;],
+          required: [&quot;LC Number&quot;, &quot;LC Date&quot;, &quot;LC Expiry Date&quot;, &quot;Presentation Period&quot;, &quot;Bank Name&quot;, &quot;Shipment / Last Date of Shipment&quot;, &quot;Company Name&quot;, &quot;Vendor Name&quot;]
+        },
+        orm: {
+          same: [&quot;Subsidiary&quot;, &quot;Payment Against: PO or Invoice&quot;, &quot;PO Number / ID / Date when PO payment&quot;, &quot;Invoice Number / ID / Date when Invoice payment&quot;, &quot;Party&quot;, &quot;Currency&quot;, &quot;Eligible advance or payable balance&quot;, &quot;Optional LC Number&quot;],
+          added: [&quot;ORM / Payment Evidence: Payment Reference Number, Payment Date, Payment Amount and Bank&quot;, &quot;Payment Type&quot;, &quot;Payment Bank and Bank ID&quot;, &quot;Bank Account Number&quot;, &quot;Bank Branch&quot;, &quot;Bank AD Code and IFSC&quot;, &quot;Purpose Code and Description&quot;, &quot;ORM Gross Amount&quot;, &quot;Bank Charges&quot;, &quot;ORM Net Amount&quot;, &quot;Exchange Rate&quot;, &quot;Invoice / PO utilization mapping&quot;, &quot;Approval and workflow metadata&quot;],
+          required: [&quot;Subsidiary&quot;, &quot;Payment Against type&quot;, &quot;Payment Type&quot;, &quot;Payment Bank&quot;, &quot;Payment Bank Account Number&quot;, &quot;Payment Bank ID&quot;, &quot;Payment Date&quot;, &quot;Exchange Rate&quot;, &quot;Purpose Code and Purpose Description for each mapped PO / Invoice&quot;]
+        },
+        bc: {
+          same: [&quot;Company and Subsidiary&quot;, &quot;Currency&quot;, &quot;Bank&quot;, &quot;TT / DA Type&quot;, &quot;Linked PO and Purchase Invoice IDs&quot;, &quot;Vendor&quot;, &quot;Invoice Number, Amount, Date and Due Date&quot;, &quot;Bank Reference&quot;, &quot;Risk on Account&quot;],
+          added: [&quot;Buyer Credit Number and Date&quot;, &quot;Buyer Credit Principal Amount&quot;, &quot;SBLC Bank, Number and Date&quot;, &quot;Lending Bank Name&quot;, &quot;Payment Terms&quot;, &quot;Effective Date and Due Date&quot;, &quot;Bank FCY Rate&quot;, &quot;SBLC, SOFR, Interest, Other, FX and Bank-charge percentages&quot;, &quot;FCY and INR cost components&quot;, &quot;Total Cost INR and Total Buyer Credit FCY Payable&quot;, &quot;Settlement Value, Date and Status&quot;, &quot;Rollover Reference, Rate and Rollover values&quot;, &quot;SWIFT Reference Number&quot;, &quot;Workflow Status&quot;],
+          required: [&quot;Company&quot;]
+        },
+        cndn: {
+          same: [&quot;Purchase / SO-PO Type&quot;, &quot;Purchase Invoice ID and Number&quot;, &quot;Vendor&quot;, &quot;Subsidiary&quot;, &quot;Currency&quot;],
+          added: [&quot;Credit / Debit Note Type&quot;, &quot;Credit / Debit Note Number&quot;, &quot;Note Date&quot;, &quot;Due Date&quot;, &quot;Value&quot;, &quot;Currency Rate&quot;, &quot;Purpose&quot;, &quot;Documents&quot;, &quot;Paid / Remitted status&quot;, &quot;Remittance Bank, Purchase Rate, Date and Inward Reference&quot;, &quot;Approval and workflow metadata&quot;],
+          required: [&quot;Subsidiary&quot;, &quot;Vendor Name&quot;, &quot;Credit / Debit Note Number&quot;, &quot;Note Date&quot;, &quot;Currency&quot;, &quot;Currency Rate&quot;, &quot;Value&quot;, &quot;Due Date&quot;]
+        },
+        anc: {
+          same: [&quot;Purchase Invoice ID, Number and Date&quot;, &quot;Subsidiary&quot;, &quot;Vendor&quot;, &quot;Invoice Amount, Quantity and Currency&quot;, &quot;Container / Bulk&quot;, &quot;Port of Loading and Discharge with codes&quot;, &quot;Insurance, Freight and Other amounts / currencies&quot;, &quot;AD Bank, Branch, AD Code, IFSC and Bank ID&quot;, &quot;Shipped-on-Board Date&quot;, &quot;Vessel, Voyage Time, ETA and Shipping Line&quot;, &quot;Product, Category, Specification and Country of Origin&quot;, &quot;HSN Code, Description, Unit, Rate and Amount&quot;, &quot;Bill of Lading Number and Quantity&quot;],
+          added: [&quot;Assignment Currency&quot;, &quot;Payment Type&quot;, &quot;Customs Duty Amount and Direct Payment Amount&quot;, &quot;Benefit and Benefit ID&quot;, &quot;Import-under License Type&quot;, &quot;HSS / Home Consumption / In Bond / FTWZ route per BL&quot;, &quot;Presold / Self&quot;, &quot;Assigned To / Customer&quot;, &quot;Container Numbers&quot;, &quot;CHA Name and CHA Email&quot;, &quot;BL Usage Party and BE Type&quot;, &quot;BE / Ex-Bond BE Number, Date, Quantity and Value&quot;, &quot;IEC Code and AD Code for BL usage&quot;, &quot;License / Script Type, Scheme, Number, Amount and Quantity&quot;, &quot;License Product, HSN and available balances&quot;, &quot;A&amp;C Remarks&quot;, &quot;BOE-built flag&quot;, &quot;Approval and workflow metadata&quot;],
+          required: [&quot;AD Bank&quot;, &quot;AD Bank Branch&quot;, &quot;AD Code&quot;, &quot;IFSC Code&quot;, &quot;Invoice Amount&quot;, &quot;Invoice Currency&quot;, &quot;Invoice Date&quot;, &quot;Invoice Number&quot;, &quot;Invoice Quantity&quot;, &quot;Port of Loading&quot;, &quot;Port of Discharge&quot;, &quot;Subsidiary&quot;, &quot;Vendor Name&quot;, &quot;Shipped-on-Board Date&quot;, &quot;Vessel Name&quot;, &quot;Voyage Time&quot;, &quot;Estimated Arrival Date&quot;, &quot;Currency&quot;, &quot;Assigned To for HSS / In Bond / FTWZ&quot;, &quot;CHA Name and valid CHA Email except High Sea Sales&quot;, &quot;License / Script scheme, selection and positive amount when a license row is used&quot;, &quot;Positive quantity for selected DFIA license&quot;]
+        },
+        boe: {
+          same: [&quot;A&amp;C ID and Purchase Invoice ID&quot;, &quot;Subsidiary and Vendor&quot;, &quot;Invoice Number, Date, Amount, Quantity and Currency&quot;, &quot;Bill of Lading details, route, assignment and containers&quot;, &quot;Port of Loading and Discharge&quot;, &quot;Product and HSN details&quot;, &quot;Selected License / Script details&quot;, &quot;Organization and creator context&quot;],
+          added: [&quot;IGM Number and Date&quot;, &quot;BOE Number and Date&quot;, &quot;BOE AD Bank, Branch, IFSC, AD Code and Bank ID&quot;, &quot;IEC Number and Date&quot;, &quot;BOE Quantity and Currency&quot;, &quot;BOE Gross, Deduction / Addition, Freight, Insurance, Other and Net Amount FCY&quot;, &quot;BOE Exchange Rate&quot;, &quot;BOE Gross, Deduction / Addition, Freight, Insurance, Other and Net Amount INR&quot;, &quot;Total Landed Gross and Net Cost&quot;, &quot;Basic and Additional Customs Duty&quot;, &quot;Social Welfare Surcharge, NCCD, ADD, CVD, IGST, G. Cess, SG, SAED, GSIA, TTA and Health&quot;, &quot;Total Duty, Interest, Penalty and Fine&quot;, &quot;Total Assessed Value and Total Duty Payable&quot;, &quot;Payment Type, Direct Payment and Benefit&quot;, &quot;CHA Name, Bill Number, Bill Date and Amount&quot;, &quot;Shipping Line Name, Bill Number, Bill Date and Freight&quot;, &quot;Transporter Name, Bill Number, Bill Date and Cost&quot;, &quot;Tank Terminal Name, Bill Number, Bill Date and Cost&quot;, &quot;Surveyor Name, Bill Number, Bill Date and Cost&quot;, &quot;Summation Cost&quot;, &quot;Actual / Extra Duty Paid, Duty-paid Date and Challan&quot;, &quot;BOE Documents&quot;, &quot;Approval and workflow metadata&quot;],
+          required: [&quot;BOE Number and Date&quot;, &quot;BOE AD Bank, Bank Branch, IFSC and AD Code&quot;, &quot;Port of Destination Code and Name&quot;, &quot;BOE Quantity and Currency&quot;, &quot;BOE Gross Amount FCY&quot;, &quot;BOE Deduction / Addition FCY&quot;, &quot;Freight, Insurance and Others FCY&quot;, &quot;BOE Net Amount FCY&quot;, &quot;BOE Exchange Rate&quot;, &quot;BOE Gross Amount INR&quot;, &quot;BOE Deduction / Addition INR&quot;, &quot;Freight, Insurance and Others INR&quot;, &quot;BOE Net Amount INR&quot;, &quot;Total Landed Gross Cost&quot;, &quot;Basic Customs Duty&quot;, &quot;Total Assessed Value&quot;, &quot;Total Duty Payable&quot;, &quot;Conditional license / script fields when a license row is used&quot;]
+        },
+        boeDecision: { required: [&quot;Approval or rejection action&quot;, &quot;Authorized BOE approver&quot;] },
+        license: {
+          same: [&quot;License Purchase / Master reference&quot;, &quot;License / Script Type&quot;, &quot;License Number&quot;, &quot;Product, HSN and Unit of Measurement&quot;, &quot;Issued Value / Quantity&quot;, &quot;Available Value / Quantity&quot;, &quot;Benefit and Subsidiary&quot;, &quot;A&amp;C or BOE transaction reference&quot;],
+          added: [&quot;Allocated / Utilized Value&quot;, &quot;Allocated / Utilized Quantity&quot;, &quot;Remaining Balance Value&quot;, &quot;Remaining Balance Quantity&quot;, &quot;Shipping Bill utilization&quot;, &quot;Sale Party and Sale Date when sold&quot;, &quot;Expiry / Extension&quot;, &quot;Status and approval metadata&quot;],
+          required: [&quot;License / Script selection, amount and scheme when used&quot;, &quot;DFIA quantity when a DFIA license is used&quot;]
+        },
+        cha: {
+          same: [&quot;A&amp;C ID&quot;, &quot;Invoice and BL references&quot;, &quot;Assignment Route&quot;, &quot;Assigned Party&quot;, &quot;Container Numbers&quot;, &quot;Ports&quot;, &quot;CHA Name and Email&quot;],
+          added: [&quot;CHA notification / email event&quot;, &quot;Recipient&quot;, &quot;Sent timestamp&quot;, &quot;Delivery / processing status&quot;],
+          required: [&quot;CHA Name and valid CHA Email for applicable non-HSS routes&quot;]
+        },
+        idpms: {
+          same: [&quot;PO reference and Import Value&quot;, &quot;Purchase Invoice details&quot;, &quot;Approved BOE evidence&quot;, &quot;ORM / payment evidence&quot;, &quot;Vendor, Currency and Due Date&quot;],
+          added: [&quot;IDPMS Closed Flag&quot;, &quot;Closure Remarks&quot;, &quot;Closure Actor and Timestamp&quot;],
+          required: [&quot;Closure Remarks in the closure action&quot;]
+        },
+        salesOrder: {
+          same: [&quot;Subsidiary / Company&quot;, &quot;Client / Party master and code&quot;, &quot;Product Category, Product and HSN&quot;, &quot;Bill-to / Ship-to party masters&quot;, &quot;Ports and Port Codes&quot;],
+          added: [&quot;Sales Order Number and Date&quot;, &quot;Buyer PO Number and Date&quot;, &quot;Country of Origin&quot;, &quot;Product quantities, rates and amount&quot;, &quot;Currency and Total Amount&quot;, &quot;Advance Percentage, Amount and Expected Date / Days&quot;, &quot;Spot Amount and Day Type&quot;, &quot;Credit Amount, Days and Date&quot;, &quot;LC / BG Type&quot;, &quot;TT / DA Type&quot;, &quot;Payment Terms and Incoterms&quot;, &quot;Bill-to / Ship-to addresses and contacts&quot;, &quot;Shipment Method&quot;, &quot;Freight, Insurance and Other costs&quot;, &quot;Available / remaining quantities&quot;, &quot;Approval and workflow metadata&quot;],
+          required: [&quot;Party&quot;, &quot;Advance Percentage&quot;, &quot;Subsidiary&quot;, &quot;LC / BG Type&quot;, &quot;Payment Terms&quot;, &quot;Incoterms&quot;, &quot;Currency&quot;, &quot;Amount&quot;, &quot;Spot Amount&quot;, &quot;Sales Order Date and Number&quot;, &quot;Party Code&quot;, &quot;Advance Amount&quot;, &quot;Country&quot;, &quot;Credit Amount&quot;, &quot;Country of Origin&quot;, &quot;Port of Loading and Port Code&quot;, &quot;Port of Discharge&quot;, &quot;Bill-to Party Address&quot;, &quot;Ship-to Party and Address&quot;, &quot;Shipment Method&quot;, &quot;TT / DA Type&quot;, &quot;Freight, Insurance and Others&quot;]
+        },
+        salesInvoice: {
+          same: [&quot;Sales Order ID, Number, Currency and Value&quot;, &quot;Client / Party&quot;, &quot;Product and HSN&quot;, &quot;Bill-to / Ship-to parties and addresses&quot;, &quot;Incoterms&quot;, &quot;Collection / Payment Terms&quot;, &quot;Country of Origin&quot;, &quot;Ports&quot;, &quot;Subsidiary&quot;, &quot;Freight, Insurance and Other costs&quot;],
+          added: [&quot;Sales Invoice Number and Date&quot;, &quot;Invoice AD Bank, Branch, Account Number, AD Code and Bank ID&quot;, &quot;Invoice Currency&quot;, &quot;Invoice FOB Value FCY / INR&quot;, &quot;Invoice Gross Amount FCY / INR&quot;, &quot;Invoice Discount FCY / INR&quot;, &quot;Invoice Net Value FCY / INR&quot;, &quot;Invoice Exchange Rate&quot;, &quot;Invoice Balance&quot;, &quot;Packing, Commercial Invoice and export documents&quot;, &quot;Approval and Sales-stage metadata&quot;],
+          required: [&quot;Invoice Date and Number&quot;, &quot;Sales Order Number&quot;, &quot;Sales Order Currency and Value&quot;, &quot;HSN Code and Description&quot;, &quot;Bill-to Party and Address&quot;, &quot;Ship-to Party and Address&quot;, &quot;Incoterms&quot;, &quot;Invoice Payment Terms&quot;, &quot;Invoice AD Bank, Branch and AD Code&quot;, &quot;Invoice Currency&quot;, &quot;Invoice FOB Value&quot;, &quot;Invoice Gross Amount&quot;, &quot;Invoice Discount&quot;, &quot;Invoice Net Amount&quot;, &quot;Exchange Rate&quot;, &quot;Invoice Gross, Discount and Net Amount INR&quot;, &quot;Country of Origin&quot;, &quot;Port of Loading and Port Code&quot;, &quot;Port of Discharge&quot;, &quot;Subsidiary&quot;, &quot;Freight, Insurance and Others&quot;]
+        },
+        logisticsInvoice: {
+          same: [&quot;Sales Invoice and Sales Order IDs / Numbers&quot;, &quot;Subsidiary&quot;, &quot;Client and consignee context&quot;, &quot;Invoice Currency, FOB Value and Invoice Amount&quot;, &quot;Product / HSN&quot;, &quot;Invoice AD Bank context&quot;, &quot;Ports&quot;],
+          added: [&quot;Shipping Bill Number and Date&quot;, &quot;Shipping Bill Port Name and Code&quot;, &quot;Expected Realization Date&quot;, &quot;Shipping Bill Consignee Name and Address&quot;, &quot;Shipping Bill AD Bank, AD Code, IFSC and Branch&quot;, &quot;Shipping Bill HSN&quot;, &quot;Shipping Bill Gross, Deduction / Addition and Net Amount FCY&quot;, &quot;Shipping Bill Exchange Rate&quot;, &quot;Shipping Bill Gross, Discount and Net Amount INR&quot;, &quot;Scroll Number and Date&quot;, &quot;Duty Drawback Claim&quot;, &quot;Back-to-Town Flag, Date and Certificate&quot;, &quot;BL Date and Number&quot;, &quot;Shipping Bill Number on BL&quot;, &quot;Shipping Line&quot;, &quot;BL Consignee and Notify Party&quot;, &quot;Pre-carriage, Place of Receipt and Vessel / Voyage&quot;, &quot;Logistics Approval metadata&quot;],
+          required: [&quot;Subsidiary&quot;, &quot;Invoice Number&quot;, &quot;Shipping Bill Number and Date&quot;, &quot;Shipping Bill Port Name and Code&quot;, &quot;Shipping Bill Consignee Name and Address&quot;, &quot;Shipping Bill AD Bank and AD Code&quot;, &quot;AD Bank IFSC and Branch&quot;, &quot;HSN Code and Description&quot;, &quot;Invoice FOB Value FCY / INR&quot;, &quot;Shipping Bill Gross Amount&quot;, &quot;Deduction / Addition&quot;, &quot;Net Amount&quot;, &quot;Exchange Rate&quot;, &quot;Gross, Discount and Net Amount INR&quot;, &quot;Back-to-Town selection&quot;, &quot;Back-to-Town Date and BTT Certificate when Back-to-Town is true&quot;]
+        },
+        salesFinance: {
+          same: [&quot;Sales Invoice Number&quot;, &quot;Sales Order&quot;, &quot;Client&quot;, &quot;Invoice Value and Balance&quot;, &quot;Due Date&quot;, &quot;Shipping Bill and Bank context&quot;, &quot;Available IRM records&quot;],
+          added: [&quot;Advance Eligible&quot;, &quot;Selected IRM allocations&quot;, &quot;IRM Utilized and Bank Charges&quot;, &quot;Updated Invoice Balance&quot;, &quot;Finance Approval Status&quot;, &quot;Finance Action Taken By and Time&quot;, &quot;Finance Workflow Status&quot;],
+          required: [&quot;Invoice Number&quot;, &quot;Advance Eligible&quot;, &quot;Balance&quot;]
+        },
+        salesCndn: {
+          same: [&quot;Sales Invoice ID and Number&quot;, &quot;Client / Vendor field&quot;, &quot;Subsidiary&quot;, &quot;Currency&quot;],
+          added: [&quot;Credit / Debit Type&quot;, &quot;Credit / Debit Note Number and Date&quot;, &quot;Due Date&quot;, &quot;Value&quot;, &quot;Currency Rate&quot;, &quot;Purpose&quot;, &quot;Documents&quot;, &quot;Payment / remittance state&quot;, &quot;Approval and workflow metadata&quot;],
+          required: [&quot;Invoice Number&quot;, &quot;Credit / Debit Type&quot;, &quot;Value&quot;, &quot;Currency&quot;, &quot;Purpose&quot;]
+        },
+        salesModes: {
+          same: [&quot;A&amp;C / BOE source record&quot;, &quot;Import Invoice and BL&quot;, &quot;HSS or FTWZ Route&quot;, &quot;Assigned Customer / Destination&quot;, &quot;Product, HSN and Quantity&quot;, &quot;Container and customs references&quot;],
+          added: [&quot;Sales-side visibility and processing status&quot;, &quot;Conditional SO / Invoice link when created&quot;],
+          required: []
+        },
+        invoiceNegotiation: {
+          same: [&quot;Subsidiary&quot;, &quot;Sales Invoice ID, Number and Date&quot;, &quot;LC Number&quot;, &quot;Invoice Net Amount FCY&quot;, &quot;Invoice Exchange Rate and Net Amount INR&quot;, &quot;Shipping Bill Number, Date, Value, AD Bank and AD Code&quot;],
+          added: [&quot;Lodgement Bank, Branch, AD Code, Account Number and Bank ID&quot;, &quot;Lodgement Date and Bill ID&quot;, &quot;Discount-now choice&quot;, &quot;Discount Date, Currency and Rate&quot;, &quot;Advance Received&quot;, &quot;Margin Percentage&quot;, &quot;Discounting Value FCY / INR&quot;, &quot;Discounting Reference ID&quot;, &quot;Discounting Tenor and Due Date&quot;, &quot;Interest Cost&quot;, &quot;Subvention Eligible and Received&quot;, &quot;Difference&quot;, &quot;Negotiation Documents&quot;, &quot;Approval and workflow metadata&quot;],
+          required: [&quot;Subsidiary&quot;, &quot;Invoice Number and Date&quot;, &quot;Invoice Net Amount FCY&quot;, &quot;Invoice Exchange Rate and Net Amount INR&quot;, &quot;Shipping Bill Number, Date and Value&quot;, &quot;Shipping Bill AD Bank and AD Code&quot;, &quot;Lodgement Bank, Branch, AD Code and Account Number&quot;, &quot;Lodgement Date&quot;, &quot;Advance Received&quot;]
+        },
+        irm: {
+          same: [&quot;Subsidiary&quot;, &quot;Bank Master and Branch&quot;, &quot;AD Code&quot;, &quot;Client / Party Master&quot;, &quot;Optional Sales Order or Sales Invoice reference&quot;, &quot;Currency&quot;],
+          added: [&quot;IRM Date&quot;, &quot;SWIFT Code&quot;, &quot;IRM Number&quot;, &quot;IRM Type&quot;, &quot;IRM Reference Number&quot;, &quot;Ad-hoc Flag and Ad-hoc Number&quot;, &quot;IRM Gross Value&quot;, &quot;Bank Charges&quot;, &quot;Exchange Rate&quot;, &quot;IRM Net Value&quot;, &quot;IRM Bifurcation Amounts&quot;, &quot;Purpose Code and Purpose Description&quot;, &quot;IRM Available and Utilized Amount&quot;, &quot;IRM Documents and FIRC File&quot;, &quot;Approval and workflow metadata&quot;],
+          required: [&quot;AD Code&quot;, &quot;Bank&quot;, &quot;Subsidiary&quot;, &quot;Branch&quot;, &quot;IRM Date&quot;, &quot;IRM Currency&quot;, &quot;IRM Net Value&quot;, &quot;Party&quot;, &quot;IRM Reference Number&quot;, &quot;IRM Type&quot;, &quot;IRM Gross Value&quot;, &quot;Exchange Rate&quot;, &quot;Purpose Code and Description except permitted type-specific cases&quot;, &quot;Each bifurcation Amount, Reference ID, Purpose Code and Description&quot;]
+        },
+        irmDecision: {
+          same: [&quot;IRM ID and Available Balance&quot;, &quot;Eligible Sales Order / Invoice ID&quot;, &quot;Currency and Value&quot;],
+          added: [&quot;IRM-to-SO Mapping&quot;, &quot;IRM-to-Invoice Mapping&quot;, &quot;IRM Utilized Amount&quot;, &quot;Allocated Bank Charges&quot;, &quot;Updated IRM Available / Utilized balance&quot;, &quot;Updated Invoice Balance&quot;],
+          required: [&quot;IRM and destination record&quot;, &quot;Positive allocation not exceeding available balances&quot;]
+        },
+        ebrc: {
+          same: [&quot;IRM-to-Invoice Mapping&quot;, &quot;IRM Number and Realized Amount&quot;, &quot;Sales Invoice ID / Number&quot;, &quot;Shipping Bill Number&quot;, &quot;Client and Currency&quot;],
+          added: [&quot;e-BRC Certificate Number&quot;, &quot;e-BRC Amount&quot;, &quot;e-BRC Certificate File&quot;, &quot;Closure Remarks and approval metadata&quot;],
+          required: [&quot;e-BRC Certificate Number&quot;, &quot;e-BRC Amount&quot;]
+        },
+        dashboard: { required: [] },
+        audit: { required: [] }
+      };
+      Object.entries(fieldCatalog).forEach(([id, catalog]) =&gt; Object.assign(data[id], catalog));
+      const root = document.getElementById(&#x27;purchase-atoz-flow&#x27;);
+      const fill = (element, values) =&gt; element.replaceChildren(...values.map((value) =&gt; { const li = document.createElement(&#x27;li&#x27;); li.textContent = value; return li; }));
+      const quickDetail = root.querySelector(&#x27;#quick-detail&#x27;);
+      const populateQuickDetail = (value) =&gt; {
+        root.querySelector(&#x27;#quick-detail-head&#x27;).dataset.tone = value.tone;
+        root.querySelector(&#x27;#quick-parent&#x27;).textContent = value.parent;
+        root.querySelector(&#x27;#quick-title&#x27;).textContent = value.title;
+        root.querySelector(&#x27;#quick-purpose&#x27;).textContent = value.purpose;
+        root.querySelector(&#x27;#quick-source&#x27;).textContent = value.source;
+        fill(root.querySelector(&#x27;#quick-same-list&#x27;), value.same);
+        fill(root.querySelector(&#x27;#quick-new-list&#x27;), value.added);
+        fill(root.querySelector(&#x27;#quick-required-list&#x27;), value.required || []);
+        root.querySelector(&#x27;#quick-required-block&#x27;).hidden = !(value.required || []).length;
+        root.querySelector(&#x27;#quick-system&#x27;).textContent = value.system;
+        root.querySelector(&#x27;#quick-note&#x27;).textContent = value.note;
+        root.querySelector(&#x27;#quick-note-block&#x27;).hidden = !value.note;
+      };
+      const clearSelection = () =&gt; {
+        root.querySelectorAll(&#x27;[data-step]&#x27;).forEach((button) =&gt; button.setAttribute(&#x27;aria-pressed&#x27;, &#x27;false&#x27;));
+        root.querySelectorAll(&#x27;.parent&#x27;).forEach((parent) =&gt; parent.classList.remove(&#x27;is-active&#x27;));
+        root.querySelector(&#x27;#detail-head&#x27;).dataset.tone = &#x27;primary&#x27;;
+        root.querySelector(&#x27;#detail-parent&#x27;).textContent = &#x27;No parent selected&#x27;;
+        root.querySelector(&#x27;#detail-title&#x27;).textContent = &#x27;Select a workflow step&#x27;;
+        root.querySelector(&#x27;#detail-purpose&#x27;).textContent = &#x27;Hover over a parent module or click a step to inspect its data.&#x27;;
+        root.querySelector(&#x27;#detail-source&#x27;).textContent = &#x27;Click any process box, linked record, or decision diamond.&#x27;;
+        fill(root.querySelector(&#x27;#same-list&#x27;), [&#x27;Nothing selected&#x27;]);
+        fill(root.querySelector(&#x27;#new-list&#x27;), [&#x27;Nothing selected&#x27;]);
+        fill(root.querySelector(&#x27;#required-list&#x27;), []);
+        root.querySelector(&#x27;#required-block&#x27;).hidden = true;
+        root.querySelector(&#x27;#detail-system&#x27;).textContent = &#x27;The previous locked highlight has been cleared.&#x27;;
+        root.querySelector(&#x27;#detail-note&#x27;).textContent = &#x27;&#x27;;
+        root.querySelector(&#x27;#note-block&#x27;).hidden = true;
+        quickDetail.hidden = true;
+      };
+      const select = (id, showQuick = true) =&gt; {
+        const value = data[id];
+        root.querySelectorAll(&#x27;[data-step]&#x27;).forEach((button) =&gt; button.setAttribute(&#x27;aria-pressed&#x27;, String(button.dataset.step === id)));
+        root.querySelectorAll(&#x27;.parent&#x27;).forEach((parent) =&gt; parent.classList.remove(&#x27;is-active&#x27;));
+        const selectedButton = root.querySelector(`[data-step=&quot;${id}&quot;]`);
+        selectedButton?.closest(&#x27;.parent&#x27;)?.classList.add(&#x27;is-active&#x27;);
+        root.querySelector(&#x27;#detail-head&#x27;).dataset.tone = value.tone;
+        root.querySelector(&#x27;#detail-parent&#x27;).textContent = value.parent;
+        root.querySelector(&#x27;#detail-title&#x27;).textContent = value.title;
+        root.querySelector(&#x27;#detail-purpose&#x27;).textContent = value.purpose;
+        root.querySelector(&#x27;#detail-source&#x27;).textContent = value.source;
+        fill(root.querySelector(&#x27;#same-list&#x27;), value.same);
+        fill(root.querySelector(&#x27;#new-list&#x27;), value.added);
+        fill(root.querySelector(&#x27;#required-list&#x27;), value.required || []);
+        root.querySelector(&#x27;#required-block&#x27;).hidden = !(value.required || []).length;
+        root.querySelector(&#x27;#detail-system&#x27;).textContent = value.system;
+        root.querySelector(&#x27;#detail-note&#x27;).textContent = value.note;
+        root.querySelector(&#x27;#note-block&#x27;).hidden = !value.note;
+        populateQuickDetail(value);
+        if (showQuick) {
+          const decisionRow = selectedButton?.closest(&#x27;.decision-row&#x27;);
+          const linkedGrid = selectedButton?.closest(&#x27;.linked-grid&#x27;);
+          (decisionRow || linkedGrid || selectedButton)?.insertAdjacentElement(&#x27;afterend&#x27;, quickDetail);
+          quickDetail.hidden = false;
+          quickDetail.scrollIntoView({ block: &#x27;nearest&#x27;, behavior: &#x27;smooth&#x27; });
+        }
+      };
+      const normalize = (value) =&gt; value.toLowerCase().replace(/[^a-z0-9]+/g, &#x27; &#x27;).trim();
+      const ignoredWords = new Set([&#x27;a&#x27;,&#x27;an&#x27;,&#x27;the&#x27;,&#x27;is&#x27;,&#x27;are&#x27;,&#x27;of&#x27;,&#x27;for&#x27;,&#x27;from&#x27;,&#x27;where&#x27;,&#x27;coming&#x27;,&#x27;come&#x27;,&#x27;data&#x27;,&#x27;field&#x27;,&#x27;details&#x27;,&#x27;detail&#x27;,&#x27;evidence&#x27;,&#x27;information&#x27;,&#x27;value&#x27;]);
+      const tokenMatches = (left, right) =&gt; left === right || (left.length &gt;= 5 &amp;&amp; right.length &gt;= 5 &amp;&amp; (left.startsWith(right) || right.startsWith(left)));
+      const searchSource = () =&gt; {
+        const input = root.querySelector(&#x27;#source-search&#x27;);
+        const query = normalize(input.value);
+        const result = root.querySelector(&#x27;#source-result&#x27;);
+        const list = root.querySelector(&#x27;#source-result-list&#x27;);
+        list.replaceChildren();
+        if (!query) {
+          result.hidden = true;
+          return;
+        }
+        const queryTokens = query.split(&#x27; &#x27;).filter((token) =&gt; token &amp;&amp; !ignoredWords.has(token));
+        const matches = Object.entries(data).map(([id, value]) =&gt; {
+          const titleText = normalize(`${value.title} ${value.parent}`);
+          const titleTokens = titleText.split(&#x27; &#x27;);
+          const fieldMatches = value.added.map((field) =&gt; {
+            const normalizedField = normalize(field);
+            const fieldTokens = normalizedField.split(&#x27; &#x27;);
+            const matchedTokens = queryTokens.filter((token) =&gt; fieldTokens.some((fieldToken) =&gt; tokenMatches(token, fieldToken)));
+            return { field, normalizedField, matchedTokens };
+          });
+          const allAddedTokens = normalize(value.added.join(&#x27; &#x27;)).split(&#x27; &#x27;);
+          const coveredTokens = queryTokens.filter((token) =&gt; allAddedTokens.some((fieldToken) =&gt; tokenMatches(token, fieldToken)) || titleTokens.some((titleToken) =&gt; tokenMatches(token, titleToken)));
+          const bestField = [...fieldMatches].sort((a, b) =&gt; b.matchedTokens.length - a.matchedTokens.length || a.field.localeCompare(b.field))[0];
+          let score = coveredTokens.length * 20;
+          if (queryTokens.length &amp;&amp; coveredTokens.length === queryTokens.length) score += 35;
+          if (bestField?.matchedTokens.length === queryTokens.length &amp;&amp; queryTokens.length) score += 55;
+          if (bestField?.normalizedField.includes(query)) score += 45;
+          if (queryTokens.some((token) =&gt; titleTokens.some((titleToken) =&gt; tokenMatches(token, titleToken)))) score += 30;
+          return { id, value, fields: fieldMatches.filter((field) =&gt; field.matchedTokens.length).sort((a, b) =&gt; b.matchedTokens.length - a.matchedTokens.length).slice(0, 1), score, covered: coveredTokens.length };
+        }).filter((match) =&gt; match.covered &gt; 0).sort((a, b) =&gt; b.score - a.score || a.value.title.localeCompare(b.value.title)).slice(0, 1);
+        result.hidden = false;
+        root.querySelector(&#x27;#source-result-title&#x27;).textContent = matches.length ? `Source for “${input.value.trim()}”` : `No source found for “${input.value.trim()}”`;
+        if (!matches.length) {
+          const empty = document.createElement(&#x27;p&#x27;);
+          empty.className = &#x27;source-empty&#x27;;
+          empty.textContent = &#x27;Try the field name, abbreviation, or a shorter keyword.&#x27;;
+          list.append(empty);
+          return;
+        }
+        matches.forEach(({ value, fields }) =&gt; {
+          const item = document.createElement(&#x27;div&#x27;);
+          item.className = &#x27;source-match&#x27;;
+          const title = document.createElement(&#x27;strong&#x27;);
+          title.textContent = value.title;
+          const matchedFields = fields.length ? fields.map(({ field }) =&gt; field).join(&#x27;; &#x27;) : value.added[0];
+          const meta = document.createElement(&#x27;span&#x27;);
+          meta.textContent = `${value.parent} · New data added here: ${matchedFields}`;
+          item.append(title, meta);
+          list.append(item);
+        });
+      };
+      root.querySelector(&#x27;#source-search-button&#x27;).addEventListener(&#x27;click&#x27;, searchSource);
+      root.querySelector(&#x27;#source-search&#x27;).addEventListener(&#x27;keydown&#x27;, (event) =&gt; {
+        if (event.key === &#x27;Enter&#x27;) searchSource();
+      });
+      root.querySelector(&#x27;#source-search&#x27;).addEventListener(&#x27;input&#x27;, (event) =&gt; {
+        if (!event.target.value.trim()) {
+          root.querySelector(&#x27;#source-result&#x27;).hidden = true;
+          root.querySelector(&#x27;#source-result-list&#x27;).replaceChildren();
+        }
+      });
+      root.querySelectorAll(&#x27;[data-step]&#x27;).forEach((button) =&gt; button.addEventListener(&#x27;click&#x27;, () =&gt; select(button.dataset.step, true)));
+      root.querySelector(&#x27;#quick-close&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; { quickDetail.hidden = true; });
+      root.addEventListener(&#x27;click&#x27;, (event) =&gt; {
+        if (!event.target.closest(&#x27;.parent&#x27;) &amp;&amp; !event.target.closest(&#x27;.detail&#x27;) &amp;&amp; !event.target.closest(&#x27;.quick-detail&#x27;) &amp;&amp; !event.target.closest(&#x27;.flow-finder&#x27;)) clearSelection();
+      });
+      select(&#x27;masters&#x27;, false);
+      if (window.lucide) window.lucide.createIcons({ attrs: { &#x27;aria-hidden&#x27;: &#x27;true&#x27; } });
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerdown&quot;, handlePointer);
+    document.removeEventListener(&quot;pointercancel&quot;, handlePointer);
+    document.removeEventListener(&quot;click&quot;, handleTouchClick);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerdown&quot;, handlePointer);
+  document.addEventListener(&quot;pointercancel&quot;, handlePointer);
+  document.addEventListener(&quot;click&quot;, handleTouchClick);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-tabs&quot;&gt;
+(() =&gt; {
+  const selector = &#x27;.nav[role=&quot;tablist&quot;] [role=&quot;tab&quot;]&#x27;;
+  const disabled = &#x27;:disabled,[aria-disabled=&quot;true&quot;]&#x27;;
+  const selectTab = (selected) =&gt; {
+    const panelId = selected.getAttribute(&quot;aria-controls&quot;);
+    for (const tab of selected.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;)) {
+      const active = tab === selected;
+      tab.classList.toggle(&quot;active&quot;, active);
+      tab.setAttribute(&quot;aria-selected&quot;, String(active));
+      const id = tab.getAttribute(&quot;aria-controls&quot;);
+      const panel = id &amp;&amp; document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden &amp;&amp; selected.id) {
+          panel.setAttribute(&quot;aria-labelledby&quot;, selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) =&gt; {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === &quot;click&quot;) {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;),
+    ).filter((candidate) =&gt; !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === &quot;ArrowRight&quot; || event.key === &quot;ArrowDown&quot;) {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === &quot;ArrowLeft&quot; || event.key === &quot;ArrowUp&quot;) {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === &quot;Home&quot;) {
+      next = 0;
+    } else if (event.key === &quot;End&quot;) {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll(&#x27;.nav[role=&quot;tablist&quot;]&#x27;)) {
+    const selected =
+      list.querySelector(&#x27;[role=&quot;tab&quot;][aria-selected=&quot;true&quot;]&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;].active&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;]&#x27;);
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener(&quot;click&quot;, interact);
+  document.addEventListener(&quot;keydown&quot;, interact);
+  window.addEventListener(&quot;pagehide&quot;, () =&gt; {
+    document.removeEventListener(&quot;click&quot;, interact);
+    document.removeEventListener(&quot;keydown&quot;, interact);
+  }, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+  <script>(() => {
+      const frame = document.getElementById("codex-visualization");
+      if (!(frame instanceof HTMLIFrameElement)) {
+        return;
+      }
+      let viewportHeight = globalThis.innerHeight;
+      const storageKey = `codex:visualization-widget-state-v2:${JSON.stringify([
+        globalThis.location.pathname,
+        globalThis.location.search,
+      ])}`;
+      const parseState = (serializedState) => {
+        if (
+          typeof serializedState !== "string" ||
+          new TextEncoder().encode(serializedState).length > 16 * 1024
+        ) {
+          throw new TypeError(
+            "Widget state must be a JSON object of at most 16 KiB",
+          );
+        }
+        /** @type {unknown} */
+        const state = JSON.parse(serializedState);
+        if (
+          state == null ||
+          typeof state !== "object" ||
+          Array.isArray(state) ||
+          ("imageIds" in state &&
+            (!Array.isArray(state.imageIds) || state.imageIds.length > 0))
+        ) {
+          throw new TypeError("Widget state must be a JSON object");
+        }
+        const storedState = { modelContent: null, privateContent: null, ...state };
+        const canonicalState = JSON.stringify(
+          storedState,
+          (_key, /** @type {unknown} */ value) => {
+            if (typeof value === "number" && !Number.isFinite(value)) {
+              throw new TypeError("Widget state must contain finite numbers");
+            }
+            return value;
+          },
+        );
+        if (new TextEncoder().encode(canonicalState).length > 16 * 1024) {
+          throw new TypeError(
+            "Widget state must be a JSON object of at most 16 KiB",
+          );
+        }
+        return storedState;
+      };
+      let storage = null;
+      let state = null;
+      try {
+        const localStorage = globalThis.localStorage;
+        const probeKey = `${storageKey}:probe`;
+        localStorage.setItem(probeKey, "1");
+        localStorage.removeItem(probeKey);
+        storage = localStorage;
+        const savedState = storage.getItem(storageKey);
+        if (savedState != null) {
+          try {
+            state = parseState(savedState);
+          } catch {
+            // Invalid saved state does not disable future writes.
+          }
+        }
+      } catch {
+        storage = null;
+      }
+      const initialGlobals = {
+        widgetState: state,
+        statePersistence: storage == null ? "none" : "local",
+      };
+
+      const channel = new MessageChannel();
+      channel.port1.addEventListener("message", (event) => {
+        const data = event.data;
+        if (typeof data !== "object" || data == null) {
+          return;
+        }
+        if (data.type === "widget-state-write") {
+          if (!Number.isSafeInteger(data.id) || data.id <= 0) {
+            return;
+          }
+          let ok = false;
+          try {
+            if (storage != null) {
+              const state = parseState(data.state);
+              storage.setItem(storageKey, JSON.stringify(state));
+              ok = true;
+            }
+          } catch {
+            // Storage denial, quota limits, and invalid state return a failed receipt.
+          }
+          channel.port1.postMessage({
+            type: "widget-state-result",
+            id: data.id,
+            ok,
+          });
+          return;
+        }
+        if (data.type === "height") {
+          const height = data.height;
+          if (
+            typeof height === "number" &&
+            Number.isFinite(height) &&
+            height >= 0 &&
+            height <= 10_000
+          ) {
+            frame.style.height = Math.ceil(height) + "px";
+          }
+          return;
+        }
+        if (data.type === "scroll-to") {
+          const top = data.top;
+          if (
+            typeof top === "number" &&
+            Number.isFinite(top) &&
+            top >= 0 &&
+            globalThis.navigator.userActivation?.isActive === true
+          ) {
+            globalThis.scrollTo({
+              top: Math.ceil(
+                globalThis.scrollY + frame.getBoundingClientRect().top + top,
+              ),
+            });
+          }
+          return;
+        }
+        if (data.type === "open-external") {
+          const rawHref = data.href;
+          if (typeof rawHref !== "string") {
+            return;
+          }
+          let href;
+          try {
+            const url = new URL(rawHref, document.baseURI);
+            if (url.protocol !== "https:") {
+              return;
+            }
+            href = url.href;
+          } catch {
+            return;
+          }
+          if (globalThis.navigator.userActivation?.isActive === true) {
+            const anchor = document.createElement("a");
+            anchor.href = href;
+            anchor.rel = "noopener noreferrer";
+            anchor.target = "_blank";
+            document.body.appendChild(anchor);
+            anchor.click();
+            anchor.remove();
+          }
+          return;
+        }
+        if (data.type === "follow-up") {
+          const prompt = data.prompt;
+          if (
+            typeof prompt !== "string" ||
+            globalThis.navigator.userActivation?.isActive !== true
+          ) {
+            return;
+          }
+          const title = data.title;
+          globalThis.prompt(typeof title === "string" ? title : prompt, prompt);
+        }
+      });
+      channel.port1.start();
+      const srcdoc = frame.dataset.srcdoc;
+      if (srcdoc == null) {
+        return;
+      }
+      globalThis.addEventListener("resize", () => {
+        const height = Number.parseFloat(frame.style.height);
+        if (!Number.isFinite(height) || height <= viewportHeight) {
+          frame.style.removeProperty("height");
+        }
+        viewportHeight = globalThis.innerHeight;
+        channel.port1.postMessage({ type: "measure" });
+      });
+      frame.addEventListener(
+        "load",
+        () => {
+          frame.contentWindow?.postMessage(
+            { type: "codex-visualization-initialize" },
+            "*",
+            [channel.port2],
+          );
+        },
+        { once: true },
+      );
+      // Match the trusted bootstrap element, not the same text in an authored title.
+      frame.srcdoc = srcdoc.replace(
+        '<script type="application/json" id="codex-visualization-widget-state">__CODEX_VISUALIZATION_WIDGET_STATE__<\/script>',
+        () =>
+          '<script type="application/json" id="codex-visualization-widget-state">' +
+          JSON.stringify(initialGlobals).replaceAll("<", "\\u003c") +
+          "<\/script>",
+      );
+      delete frame.dataset.srcdoc;
+    })();
+  </script>
+</body>
+
+</html>
