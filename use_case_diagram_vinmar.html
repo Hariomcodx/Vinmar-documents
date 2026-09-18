@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Global - All Modules Use Case Diagram</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Mermaid.js -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+  <style>
+    :root {
+      --bg-primary: #070913;
+      --bg-card: #0F172A;
+      --border-color: #334155;
+      --accent-blue: #38BDF8;
+      --accent-green: #34D399;
+      --accent-purple: #C084FC;
+      --accent-amber: #FBBF24;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid var(--border-color);
+      padding: 32px;
+      border-radius: 20px;
+      margin-bottom: 36px;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);
+    }
+
+    header h1 {
+      font-size: 30px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #38BDF8, #818CF8, #C084FC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .diagram-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 40px;
+      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
+    }
+
+    .diagram-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent-blue);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mermaid {
+      background: #0B0F19;
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid #1E293B;
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+    }
+
+    /* Table & Matrix Styling */
+    .table-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 14px;
+    }
+
+    th {
+      background: #1E293B;
+      color: var(--accent-blue);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    tr:hover {
+      background: rgba(30, 41, 59, 0.5);
+    }
+
+    .actor-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .badge-admin { background: rgba(56, 189, 248, 0.15); color: #38BDF8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-purchase { background: rgba(192, 132, 252, 0.15); color: #C084FC; border: 1px solid rgba(192, 132, 252, 0.3); }
+    .badge-logistics { background: rgba(52, 211, 153, 0.15); color: #34D399; border: 1px solid rgba(52, 211, 153, 0.3); }
+    .badge-finance { background: rgba(251, 191, 36, 0.15); color: #FBBF24; border: 1px solid rgba(251, 191, 36, 0.3); }
+    .badge-sales { background: rgba(244, 114, 182, 0.15); color: #F472B6; border: 1px solid rgba(244, 114, 182, 0.3); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>NEXUS GLOBAL — SYSTEM USE CASE DIAGRAM</h1>
+      <p>Simplified UML Use Case Map detailing system actors, module boundaries, and primary business goals.</p>
+    </header>
+
+    <!-- Use Case Diagram -->
+    <div class="diagram-card">
+      <div class="diagram-title">
+        <span>👤</span> System Actors &amp; Use Case Map
+      </div>
+
+      <div class="mermaid">
+graph LR
+    %% ACTORS
+    subgraph ACTORS ["👤 SYSTEM ACTORS (User Roles)"]
+        direction TB
+        ADMIN["⚙️ System Administrator"]
+        PURCHASE["🛒 Purchase Officer"]
+        LOGISTICS["🚢 Logistics Manager"]
+        CUSTOMS["🛃 Customs / CHA Officer"]
+        FINANCE["🏦 Finance & Treasury Officer"]
+        LICENSE["📜 License Manager"]
+        SALES["🏷️ Sales Officer"]
+    end
+
+    %% SYSTEM BOUNDARY
+    subgraph SYSTEM ["🖥️ NEXUS GLOBAL EXIM SYSTEM BOUNDARY"]
+        direction TB
+
+        %% MODULE 1: MASTERS
+        subgraph MOD_MASTERS ["1. Master Data Management"]
+          UC1["Manage Vendors & Clients"]
+          UC2["Manage Banks & Currency Rates"]
+          UC3["Manage Products & HSN Codes"]
+        end
+
+        %% MODULE 2: PURCHASE
+        subgraph MOD_PURCHASE ["2. Purchase Module"]
+          UC4["Create & Approve Purchase Order (PO)"]
+          UC5["Record Order Confirmation (OC/Proforma)"]
+          UC6["Plan Shipment Schedule"]
+          UC7["Create Purchase Invoice (PI)"]
+          UC8["Issue Purchase Credit/Debit Notes"]
+        end
+
+        %% MODULE 3: LOGISTICS
+        subgraph MOD_LOGISTICS ["3. Logistics & Supply Chain"]
+          UC9["Record Freight & Logistics Invoices"]
+          UC10["Create Assignment & Clearing (AnC)"]
+          UC11["Map Container & Bill of Lading (BL)"]
+          UC12["Trigger CHA Auto-Notification Email"]
+        end
+
+        %% MODULE 4: CUSTOMS
+        subgraph MOD_CUSTOMS ["4. Customs & Warehousing"]
+          UC13["File Bill of Entry (BOE)"]
+          UC14["Select Clearance Mode (HC / In-Bond / HSS)"]
+          UC15["Clear Customs & Update Warehouse Stock"]
+        end
+
+        %% MODULE 5: LICENSES
+        subgraph MOD_LICENSES ["5. Government Licenses"]
+          UC16["Register DGFT Licenses & Scrips"]
+          UC17["Apply License Duty Offsets on BOE"]
+        end
+
+        %% MODULE 6: FINANCE
+        subgraph MOD_FINANCE ["6. Trade Finance & Treasury"]
+          UC18["Issue Letter of Credit (LC) & Buyer's Credit"]
+          UC19["Execute Outward Remittance (ORM Payment)"]
+          UC20["Perform RBI IDPMS Match (ORM ↔ BOE)"]
+          UC21["Manage Foreign Exchange (FX) Hedging"]
+        end
+
+        %% MODULE 7: SALES
+        subgraph MOD_SALES ["7. Sales & Export Collection"]
+          UC22["Create Sales Order & Invoice"]
+          UC23["Dispatch Warehouse Inventory"]
+          UC24["Record Inward Remittance (IRM Collection)"]
+          UC25["Track e-BRC Bank Certificates"]
+        end
+    end
+
+    %% ACTOR TO USE CASE CONNECTIONS
+    ADMIN --> UC1
+    ADMIN --> UC2
+    ADMIN --> UC3
+
+    PURCHASE --> UC4
+    PURCHASE --> UC5
+    PURCHASE --> UC6
+    PURCHASE --> UC7
+    PURCHASE --> UC8
+
+    LOGISTICS --> UC9
+    LOGISTICS --> UC10
+    LOGISTICS --> UC11
+    LOGISTICS --> UC12
+
+    CUSTOMS --> UC13
+    CUSTOMS --> UC14
+    CUSTOMS --> UC15
+
+    LICENSE --> UC16
+    LICENSE --> UC17
+
+    FINANCE --> UC18
+    FINANCE --> UC19
+    FINANCE --> UC20
+    FINANCE --> UC21
+
+    SALES --> UC22
+    SALES --> UC23
+    SALES --> UC24
+    SALES --> UC25
+      </div>
+    </div>
+
+    <!-- Breakdown Table -->
+    <div class="table-section">
+      <div class="diagram-title">
+        <span>📋</span> Actor Use Cases &amp; Module Business Goals
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Module Name</th>
+            <th>Primary Actor / Role</th>
+            <th>Key Use Cases (User Actions)</th>
+            <th>Business Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>System Masters</strong></td>
+            <td><span class="actor-badge badge-admin">System Admin</span></td>
+            <td>• Register Vendors, Clients &amp; Subsidiaries<br/>• Configure Banks, SWIFT &amp; Currencies<br/>• Setup Products &amp; HSN Codes</td>
+            <td>Establishes validated master records required for all transactions.</td>
+          </tr>
+          <tr>
+            <td><strong>Purchase Module</strong></td>
+            <td><span class="actor-badge badge-purchase">Purchase Officer</span></td>
+            <td>• Create &amp; Approve Purchase Order (PO)<br/>• Confirm Proforma Invoice (OC)<br/>• Plan Shipment Delivery Schedule<br/>• Create Commercial Purchase Invoice (PI)</td>
+            <td>Establishes legal purchase contracts and records foreign supplier debt.</td>
+          </tr>
+          <tr>
+            <td><strong>Logistics &amp; SCM</strong></td>
+            <td><span class="actor-badge badge-logistics">Logistics Manager</span></td>
+            <td>• Process Logistics &amp; Freight Bills<br/>• Create Assignment &amp; Clearing (AnC)<br/>• Map Bill of Lading (BL) &amp; Ships<br/>• Auto-email Customs Agent (CHA)</td>
+            <td>Bridges commercial invoices to ocean ships and notifies port clearance agents.</td>
+          </tr>
+          <tr>
+            <td><strong>Customs &amp; Clearance</strong></td>
+            <td><span class="actor-badge badge-logistics">Customs Officer / CHA</span></td>
+            <td>• File Bill of Entry (BOE)<br/>• Choose Clearance (HC, In-Bond, HSS)<br/>• Calculate BCD &amp; IGST Duty Taxes<br/>• Release Cargo to Warehouse Stock</td>
+            <td>Clears government customs and updates physical inventory stock.</td>
+          </tr>
+          <tr>
+            <td><strong>Government Licenses</strong></td>
+            <td><span class="actor-badge badge-admin">License Manager</span></td>
+            <td>• Register DGFT Licenses &amp; Scrips<br/>• Offset Customs Duty on BOE<br/>• Claim Duty Drawback Refunds</td>
+            <td>Saves cash by using government tax exemption scrips on import duties.</td>
+          </tr>
+          <tr>
+            <td><strong>Trade Finance &amp; Treasury</strong></td>
+            <td><span class="actor-badge badge-finance">Finance Officer</span></td>
+            <td>• Issue LC Guarantees &amp; Buyer's Credit<br/>• Execute Outward Wire Remittance (ORM)<br/>• Match ORM ↔ BOE for RBI IDPMS<br/>• Lock FX Exchange Hedging Rates</td>
+            <td>Settles foreign supplier payments and satisfies RBI compliance regulations.</td>
+          </tr>
+          <tr>
+            <td><strong>Sales &amp; Export</strong></td>
+            <td><span class="actor-badge badge-sales">Sales Officer</span></td>
+            <td>• Create Sales Order &amp; Sales Invoice<br/>• Dispatch Stock from Warehouse<br/>• Record Inward Remittance (IRM)<br/>• Obtain e-BRC Bank Certificate</td>
+            <td>Sells stock to buyers, collects payment, and completes the trade cycle.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      securityLevel: 'loose',
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis'
+      }
+    });
+  </script>
+</body>
+</html>
