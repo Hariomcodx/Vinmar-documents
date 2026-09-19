@@ -1,43 +1,15 @@
 <!doctype html>
 <html lang="en" data-visualize-standalone>
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-  <title>Vinmar Complete Lifecycle</title>
-  <style>
-    :root {
-      color-scheme: light dark;
-      background: light-dark(rgb(255 255 255), rgb(24 24 24))
-    }
-
-    html,
-    body {
-      margin: 0
-    }
-
-    body {
-      box-sizing: border-box;
-      padding: 1rem;
-      background: inherit
-    }
-
-    iframe {
-      display: block;
-      width: 100%;
-      height: calc(100vh - 2rem);
-      margin: 0 auto;
-      border: 0
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Vinmar Complete Lifecycle</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
 </head>
-
 <body>
-  <iframe id="codex-visualization" sandbox="allow-scripts" referrerpolicy="no-referrer"
-    title="Vinmar Complete Lifecycle" data-srcdoc="&lt;!doctype html&gt;
+<iframe id="codex-visualization" sandbox="allow-scripts" referrerpolicy="no-referrer" title="Vinmar Complete Lifecycle" data-srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -213,9 +185,13 @@ html &gt; body {
   line-height: var(--line-height-normal);
 }
 
+.cursor-interaction {
+  cursor: var(--cursor-interaction, pointer);
+}
+
 a {
   color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
-  cursor: pointer;
+  cursor: var(--cursor-interaction, pointer);
   font-weight: var(--font-weight-medium, 500);
   text-decoration: none;
   text-underline-offset: 2px;
@@ -566,7 +542,7 @@ small,
 }
 
 a.btn {
-  cursor: pointer;
+  cursor: var(--cursor-interaction, pointer);
   text-decoration: none;
 }
 
@@ -1376,9 +1352,13 @@ html&gt;body{padding:0}&lt;/style&gt;
     #purchase-atoz-flow .finder-result ul { gap: 5px; }
     #purchase-atoz-flow .finder-result li { background: var(--card); border: 1px solid var(--border); }
     #purchase-atoz-flow .source-matches { display: grid; gap: 7px; }
-    #purchase-atoz-flow .source-match { padding: 9px; border: 1px solid var(--border); border-left: 4px solid var(--success); border-radius: var(--radius); background: var(--card); }
+    #purchase-atoz-flow .source-match { width: 100%; padding: 9px; border: 1px solid var(--border); border-left: 4px solid var(--success); border-radius: var(--radius); color: var(--foreground); background: var(--card); font: inherit; text-align: left; cursor: pointer; }
+    #purchase-atoz-flow .source-match:hover { background: var(--accent); }
+    #purchase-atoz-flow .source-match:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
     #purchase-atoz-flow .source-match strong { margin: 0; color: var(--foreground); font-size: 12px; }
     #purchase-atoz-flow .source-match span { display: block; margin-top: 3px; color: var(--muted-foreground); font-size: 10px; line-height: 1.35; }
+    #purchase-atoz-flow .source-match .match-added { color: var(--success); }
+    #purchase-atoz-flow .source-match .match-carried { color: var(--muted-foreground); }
     #purchase-atoz-flow .source-empty { margin: 0; color: var(--muted-foreground); font-size: 12px; }
     #purchase-atoz-flow .split-label, #purchase-atoz-flow .merge-label { margin: 0 auto 12px; width: max-content; max-width: 100%; padding: 8px 12px; border-radius: var(--radius); background: var(--primary); color: var(--primary-foreground); font-size: 11px; font-weight: 850; text-align: center; }
     #purchase-atoz-flow .parallel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
@@ -1507,6 +1487,16 @@ html&gt;body{padding:0}&lt;/style&gt;
           &lt;div class=&quot;parent-head&quot;&gt;&lt;div class=&quot;parent-name&quot;&gt;&lt;i data-lucide=&quot;database&quot;&gt;&lt;/i&gt;Master Data &amp;amp; Setup&lt;/div&gt;&lt;span class=&quot;parent-badge&quot;&gt;Parent module&lt;/span&gt;&lt;/div&gt;
           &lt;div class=&quot;inside&quot;&gt;
             &lt;button class=&quot;btn module&quot; data-step=&quot;masters&quot; data-tone=&quot;primary&quot; aria-pressed=&quot;true&quot;&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i data-lucide=&quot;library&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;module-title&quot;&gt;Reference Masters&lt;/span&gt;&lt;span class=&quot;module-desc&quot;&gt;Shared validated values used by every transaction.&lt;/span&gt;&lt;span class=&quot;tags&quot;&gt;&lt;span class=&quot;tag&quot;&gt;Vendor&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Product / HSN&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Port&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Bank&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;License&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;Users &amp;amp; rights&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;div class=&quot;linked-title&quot;&gt;Business master modules&lt;/div&gt;
+            &lt;div class=&quot;linked-grid master-grid&quot;&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;subsidiaryMaster&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;building-2&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Subsidiary&lt;/strong&gt;&lt;small&gt;Company identity, tax and branch setup.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;productMaster&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;package&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Product&lt;/strong&gt;&lt;small&gt;Product, HSN, division and specification.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;bankMaster&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;landmark&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Bank&lt;/strong&gt;&lt;small&gt;Bank, branch, account, IFSC and AD code.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;clientMaster&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;contact&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Client&lt;/strong&gt;&lt;small&gt;Customer identity, contacts and addresses.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;vendorMaster&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;factory&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Vendor&lt;/strong&gt;&lt;small&gt;Commercial supplier and bank details.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;chaMaster&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;ship-wheel&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Customs House Agent&lt;/strong&gt;&lt;small&gt;CHA identity, locations and email.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+              &lt;button class=&quot;btn linked&quot; data-step=&quot;serviceVendorMaster&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;briefcase-business&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;Service Vendor&lt;/strong&gt;&lt;small&gt;Non-product service-provider details.&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;/div&gt;
           &lt;/div&gt;
         &lt;/section&gt;
 
@@ -1684,6 +1674,13 @@ html&gt;body{padding:0}&lt;/style&gt;
       const r = (parent, tone, title, purpose, source, same, added, system, note = &#x27;&#x27;) =&gt; ({ parent, tone, title, purpose, source, same, added, system, note });
       const data = {
         masters: r(&#x27;Master Data &amp; Setup&#x27;,&#x27;primary&#x27;,&#x27;Reference Masters&#x27;,&#x27;Shared validated values used throughout both lifecycles.&#x27;,&#x27;Admin and master-data maintenance screens.&#x27;,[&#x27;No transaction data yet&#x27;],[&#x27;Vendor, client and subsidiary&#x27;,&#x27;Company users and rights&#x27;,&#x27;Product and HSN&#x27;,&#x27;Ports&#x27;,&#x27;Banks and AD codes&#x27;,&#x27;Import licenses / scripts&#x27;],&#x27;Supplies consistent IDs and selectable values to Purchase, Sales, Finance and Logistics. User rights control maker / approver behavior and notification routing.&#x27;),
+        subsidiaryMaster: r(&#x27;Master Data &amp; Setup&#x27;,&#x27;primary&#x27;,&#x27;Subsidiary Master&#x27;,&#x27;Defines each legal / operating subsidiary used by transactions.&#x27;,&#x27;Company Masters → Subsidiary.&#x27;,[&#x27;Organization / company context&#x27;,&#x27;Authenticated creator&#x27;],[&#x27;Subsidiary identity and statutory details&#x27;],&#x27;Supplies subsidiary, company code, addresses and tax references to Purchase, Sales, Finance and Logistics.&#x27;),
+        productMaster: r(&#x27;Master Data &amp; Setup&#x27;,&#x27;primary&#x27;,&#x27;Product Master&#x27;,&#x27;Defines products and their valid HSN and operational classifications.&#x27;,&#x27;Company Masters → Product.&#x27;,[&#x27;Organization / company context&#x27;,&#x27;HSN master selection&#x27;,&#x27;Subsidiary selection&#x27;],[&#x27;Product identity, HSN mappings and operating codes&#x27;],&#x27;Supplies controlled product, HSN, division and specification values to Purchase and Sales documents.&#x27;),
+        bankMaster: r(&#x27;Master Data &amp; Setup&#x27;,&#x27;primary&#x27;,&#x27;Bank Master&#x27;,&#x27;Defines approved company banking references and limits.&#x27;,&#x27;Company Masters → Bank.&#x27;,[&#x27;Organization / company context&#x27;,&#x27;Subsidiary selection&#x27;],[&#x27;Bank identity, branch, account, AD / IFSC codes and limits&#x27;],&#x27;Supplies validated banking data to PI Finance, BOE, LC, ORM, IRM and Invoice Negotiation.&#x27;),
+        clientMaster: r(&#x27;Master Data &amp; Setup&#x27;,&#x27;primary&#x27;,&#x27;Client Master&#x27;,&#x27;Defines customers / buyers used by Sales transactions.&#x27;,&#x27;Company Masters → Client.&#x27;,[&#x27;Organization / company context&#x27;,&#x27;Subsidiary selection&#x27;,&#x27;Authenticated creator&#x27;],[&#x27;Client identity, contact, address and banking names&#x27;],&#x27;Supplies client and party details to Sales Orders, Sales Invoices and IRM.&#x27;),
+        vendorMaster: r(&#x27;Master Data &amp; Setup&#x27;,&#x27;primary&#x27;,&#x27;Vendor Master&#x27;,&#x27;Defines commercial suppliers used by Purchase transactions.&#x27;,&#x27;Company Masters → Vendor.&#x27;,[&#x27;Organization / company context&#x27;,&#x27;Subsidiary selection&#x27;,&#x27;Authenticated creator&#x27;,&#x27;Optional AD Bank selection&#x27;],[&#x27;Vendor identity, contacts, address and bank details&#x27;],&#x27;Supplies vendor details to PO, OC, PI, LC, ORM and related finance records.&#x27;),
+        chaMaster: r(&#x27;Master Data &amp; Setup&#x27;,&#x27;primary&#x27;,&#x27;Customs House Agent Master&#x27;,&#x27;Defines approved customs-clearing agents.&#x27;,&#x27;Company Masters → Customs House Agent.&#x27;,[&#x27;Organization / company context&#x27;,&#x27;Subsidiary selections&#x27;,&#x27;Authenticated creator&#x27;],[&#x27;CHA Name, Office Locations and Email ID&#x27;],&#x27;Supplies CHA identity and contact data to Assignment &amp; Clearing. BOE later adds the selected CHA billing details.&#x27;),
+        serviceVendorMaster: r(&#x27;Master Data &amp; Setup&#x27;,&#x27;primary&#x27;,&#x27;Service Vendor Master&#x27;,&#x27;Defines non-product service providers.&#x27;,&#x27;Company Masters → Service Vendor.&#x27;,[&#x27;Organization / company context&#x27;,&#x27;Subsidiary selection&#x27;,&#x27;Authenticated creator&#x27;],[&#x27;Service Vendor identity, contact, country and address&#x27;],&#x27;Supplies service-provider references to service costs, license purchases and related operational records.&#x27;),
         po: r(&#x27;Purchase Module&#x27;,&#x27;accent&#x27;,&#x27;Purchase Order (PO)&#x27;,&#x27;The complete commercial source document for the Purchase &amp; Import lifecycle.&#x27;,&#x27;Manual multi-step form, saved draft, validated Excel bulk upload, or ERP / Caliber synchronization.&#x27;,[&#x27;Organization and company context&#x27;,&#x27;Company code and subsidiary reference&#x27;,&#x27;Vendor master ID, code, name, address, contact and country&#x27;,&#x27;Business-head / company-user reference&#x27;,&#x27;Product master ID, name and category&#x27;,&#x27;HSN master ID, code, description and category&#x27;,&#x27;Bill-to and ship-to party references&#x27;,&#x27;Port of loading / discharge names and codes&#x27;],[&#x27;PO number and PO date&#x27;,&#x27;Business head and risk-on-account&#x27;,&#x27;Vendor / subsidiary selection and transaction snapshot&#x27;,&#x27;Country of origin, product category and specification&#x27;,&#x27;Additional HSN description and unit of measure&#x27;,&#x27;Ordered quantity, rate and quantity tolerance&#x27;,&#x27;DGFT fees and custom-calculation choice&#x27;,&#x27;Currency, incoterm and delivery days&#x27;,&#x27;Bill-to / ship-to contacts and addresses&#x27;,&#x27;Notify-party details and final destination&#x27;,&#x27;Shipment method and container / bulk type&#x27;,&#x27;Freight, insurance and other charges&#x27;,&#x27;CHA, transport, shipping-line, surveyor and tank-terminal costs&#x27;,&#x27;Requested last-shipment and arrival dates / windows&#x27;,&#x27;Voyage time, shipping line and vessel&#x27;,&#x27;Estimated departure and arrival dates / windows&#x27;,&#x27;Advance, spot and credit amounts / percentages&#x27;,&#x27;Credit days, payment-term currency and payment terms&#x27;,&#x27;TT / DA type, sight / usance and LC number&#x27;,&#x27;Required documents&#x27;,&#x27;Remarks and central remarks&#x27;],&#x27;Validates and normalizes vendor, subsidiary, product / HSN and port references; calculates each line amount as quantity × rate; totals the PO amount and balance; initializes remaining and unconfirmed quantities; records creator, organization and pending approval state; creates the original PO history snapshot; initializes IMS, hedge and IDPMS flags; raises applicable payment notifications; and, after approval, creates or updates FX exposure and can auto-create the initial Shipment Schedule when shipping data exists.&#x27;,&#x27;PO is the first transaction document, so “Same data carried forward” means data reused from reference masters and session context. Bank master data is not directly added to the normal PO; banks enter later through LC, ORM, FX or PI Finance.&#x27;),
         poDecision: r(&#x27;Purchase Module&#x27;,&#x27;warning&#x27;,&#x27;PO approved?&#x27;,&#x27;The PO approval gate.&#x27;,&#x27;Submitted PO and current user rights.&#x27;,[&#x27;All PO fields&#x27;],[&#x27;Approval / rejection action&#x27;,&#x27;Remarks&#x27;,&#x27;Actor and timestamp&#x27;],&#x27;YES creates or enables the next purchase records and can create the first shipment schedule. NO returns the PO for correction or rejection.&#x27;),
         shipment: r(&#x27;Purchase Module&#x27;,&#x27;warning&#x27;,&#x27;Shipment Schedule&#x27;,&#x27;One shipping timeline reused across documents.&#x27;,&#x27;Approved PO first; later linked to OC and synchronized with PI and A&amp;C.&#x27;,[&#x27;PO / OC reference&#x27;,&#x27;Requested shipment and arrival dates&#x27;,&#x27;Ports&#x27;,&#x27;Product context&#x27;],[&#x27;Voyage time&#x27;,&#x27;Shipping line&#x27;,&#x27;Vessel&#x27;,&#x27;ETD and ETA&#x27;,&#x27;Date windows&#x27;,&#x27;Remarks&#x27;],&#x27;Validates ETA after ETD, avoids duplicate OC schedules, records history, and synchronizes date changes.&#x27;,&#x27;Code note: when shipping data exists, PO approval can auto-create this schedule before OC. OC later attaches itself to the existing PO schedule, so the displayed OC → Schedule order is the simpler user-facing sequence.&#x27;),
@@ -1726,6 +1723,41 @@ html&gt;body{padding:0}&lt;/style&gt;
           added: [&quot;Company and subsidiary masters&quot;, &quot;Company users, roles and approval rights&quot;, &quot;Vendor master: code, name, address, contact and country&quot;, &quot;Client / party master and billing details&quot;, &quot;Product, product category and specification masters&quot;, &quot;HSN code, description and unit of measurement&quot;, &quot;Port names and port codes&quot;, &quot;Bank, branch, account, IFSC and AD-code masters&quot;, &quot;License, script and benefit masters&quot;],
           required: []
         },
+        subsidiaryMaster: {
+          same: [&quot;Organization / company context&quot;, &quot;Authenticated creator&quot;],
+          added: [&quot;Subsidiary Name&quot;, &quot;Company Code (CO Code)&quot;, &quot;Address&quot;, &quot;Branches and Branch GST&quot;, &quot;City&quot;, &quot;State&quot;, &quot;Country&quot;, &quot;GST Number&quot;, &quot;IEC Code&quot;, &quot;IEC Code Serial&quot;, &quot;PAN Card&quot;, &quot;LEI Number&quot;, &quot;Logo&quot;, &quot;Theme Color&quot;, &quot;Approval Status and Action Metadata&quot;],
+          required: [&quot;Subsidiary Name&quot;, &quot;CO Code&quot;, &quot;Address&quot;, &quot;City&quot;, &quot;State&quot;, &quot;Country&quot;, &quot;GST Number&quot;, &quot;IEC Code&quot;, &quot;PAN Card&quot;, &quot;Theme Color&quot;]
+        },
+        productMaster: {
+          same: [&quot;Organization / company context&quot;, &quot;Subsidiary selection&quot;, &quot;HSN master references&quot;],
+          added: [&quot;Product Name&quot;, &quot;HSN Code&quot;, &quot;HSN Description&quot;, &quot;Additional HSN Description&quot;, &quot;Product Category / Division&quot;, &quot;Product Specifications&quot;, &quot;Material Group Code&quot;, &quot;Plant Code&quot;, &quot;Storage Location&quot;, &quot;Created / Updated By&quot;],
+          required: [&quot;Product Name&quot;, &quot;HSN Code&quot;, &quot;HSN Description&quot;, &quot;Division / Product Category&quot;, &quot;Each Product Specification&quot;, &quot;Plant Code&quot;, &quot;Storage Location&quot;]
+        },
+        bankMaster: {
+          same: [&quot;Organization / company context&quot;, &quot;Subsidiary selection&quot;, &quot;Authenticated creator&quot;],
+          added: [&quot;Bank Name&quot;, &quot;Bank Branch&quot;, &quot;Bank AD Code&quot;, &quot;Bank Account Number&quot;, &quot;Bank IFSC Code&quot;, &quot;Currency&quot;, &quot;Bank SWIFT Code&quot;, &quot;Post-shipment Limit&quot;, &quot;Pre-shipment Limit&quot;, &quot;LC Issuance Charges&quot;, &quot;LC Commission Rate&quot;, &quot;LC Commission Amount&quot;, &quot;SWIFT Charges&quot;, &quot;GST&quot;, &quot;Bank Status&quot;, &quot;Bank Limit Update History&quot;],
+          required: [&quot;Bank Name&quot;, &quot;Bank Branch&quot;, &quot;Bank AD Code&quot;, &quot;Bank Account Number&quot;, &quot;Post-shipment Limit&quot;, &quot;Pre-shipment Limit&quot;, &quot;Bank IFSC Code&quot;, &quot;LC Issuance Charges&quot;, &quot;LC Commission Rate&quot;, &quot;LC Commission Amount&quot;, &quot;SWIFT Charges&quot;, &quot;GST&quot;]
+        },
+        clientMaster: {
+          same: [&quot;Organization / company context&quot;, &quot;Subsidiary selection&quot;, &quot;Authenticated creator&quot;],
+          added: [&quot;Client Name&quot;, &quot;Client Unique Code&quot;, &quot;Client Contact Name&quot;, &quot;Client Contact Number&quot;, &quot;Client Email Address&quot;, &quot;Client Country&quot;, &quot;Client Address / Branch Addresses&quot;, &quot;Banking Names&quot;, &quot;Client Model Type&quot;, &quot;Client Update History&quot;],
+          required: [&quot;Client Name&quot;, &quot;Contact Name&quot;, &quot;Valid Email Address&quot;, &quot;Valid Contact Number&quot;, &quot;Unique Code&quot;, &quot;Each Client Address&quot;, &quot;Country&quot;]
+        },
+        vendorMaster: {
+          same: [&quot;Organization / company context&quot;, &quot;Subsidiary selection&quot;, &quot;Authenticated creator&quot;, &quot;Optional AD Bank master selection&quot;],
+          added: [&quot;Vendor Name&quot;, &quot;Vendor Unique Code&quot;, &quot;Vendor Contact Name&quot;, &quot;Vendor Contact Number&quot;, &quot;Vendor Email Address&quot;, &quot;Vendor Country and Country Code&quot;, &quot;Vendor Address&quot;, &quot;Vendor Branches&quot;, &quot;AD Bank Name, Code and Account Number&quot;, &quot;Vendor Bank Branch&quot;, &quot;Banking Name&quot;, &quot;Vendor Bank Account&quot;, &quot;IBAN&quot;, &quot;BNKT&quot;, &quot;Vendor Bank Name&quot;, &quot;Vendor SWIFT / BIC&quot;, &quot;Vendor Model Type&quot;, &quot;Vendor Update History&quot;],
+          required: [&quot;Vendor Name&quot;, &quot;Valid Email Address&quot;, &quot;Valid Contact Number&quot;, &quot;Vendor Unique Code&quot;, &quot;Vendor Address&quot;, &quot;Country&quot;, &quot;For each bank detail: Vendor Bank Account, IBAN, BNKT, Vendor Bank Name and Vendor SWIFT / BIC&quot;]
+        },
+        chaMaster: {
+          same: [&quot;Organization / company context&quot;, &quot;Authenticated creator&quot;, &quot;Selected Subsidiaries&quot;],
+          added: [&quot;Customs House Agent (CHA) Name&quot;, &quot;CHA Office Locations&quot;, &quot;CHA Email ID&quot;, &quot;Subsidiary Names and IDs&quot;, &quot;Created By and Action Metadata&quot;],
+          required: [&quot;CHA Name&quot;, &quot;At least one Office Location&quot;, &quot;Valid Email ID&quot;, &quot;At least one Subsidiary&quot;]
+        },
+        serviceVendorMaster: {
+          same: [&quot;Organization / company context&quot;, &quot;Selected Subsidiary&quot;, &quot;Authenticated creator&quot;],
+          added: [&quot;Service Vendor Name&quot;, &quot;Service Vendor Unique Code&quot;, &quot;Contact Person Name&quot;, &quot;Contact Number and Country Code&quot;, &quot;Email Address&quot;, &quot;Country&quot;, &quot;Address&quot;, &quot;Subsidiary Name and ID&quot;, &quot;Optional AD Bank and Bank Details&quot;, &quot;Service Vendor Status&quot;],
+          required: [&quot;Service Vendor Name&quot;, &quot;Valid Email Address&quot;, &quot;Valid Contact Number&quot;, &quot;Unique Code&quot;, &quot;Country&quot;]
+        },
         po: {
           added: [&quot;PO Number and PO Date&quot;, &quot;Business Head and Risk on Account&quot;, &quot;Vendor / Subsidiary selection and transaction snapshot&quot;, &quot;Country of Origin, Product Category and Product Specification&quot;, &quot;Additional HSN Description and Unit of Measurement&quot;, &quot;Ordered Quantity, Rate and Quantity Tolerance&quot;, &quot;DGFT Fees and Custom Calculation choice&quot;, &quot;Currency, Incoterms and Delivery Days&quot;, &quot;Bill-to / Ship-to contacts and addresses&quot;, &quot;Notify Party details and Final Destination&quot;, &quot;Shipment Method and Container / Bulk Type&quot;, &quot;Freight, Insurance and Other charges&quot;, &quot;Clearing cost estimates: CHA cost, Transport, Shipping Line, Surveyor, Tank Terminal and total&quot;, &quot;Requested Last-shipment and Arrival dates / windows&quot;, &quot;Voyage Time, Shipping Line and Vessel&quot;, &quot;Estimated Departure and Arrival dates / windows&quot;, &quot;Advance, Spot and Credit amounts / percentages&quot;, &quot;Credit Days, Payment-term Currency and Payment Terms&quot;, &quot;TT / DA Type, Sight / Usance and LC Number&quot;, &quot;Required Documents&quot;, &quot;Remarks and Central Remarks&quot;],
           required: [&quot;Purchase Order Date&quot;, &quot;Subsidiary&quot;, &quot;CO Code&quot;, &quot;Business Head&quot;, &quot;Risk on Account&quot;, &quot;Country of Origin (each HSN line)&quot;, &quot;Product Category, Product and Product Specification (each HSN line)&quot;, &quot;Rate, HSN Code, HSN Description, Amount, Unit, Unit of Measurement and Tolerance (each HSN line)&quot;, &quot;PO Quantity and PO Value&quot;, &quot;Vendor Name, Vendor Code, Vendor Address and Vendor Country&quot;, &quot;Currency and Incoterms&quot;, &quot;Bill-to Party Address&quot;, &quot;Ship-to Party and Ship-to Party Address&quot;, &quot;Shipment Method&quot;, &quot;Port of Loading and Port of Discharge&quot;, &quot;Requested Last Date of Shipment&quot;, &quot;Requested Arrival Date&quot;, &quot;Advance option&quot;, &quot;Advance Percentage and Amount when percentage option is selected&quot;, &quot;Spot Day Type and Credit Days for Usance&quot;, &quot;Credit Amount&quot;, &quot;TT/DA Type&quot;, &quot;Payment Terms&quot;, &quot;Sight/Usance&quot;]
@@ -1744,10 +1776,10 @@ html&gt;body{padding:0}&lt;/style&gt;
         },
         pi: {
           same: [&quot;Selected OC / Vendor Code / PO reference&quot;, &quot;PO ID, Number and Date&quot;, &quot;OC ID and OC Number&quot;, &quot;Subsidiary&quot;, &quot;Vendor Name, Code, Address, Country and ID&quot;, &quot;Currency and Incoterms&quot;, &quot;Product, Product Category and Specification&quot;, &quot;Country of Origin&quot;, &quot;HSN Code, Description and Additional Description&quot;, &quot;Confirmed Quantity, Rate, Amount and Unit of Measurement&quot;, &quot;Bill-to / Ship-to parties and addresses&quot;, &quot;Final Destination&quot;, &quot;Shipment Method&quot;, &quot;Ports and port codes&quot;, &quot;Freight, Insurance and Other charges&quot;, &quot;Required Documents&quot;, &quot;Shipment Schedule dates&quot;],
-          added: [&quot;Purchase Invoice Number and Date&quot;, &quot;Invoice Currency&quot;, &quot;Container / Bulk&quot;, &quot;Invoice Gross Amount FCY / INR&quot;, &quot;Invoice Discount FCY / INR&quot;, &quot;Invoice Net Amount FCY / INR&quot;, &quot;Exchange Rate&quot;, &quot;Gross Invoice Amount&quot;, &quot;Invoice Quantity&quot;, &quot;Hedging Status and Hedging Rate&quot;, &quot;Bill of Lading Number and Quantity&quot;, &quot;Remaining BL Quantity&quot;, &quot;BL Date&quot;, &quot;HSS / HC / In Bond / FTWZ classification&quot;, &quot;Presold / Self and Assigned To&quot;, &quot;Container Numbers&quot;, &quot;Shipped-on-Board Date&quot;, &quot;Vessel, Voyage Time and Shipping Line&quot;, &quot;Estimated Arrival Date&quot;, &quot;AD Bank, Branch, AD Code, IFSC and Bank Reference&quot;, &quot;PI Documents and Remarks&quot;, &quot;Due Date&quot;, &quot;Invoice Balance and Advance Remaining&quot;, &quot;Approval, Finance and cancellation metadata&quot;],
-          required: [&quot;OC / Vendor Code / PO selection&quot;, &quot;Invoice Number&quot;, &quot;Invoice Date&quot;, &quot;Invoice Currency&quot;, &quot;Country of Origin per HSN&quot;, &quot;HSN Description per HSN&quot;, &quot;Unit / Invoice Quantity per HSN&quot;, &quot;Bill of Lading Number&quot;, &quot;Bill of Lading Quantity&quot;, &quot;Ship-to Party Address&quot;, &quot;Port of Discharge&quot;, &quot;Gross Invoice Amount&quot;, &quot;Invoice Quantity&quot;, &quot;Shipped-on-Board Date&quot;, &quot;Bill of Lading Date&quot;]
+          added: [&quot;Purchase Invoice Number and Date&quot;, &quot;Invoice Currency&quot;, &quot;Container / Bulk&quot;, &quot;Invoice Gross Amount FCY / INR&quot;, &quot;Invoice Discount FCY / INR&quot;, &quot;Invoice Net Amount FCY / INR&quot;, &quot;Exchange Rate&quot;, &quot;Gross Invoice Amount&quot;, &quot;Invoice Quantity&quot;, &quot;Hedging Status and Hedging Rate&quot;, &quot;Bill of Lading Number and Quantity&quot;, &quot;Remaining BL Quantity&quot;, &quot;BL Date&quot;, &quot;HSS / HC / In Bond / FTWZ classification&quot;, &quot;Presold / Self and Assigned To&quot;, &quot;Container Numbers&quot;, &quot;Shipped on Board Date&quot;, &quot;Vessel, Voyage Time and Shipping Line&quot;, &quot;Estimated Arrival Date&quot;, &quot;AD Bank, Branch, AD Code, IFSC and Bank Reference&quot;, &quot;PI Documents and Remarks&quot;, &quot;Due Date&quot;, &quot;Invoice Balance and Advance Remaining&quot;, &quot;Approval, Finance and cancellation metadata&quot;],
+          required: [&quot;OC / Vendor Code / PO selection&quot;, &quot;Invoice Number&quot;, &quot;Invoice Date&quot;, &quot;Invoice Currency&quot;, &quot;Country of Origin per HSN&quot;, &quot;HSN Description per HSN&quot;, &quot;Unit / Invoice Quantity per HSN&quot;, &quot;Bill of Lading Number&quot;, &quot;Bill of Lading Quantity&quot;, &quot;Ship-to Party Address&quot;, &quot;Port of Discharge&quot;, &quot;Gross Invoice Amount&quot;, &quot;Invoice Quantity&quot;, &quot;Shipped on Board Date&quot;, &quot;Bill of Lading Date&quot;]
         },
-        piDecision: { required: [&quot;BL Quantity must not exceed Invoice Quantity&quot;, &quot;ETA must not be earlier than Shipped-on-Board Date&quot;] },
+        piDecision: { required: [&quot;BL Quantity must not exceed Invoice Quantity&quot;, &quot;ETA must not be earlier than Shipped on Board Date&quot;] },
         fx: {
           same: [&quot;Document Type, Number and Date&quot;, &quot;Parent PO / OC / PI IDs and references&quot;, &quot;Company and Organization&quot;, &quot;Vendor&quot;, &quot;Currency&quot;, &quot;Document Value&quot;, &quot;Shipment Date&quot;, &quot;Credit Days and Due Date&quot;, &quot;Business Head and Risk on Account&quot;],
           added: [&quot;Bank and Bank Name&quot;, &quot;Hedged Balance&quot;, &quot;Unhedged Balance&quot;, &quot;FX Exposure Status&quot;, &quot;FX Contract ID and Contract Number&quot;, &quot;Booked Rate&quot;, &quot;Hedged Contract Value&quot;, &quot;Utilized and Unutilized Amount&quot;, &quot;Cancelled Amount and Cancellation Rate&quot;, &quot;Profit / Loss on Cancellation&quot;, &quot;Reconciliation Value and Difference&quot;, &quot;Hedge Remarks and Hedge Status&quot;],
@@ -1780,13 +1812,13 @@ html&gt;body{padding:0}&lt;/style&gt;
           required: [&quot;Subsidiary&quot;, &quot;Vendor Name&quot;, &quot;Credit / Debit Note Number&quot;, &quot;Note Date&quot;, &quot;Currency&quot;, &quot;Currency Rate&quot;, &quot;Value&quot;, &quot;Due Date&quot;]
         },
         anc: {
-          same: [&quot;Purchase Invoice ID, Number and Date&quot;, &quot;Subsidiary&quot;, &quot;Vendor&quot;, &quot;Invoice Amount, Quantity and Currency&quot;, &quot;Container / Bulk&quot;, &quot;Port of Loading and Discharge with codes&quot;, &quot;Insurance, Freight and Other amounts / currencies&quot;, &quot;AD Bank, Branch, AD Code, IFSC and Bank ID&quot;, &quot;Shipped-on-Board Date&quot;, &quot;Vessel, Voyage Time, ETA and Shipping Line&quot;, &quot;Product, Category, Specification and Country of Origin&quot;, &quot;HSN Code, Description, Unit, Rate and Amount&quot;, &quot;Bill of Lading Number and Quantity&quot;],
-          added: [&quot;Assignment Currency&quot;, &quot;Payment Type&quot;, &quot;Customs Duty Amount and Direct Payment Amount&quot;, &quot;Benefit and Benefit ID&quot;, &quot;Import-under License Type&quot;, &quot;HSS / Home Consumption / In Bond / FTWZ route per BL&quot;, &quot;Presold / Self&quot;, &quot;Assigned To / Customer&quot;, &quot;Container Numbers&quot;, &quot;CHA Name and CHA Email&quot;, &quot;BL Usage Party and BE Type&quot;, &quot;BE / Ex-Bond BE Number, Date, Quantity and Value&quot;, &quot;IEC Code and AD Code for BL usage&quot;, &quot;License / Script Type, Scheme, Number, Amount and Quantity&quot;, &quot;License Product, HSN and available balances&quot;, &quot;A&amp;C Remarks&quot;, &quot;BOE-built flag&quot;, &quot;Approval and workflow metadata&quot;],
-          required: [&quot;AD Bank&quot;, &quot;AD Bank Branch&quot;, &quot;AD Code&quot;, &quot;IFSC Code&quot;, &quot;Invoice Amount&quot;, &quot;Invoice Currency&quot;, &quot;Invoice Date&quot;, &quot;Invoice Number&quot;, &quot;Invoice Quantity&quot;, &quot;Port of Loading&quot;, &quot;Port of Discharge&quot;, &quot;Subsidiary&quot;, &quot;Vendor Name&quot;, &quot;Shipped-on-Board Date&quot;, &quot;Vessel Name&quot;, &quot;Voyage Time&quot;, &quot;Estimated Arrival Date&quot;, &quot;Currency&quot;, &quot;Assigned To for HSS / In Bond / FTWZ&quot;, &quot;CHA Name and valid CHA Email except High Sea Sales&quot;, &quot;License / Script scheme, selection and positive amount when a license row is used&quot;, &quot;Positive quantity for selected DFIA license&quot;]
+          same: [&quot;Purchase Invoice ID, Number and Date&quot;, &quot;Subsidiary&quot;, &quot;Vendor&quot;, &quot;Invoice Amount, Quantity and Currency&quot;, &quot;Container / Bulk&quot;, &quot;Port of Loading and Discharge with codes&quot;, &quot;Insurance, Freight and Other amounts / currencies&quot;, &quot;AD Bank, Branch, AD Code, IFSC and Bank ID&quot;, &quot;Shipped on Board Date&quot;, &quot;Vessel, Voyage Time, ETA and Shipping Line&quot;, &quot;Product, Category, Specification and Country of Origin&quot;, &quot;HSN Code, Description, Unit, Rate and Amount&quot;, &quot;Bill of Lading Number and Quantity&quot;, &quot;Selected CHA Master Name, Office Location and Email&quot;],
+          added: [&quot;Assignment Currency&quot;, &quot;Payment Type&quot;, &quot;Customs Duty Amount and Direct Payment Amount&quot;, &quot;Benefit and Benefit ID&quot;, &quot;Import-under License Type&quot;, &quot;HSS / Home Consumption / In Bond / FTWZ route per BL&quot;, &quot;Presold / Self&quot;, &quot;Assigned To / Customer&quot;, &quot;Container Numbers&quot;, &quot;BL Usage Party and BE Type&quot;, &quot;BE / Ex-Bond BE Number, Date, Quantity and Value&quot;, &quot;IEC Code and AD Code for BL usage&quot;, &quot;License / Script Type, Scheme, Number, Amount and Quantity&quot;, &quot;License Product, HSN and available balances&quot;, &quot;A&amp;C Remarks&quot;, &quot;BOE-built flag&quot;, &quot;Approval and workflow metadata&quot;],
+          required: [&quot;AD Bank&quot;, &quot;AD Bank Branch&quot;, &quot;AD Code&quot;, &quot;IFSC Code&quot;, &quot;Invoice Amount&quot;, &quot;Invoice Currency&quot;, &quot;Invoice Date&quot;, &quot;Invoice Number&quot;, &quot;Invoice Quantity&quot;, &quot;Port of Loading&quot;, &quot;Port of Discharge&quot;, &quot;Subsidiary&quot;, &quot;Vendor Name&quot;, &quot;Shipped on Board Date&quot;, &quot;Vessel Name&quot;, &quot;Voyage Time&quot;, &quot;Estimated Arrival Date&quot;, &quot;Currency&quot;, &quot;Assigned To for HSS / In Bond / FTWZ&quot;, &quot;CHA Name and valid CHA Email except High Sea Sales&quot;, &quot;License / Script scheme, selection and positive amount when a license row is used&quot;, &quot;Positive quantity for selected DFIA license&quot;]
         },
         boe: {
-          same: [&quot;A&amp;C ID and Purchase Invoice ID&quot;, &quot;Subsidiary and Vendor&quot;, &quot;Invoice Number, Date, Amount, Quantity and Currency&quot;, &quot;Bill of Lading details, route, assignment and containers&quot;, &quot;Port of Loading and Discharge&quot;, &quot;Product and HSN details&quot;, &quot;Selected License / Script details&quot;, &quot;Organization and creator context&quot;],
-          added: [&quot;IGM Number and Date&quot;, &quot;BOE Number and Date&quot;, &quot;BOE AD Bank, Branch, IFSC, AD Code and Bank ID&quot;, &quot;IEC Number and Date&quot;, &quot;BOE Quantity and Currency&quot;, &quot;BOE Gross, Deduction / Addition, Freight, Insurance, Other and Net Amount FCY&quot;, &quot;BOE Exchange Rate&quot;, &quot;BOE Gross, Deduction / Addition, Freight, Insurance, Other and Net Amount INR&quot;, &quot;Total Landed Gross and Net Cost&quot;, &quot;Basic and Additional Customs Duty&quot;, &quot;Social Welfare Surcharge, NCCD, ADD, CVD, IGST, G. Cess, SG, SAED, GSIA, TTA and Health&quot;, &quot;Total Duty, Interest, Penalty and Fine&quot;, &quot;Total Assessed Value and Total Duty Payable&quot;, &quot;Payment Type, Direct Payment and Benefit&quot;, &quot;CHA Name, Bill Number, Bill Date and Amount&quot;, &quot;Shipping Line Name, Bill Number, Bill Date and Freight&quot;, &quot;Transporter Name, Bill Number, Bill Date and Cost&quot;, &quot;Tank Terminal Name, Bill Number, Bill Date and Cost&quot;, &quot;Surveyor Name, Bill Number, Bill Date and Cost&quot;, &quot;Summation Cost&quot;, &quot;Actual / Extra Duty Paid, Duty-paid Date and Challan&quot;, &quot;BOE Documents&quot;, &quot;Approval and workflow metadata&quot;],
+          same: [&quot;A&amp;C ID and Purchase Invoice ID&quot;, &quot;Subsidiary and Vendor&quot;, &quot;Invoice Number, Date, Amount, Quantity and Currency&quot;, &quot;Bill of Lading details, route, assignment and containers&quot;, &quot;Port of Loading and Discharge&quot;, &quot;Product and HSN details&quot;, &quot;Selected License / Script details&quot;, &quot;Selected CHA Master Name&quot;, &quot;Organization and creator context&quot;],
+          added: [&quot;IGM Number and Date&quot;, &quot;BOE Number and Date&quot;, &quot;BOE AD Bank, Branch, IFSC, AD Code and Bank ID&quot;, &quot;IEC Number and Date&quot;, &quot;BOE Quantity and Currency&quot;, &quot;BOE Gross, Deduction / Addition, Freight, Insurance, Other and Net Amount FCY&quot;, &quot;BOE Exchange Rate&quot;, &quot;BOE Gross, Deduction / Addition, Freight, Insurance, Other and Net Amount INR&quot;, &quot;Total Landed Gross and Net Cost&quot;, &quot;Basic and Additional Customs Duty&quot;, &quot;Social Welfare Surcharge, NCCD, ADD, CVD, IGST, G. Cess, SG, SAED, GSIA, TTA and Health&quot;, &quot;Total Duty, Interest, Penalty and Fine&quot;, &quot;Total Assessed Value and Total Duty Payable&quot;, &quot;Payment Type, Direct Payment and Benefit&quot;, &quot;CHA Bill Number, Bill Date and Amount&quot;, &quot;Shipping Line Name, Bill Number, Bill Date and Freight&quot;, &quot;Transporter Name, Bill Number, Bill Date and Cost&quot;, &quot;Tank Terminal Name, Bill Number, Bill Date and Cost&quot;, &quot;Surveyor Name, Bill Number, Bill Date and Cost&quot;, &quot;Summation Cost&quot;, &quot;Actual / Extra Duty Paid, Duty-paid Date and Challan&quot;, &quot;BOE Documents&quot;, &quot;Approval and workflow metadata&quot;],
           required: [&quot;BOE Number and Date&quot;, &quot;BOE AD Bank, Bank Branch, IFSC and AD Code&quot;, &quot;Port of Destination Code and Name&quot;, &quot;BOE Quantity and Currency&quot;, &quot;BOE Gross Amount FCY&quot;, &quot;BOE Deduction / Addition FCY&quot;, &quot;Freight, Insurance and Others FCY&quot;, &quot;BOE Net Amount FCY&quot;, &quot;BOE Exchange Rate&quot;, &quot;BOE Gross Amount INR&quot;, &quot;BOE Deduction / Addition INR&quot;, &quot;Freight, Insurance and Others INR&quot;, &quot;BOE Net Amount INR&quot;, &quot;Total Landed Gross Cost&quot;, &quot;Basic Customs Duty&quot;, &quot;Total Assessed Value&quot;, &quot;Total Duty Payable&quot;, &quot;Conditional license / script fields when a license row is used&quot;]
         },
         boeDecision: { required: [&quot;Approval or rejection action&quot;, &quot;Authorized BOE approver&quot;] },
@@ -1921,7 +1953,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         }
       };
       const normalize = (value) =&gt; value.toLowerCase().replace(/[^a-z0-9]+/g, &#x27; &#x27;).trim();
-      const ignoredWords = new Set([&#x27;a&#x27;,&#x27;an&#x27;,&#x27;the&#x27;,&#x27;is&#x27;,&#x27;are&#x27;,&#x27;of&#x27;,&#x27;for&#x27;,&#x27;from&#x27;,&#x27;where&#x27;,&#x27;coming&#x27;,&#x27;come&#x27;,&#x27;data&#x27;,&#x27;field&#x27;,&#x27;details&#x27;,&#x27;detail&#x27;,&#x27;evidence&#x27;,&#x27;information&#x27;,&#x27;value&#x27;]);
+      const ignoredWords = new Set([&#x27;a&#x27;,&#x27;an&#x27;,&#x27;the&#x27;,&#x27;is&#x27;,&#x27;are&#x27;,&#x27;of&#x27;,&#x27;for&#x27;,&#x27;from&#x27;,&#x27;where&#x27;,&#x27;coming&#x27;,&#x27;come&#x27;,&#x27;data&#x27;,&#x27;field&#x27;,&#x27;details&#x27;,&#x27;detail&#x27;,&#x27;information&#x27;,&#x27;value&#x27;]);
       const tokenMatches = (left, right) =&gt; left === right || (left.length &gt;= 5 &amp;&amp; right.length &gt;= 5 &amp;&amp; (left.startsWith(right) || right.startsWith(left)));
       const searchSource = () =&gt; {
         const input = root.querySelector(&#x27;#source-search&#x27;);
@@ -1937,24 +1969,37 @@ html&gt;body{padding:0}&lt;/style&gt;
         const matches = Object.entries(data).map(([id, value]) =&gt; {
           const titleText = normalize(`${value.title} ${value.parent}`);
           const titleTokens = titleText.split(&#x27; &#x27;);
-          const fieldMatches = value.added.map((field) =&gt; {
+          const inspectFields = (fields, type) =&gt; fields.map((field) =&gt; {
             const normalizedField = normalize(field);
             const fieldTokens = normalizedField.split(&#x27; &#x27;);
             const matchedTokens = queryTokens.filter((token) =&gt; fieldTokens.some((fieldToken) =&gt; tokenMatches(token, fieldToken)));
-            return { field, normalizedField, matchedTokens };
+            const exactMatchedTokens = queryTokens.filter((token) =&gt; fieldTokens.includes(token));
+            return { field, type, normalizedField, matchedTokens, exactMatchedTokens };
           });
-          const allAddedTokens = normalize(value.added.join(&#x27; &#x27;)).split(&#x27; &#x27;);
-          const coveredTokens = queryTokens.filter((token) =&gt; allAddedTokens.some((fieldToken) =&gt; tokenMatches(token, fieldToken)) || titleTokens.some((titleToken) =&gt; tokenMatches(token, titleToken)));
-          const bestField = [...fieldMatches].sort((a, b) =&gt; b.matchedTokens.length - a.matchedTokens.length || a.field.localeCompare(b.field))[0];
-          let score = coveredTokens.length * 20;
-          if (queryTokens.length &amp;&amp; coveredTokens.length === queryTokens.length) score += 35;
-          if (bestField?.matchedTokens.length === queryTokens.length &amp;&amp; queryTokens.length) score += 55;
-          if (bestField?.normalizedField.includes(query)) score += 45;
-          if (queryTokens.some((token) =&gt; titleTokens.some((titleToken) =&gt; tokenMatches(token, titleToken)))) score += 30;
-          return { id, value, fields: fieldMatches.filter((field) =&gt; field.matchedTokens.length).sort((a, b) =&gt; b.matchedTokens.length - a.matchedTokens.length).slice(0, 1), score, covered: coveredTokens.length };
-        }).filter((match) =&gt; match.covered &gt; 0).sort((a, b) =&gt; b.score - a.score || a.value.title.localeCompare(b.value.title)).slice(0, 1);
+          const fieldMatches = [...inspectFields(value.added, &#x27;added&#x27;), ...inspectFields(value.same, &#x27;same&#x27;)]
+            .filter((field) =&gt; field.matchedTokens.length)
+            .sort((a, b) =&gt; Number(b.normalizedField === query) - Number(a.normalizedField === query) || b.exactMatchedTokens.length - a.exactMatchedTokens.length || b.matchedTokens.length - a.matchedTokens.length || Number(b.type === &#x27;added&#x27;) - Number(a.type === &#x27;added&#x27;) || a.field.localeCompare(b.field));
+          const fullFieldMatches = fieldMatches.filter((field) =&gt; field.matchedTokens.length === queryTokens.length);
+          const titleMatchedTokens = queryTokens.filter((token) =&gt; titleTokens.some((titleToken) =&gt; tokenMatches(token, titleToken)));
+          const exactTitleMatchedTokens = queryTokens.filter((token) =&gt; titleTokens.includes(token));
+          const titleIsFullMatch = queryTokens.length &gt; 0 &amp;&amp; titleMatchedTokens.length === queryTokens.length;
+          const visibleFields = queryTokens.length &gt; 1 ? fullFieldMatches : fieldMatches;
+          const addedFields = visibleFields.filter((field) =&gt; field.type === &#x27;added&#x27;);
+          const bestField = addedFields[0] || visibleFields[0] || fieldMatches[0];
+          const hasExactField = addedFields.some((field) =&gt; field.normalizedField === query);
+          const fullFieldCount = visibleFields.filter((field) =&gt; field.matchedTokens.length === queryTokens.length).length;
+          let score = (bestField?.matchedTokens.length || 0) * 30 + (bestField?.exactMatchedTokens.length || 0) * 100 + titleMatchedTokens.length * 15 + exactTitleMatchedTokens.length * 25;
+          if (titleIsFullMatch) score += 45;
+          if (hasExactField) score += 180;
+          if (bestField?.normalizedField.includes(query)) score += 55;
+          score += fullFieldCount * 25;
+          if (addedFields.length) score += 120;
+          if (value.parent === &#x27;Master Data &amp; Setup&#x27; &amp;&amp; addedFields.length &amp;&amp; fullFieldCount &amp;&amp; (queryTokens.length &gt; 1 || bestField?.exactMatchedTokens.length)) score += 100;
+          const matched = queryTokens.length &gt; 1 ? fullFieldMatches.length &gt; 0 || titleIsFullMatch : fieldMatches.length &gt; 0 || titleMatchedTokens.length &gt; 0;
+          return { id, value, fields: visibleFields, score, matched };
+        }).filter((match) =&gt; match.matched).sort((a, b) =&gt; b.score - a.score || a.value.title.localeCompare(b.value.title));
         result.hidden = false;
-        root.querySelector(&#x27;#source-result-title&#x27;).textContent = matches.length ? `Source for “${input.value.trim()}”` : `No source found for “${input.value.trim()}”`;
+        root.querySelector(&#x27;#source-result-title&#x27;).textContent = matches.length ? `${matches.length} module${matches.length === 1 ? &#x27; contains&#x27; : &#x27;s contain&#x27;} “${input.value.trim()}” · original source first` : `No source found for “${input.value.trim()}”`;
         if (!matches.length) {
           const empty = document.createElement(&#x27;p&#x27;);
           empty.className = &#x27;source-empty&#x27;;
@@ -1962,15 +2007,30 @@ html&gt;body{padding:0}&lt;/style&gt;
           list.append(empty);
           return;
         }
-        matches.forEach(({ value, fields }) =&gt; {
-          const item = document.createElement(&#x27;div&#x27;);
+        matches.forEach(({ id, value, fields }, index) =&gt; {
+          const item = document.createElement(&#x27;button&#x27;);
+          item.type = &#x27;button&#x27;;
           item.className = &#x27;source-match&#x27;;
           const title = document.createElement(&#x27;strong&#x27;);
           title.textContent = value.title;
-          const matchedFields = fields.length ? fields.map(({ field }) =&gt; field).join(&#x27;; &#x27;) : value.added[0];
           const meta = document.createElement(&#x27;span&#x27;);
-          meta.textContent = `${value.parent} · New data added here: ${matchedFields}`;
+          meta.textContent = `${value.parent} · ${index === 0 ? &#x27;Original source&#x27; : &#x27;Related module&#x27;} · Click to open`;
           item.append(title, meta);
+          const addedFields = fields.filter((field) =&gt; field.type === &#x27;added&#x27;).map(({ field }) =&gt; field);
+          const carriedFields = fields.filter((field) =&gt; field.type === &#x27;same&#x27;).map(({ field }) =&gt; field);
+          if (addedFields.length) {
+            const added = document.createElement(&#x27;span&#x27;);
+            added.className = &#x27;match-added&#x27;;
+            added.textContent = `Added here: ${addedFields.join(&#x27;; &#x27;)}`;
+            item.append(added);
+          }
+          if (carriedFields.length) {
+            const carried = document.createElement(&#x27;span&#x27;);
+            carried.className = &#x27;match-carried&#x27;;
+            carried.textContent = `Carried in: ${carriedFields.join(&#x27;; &#x27;)}`;
+            item.append(carried);
+          }
+          item.addEventListener(&#x27;click&#x27;, () =&gt; select(id, true));
           list.append(item);
         });
       };
@@ -2348,205 +2408,204 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 "></iframe>
-  <script>(() => {
-      const frame = document.getElementById("codex-visualization");
-      if (!(frame instanceof HTMLIFrameElement)) {
+<script>(() => {
+  const frame = document.getElementById("codex-visualization");
+  if (!(frame instanceof HTMLIFrameElement)) {
+    return;
+  }
+  let viewportHeight = globalThis.innerHeight;
+  const storageKey = `codex:visualization-widget-state-v2:${JSON.stringify([
+    globalThis.location.pathname,
+    globalThis.location.search,
+  ])}`;
+  const parseState = (serializedState) => {
+    if (
+      typeof serializedState !== "string" ||
+      new TextEncoder().encode(serializedState).length > 16 * 1024
+    ) {
+      throw new TypeError(
+        "Widget state must be a JSON object of at most 16 KiB",
+      );
+    }
+    /** @type {unknown} */
+    const state = JSON.parse(serializedState);
+    if (
+      state == null ||
+      typeof state !== "object" ||
+      Array.isArray(state) ||
+      ("imageIds" in state &&
+        (!Array.isArray(state.imageIds) || state.imageIds.length > 0))
+    ) {
+      throw new TypeError("Widget state must be a JSON object");
+    }
+    const storedState = { modelContent: null, privateContent: null, ...state };
+    const canonicalState = JSON.stringify(
+      storedState,
+      (_key, /** @type {unknown} */ value) => {
+        if (typeof value === "number" && !Number.isFinite(value)) {
+          throw new TypeError("Widget state must contain finite numbers");
+        }
+        return value;
+      },
+    );
+    if (new TextEncoder().encode(canonicalState).length > 16 * 1024) {
+      throw new TypeError(
+        "Widget state must be a JSON object of at most 16 KiB",
+      );
+    }
+    return storedState;
+  };
+  let storage = null;
+  let state = null;
+  try {
+    const localStorage = globalThis.localStorage;
+    const probeKey = `${storageKey}:probe`;
+    localStorage.setItem(probeKey, "1");
+    localStorage.removeItem(probeKey);
+    storage = localStorage;
+    const savedState = storage.getItem(storageKey);
+    if (savedState != null) {
+      try {
+        state = parseState(savedState);
+      } catch {
+        // Invalid saved state does not disable future writes.
+      }
+    }
+  } catch {
+    storage = null;
+  }
+  const initialGlobals = {
+    widgetState: state,
+    statePersistence: storage == null ? "none" : "local",
+  };
+
+  const channel = new MessageChannel();
+  channel.port1.addEventListener("message", (event) => {
+    const data = event.data;
+    if (typeof data !== "object" || data == null) {
+      return;
+    }
+    if (data.type === "widget-state-write") {
+      if (!Number.isSafeInteger(data.id) || data.id <= 0) {
         return;
       }
-      let viewportHeight = globalThis.innerHeight;
-      const storageKey = `codex:visualization-widget-state-v2:${JSON.stringify([
-        globalThis.location.pathname,
-        globalThis.location.search,
-      ])}`;
-      const parseState = (serializedState) => {
-        if (
-          typeof serializedState !== "string" ||
-          new TextEncoder().encode(serializedState).length > 16 * 1024
-        ) {
-          throw new TypeError(
-            "Widget state must be a JSON object of at most 16 KiB",
-          );
-        }
-        /** @type {unknown} */
-        const state = JSON.parse(serializedState);
-        if (
-          state == null ||
-          typeof state !== "object" ||
-          Array.isArray(state) ||
-          ("imageIds" in state &&
-            (!Array.isArray(state.imageIds) || state.imageIds.length > 0))
-        ) {
-          throw new TypeError("Widget state must be a JSON object");
-        }
-        const storedState = { modelContent: null, privateContent: null, ...state };
-        const canonicalState = JSON.stringify(
-          storedState,
-          (_key, /** @type {unknown} */ value) => {
-            if (typeof value === "number" && !Number.isFinite(value)) {
-              throw new TypeError("Widget state must contain finite numbers");
-            }
-            return value;
-          },
-        );
-        if (new TextEncoder().encode(canonicalState).length > 16 * 1024) {
-          throw new TypeError(
-            "Widget state must be a JSON object of at most 16 KiB",
-          );
-        }
-        return storedState;
-      };
-      let storage = null;
-      let state = null;
+      let ok = false;
       try {
-        const localStorage = globalThis.localStorage;
-        const probeKey = `${storageKey}:probe`;
-        localStorage.setItem(probeKey, "1");
-        localStorage.removeItem(probeKey);
-        storage = localStorage;
-        const savedState = storage.getItem(storageKey);
-        if (savedState != null) {
-          try {
-            state = parseState(savedState);
-          } catch {
-            // Invalid saved state does not disable future writes.
-          }
+        if (storage != null) {
+          const state = parseState(data.state);
+          storage.setItem(storageKey, JSON.stringify(state));
+          ok = true;
         }
       } catch {
-        storage = null;
+        // Storage denial, quota limits, and invalid state return a failed receipt.
       }
-      const initialGlobals = {
-        widgetState: state,
-        statePersistence: storage == null ? "none" : "local",
-      };
-
-      const channel = new MessageChannel();
-      channel.port1.addEventListener("message", (event) => {
-        const data = event.data;
-        if (typeof data !== "object" || data == null) {
-          return;
-        }
-        if (data.type === "widget-state-write") {
-          if (!Number.isSafeInteger(data.id) || data.id <= 0) {
-            return;
-          }
-          let ok = false;
-          try {
-            if (storage != null) {
-              const state = parseState(data.state);
-              storage.setItem(storageKey, JSON.stringify(state));
-              ok = true;
-            }
-          } catch {
-            // Storage denial, quota limits, and invalid state return a failed receipt.
-          }
-          channel.port1.postMessage({
-            type: "widget-state-result",
-            id: data.id,
-            ok,
-          });
-          return;
-        }
-        if (data.type === "height") {
-          const height = data.height;
-          if (
-            typeof height === "number" &&
-            Number.isFinite(height) &&
-            height >= 0 &&
-            height <= 10_000
-          ) {
-            frame.style.height = Math.ceil(height) + "px";
-          }
-          return;
-        }
-        if (data.type === "scroll-to") {
-          const top = data.top;
-          if (
-            typeof top === "number" &&
-            Number.isFinite(top) &&
-            top >= 0 &&
-            globalThis.navigator.userActivation?.isActive === true
-          ) {
-            globalThis.scrollTo({
-              top: Math.ceil(
-                globalThis.scrollY + frame.getBoundingClientRect().top + top,
-              ),
-            });
-          }
-          return;
-        }
-        if (data.type === "open-external") {
-          const rawHref = data.href;
-          if (typeof rawHref !== "string") {
-            return;
-          }
-          let href;
-          try {
-            const url = new URL(rawHref, document.baseURI);
-            if (url.protocol !== "https:") {
-              return;
-            }
-            href = url.href;
-          } catch {
-            return;
-          }
-          if (globalThis.navigator.userActivation?.isActive === true) {
-            const anchor = document.createElement("a");
-            anchor.href = href;
-            anchor.rel = "noopener noreferrer";
-            anchor.target = "_blank";
-            document.body.appendChild(anchor);
-            anchor.click();
-            anchor.remove();
-          }
-          return;
-        }
-        if (data.type === "follow-up") {
-          const prompt = data.prompt;
-          if (
-            typeof prompt !== "string" ||
-            globalThis.navigator.userActivation?.isActive !== true
-          ) {
-            return;
-          }
-          const title = data.title;
-          globalThis.prompt(typeof title === "string" ? title : prompt, prompt);
-        }
+      channel.port1.postMessage({
+        type: "widget-state-result",
+        id: data.id,
+        ok,
       });
-      channel.port1.start();
-      const srcdoc = frame.dataset.srcdoc;
-      if (srcdoc == null) {
+      return;
+    }
+    if (data.type === "height") {
+      const height = data.height;
+      if (
+        typeof height === "number" &&
+        Number.isFinite(height) &&
+        height >= 0 &&
+        height <= 10_000
+      ) {
+        frame.style.height = Math.ceil(height) + "px";
+      }
+      return;
+    }
+    if (data.type === "scroll-to") {
+      const top = data.top;
+      if (
+        typeof top === "number" &&
+        Number.isFinite(top) &&
+        top >= 0 &&
+        globalThis.navigator.userActivation?.isActive === true
+      ) {
+        globalThis.scrollTo({
+          top: Math.ceil(
+            globalThis.scrollY + frame.getBoundingClientRect().top + top,
+          ),
+        });
+      }
+      return;
+    }
+    if (data.type === "open-external") {
+      const rawHref = data.href;
+      if (typeof rawHref !== "string") {
         return;
       }
-      globalThis.addEventListener("resize", () => {
-        const height = Number.parseFloat(frame.style.height);
-        if (!Number.isFinite(height) || height <= viewportHeight) {
-          frame.style.removeProperty("height");
+      let href;
+      try {
+        const url = new URL(rawHref, document.baseURI);
+        if (url.protocol !== "https:") {
+          return;
         }
-        viewportHeight = globalThis.innerHeight;
-        channel.port1.postMessage({ type: "measure" });
-      });
-      frame.addEventListener(
-        "load",
-        () => {
-          frame.contentWindow?.postMessage(
-            { type: "codex-visualization-initialize" },
-            "*",
-            [channel.port2],
-          );
-        },
-        { once: true },
+        href = url.href;
+      } catch {
+        return;
+      }
+      if (globalThis.navigator.userActivation?.isActive === true) {
+        const anchor = document.createElement("a");
+        anchor.href = href;
+        anchor.rel = "noopener noreferrer";
+        anchor.target = "_blank";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+      }
+      return;
+    }
+    if (data.type === "follow-up") {
+      const prompt = data.prompt;
+      if (
+        typeof prompt !== "string" ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      const title = data.title;
+      globalThis.prompt(typeof title === "string" ? title : prompt, prompt);
+    }
+  });
+  channel.port1.start();
+  const srcdoc = frame.dataset.srcdoc;
+  if (srcdoc == null) {
+    return;
+  }
+  globalThis.addEventListener("resize", () => {
+    const height = Number.parseFloat(frame.style.height);
+    if (!Number.isFinite(height) || height <= viewportHeight) {
+      frame.style.removeProperty("height");
+    }
+    viewportHeight = globalThis.innerHeight;
+    channel.port1.postMessage({ type: "measure" });
+  });
+  frame.addEventListener(
+    "load",
+    () => {
+      frame.contentWindow?.postMessage(
+        { type: "codex-visualization-initialize" },
+        "*",
+        [channel.port2],
       );
-      // Match the trusted bootstrap element, not the same text in an authored title.
-      frame.srcdoc = srcdoc.replace(
-        '<script type="application/json" id="codex-visualization-widget-state">__CODEX_VISUALIZATION_WIDGET_STATE__<\/script>',
-        () =>
-          '<script type="application/json" id="codex-visualization-widget-state">' +
-          JSON.stringify(initialGlobals).replaceAll("<", "\\u003c") +
-          "<\/script>",
-      );
-      delete frame.dataset.srcdoc;
-    })();
-  </script>
+    },
+    { once: true },
+  );
+  // Match the trusted bootstrap element, not the same text in an authored title.
+  frame.srcdoc = srcdoc.replace(
+    '<script type="application/json" id="codex-visualization-widget-state">__CODEX_VISUALIZATION_WIDGET_STATE__<\/script>',
+    () =>
+      '<script type="application/json" id="codex-visualization-widget-state">' +
+      JSON.stringify(initialGlobals).replaceAll("<", "\\u003c") +
+      "<\/script>",
+  );
+  delete frame.dataset.srcdoc;
+})();
+</script>
 </body>
-
 </html>
